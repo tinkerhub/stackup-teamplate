@@ -1,4 +1,4 @@
-![BFH Banner]([https://ibb.co/S0L4q8f])
+![StackUp Banner]([https://ibb.co/S0L4q8f])
 # Project Name
 Long Description about project. This project do that. This project is awesome...
 ## Team members
