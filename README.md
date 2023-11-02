@@ -7,7 +7,7 @@ Long Description about project. This project do that. This project is awesome...
 ## Team members
 
 1. [Akhil B Xavier](https://github.com/winter-x64)
-1. [member1](https://github.com/)
+1. [Archana Biju](https://github.com/anahce)
 1. [member2](https://github.com/)
 1. [member3](https://github.com/)
 
