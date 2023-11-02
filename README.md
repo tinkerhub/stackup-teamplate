@@ -2,10 +2,12 @@
 # Project Name
 Long Description about project. This project do that. This project is awesome...
 ## Team members
-1. Name [Embed personal github URL]
-2. Name [Embed perosnal github URL]
+1. Mohammed Hashique A [https://github.com/hashiq300/]
+2. Kalidas P 
+3. Amal Joseph
+4. Shebin KS 
 ## Team Id
-Team id here
+gen-z
 ## Link to product walkthrough
 [link to video]
 ## How it Works ?
