@@ -3,7 +3,7 @@
 Long Description about project. This project do that. This project is awesome...
 ## Team members
 1. Name [Embed personal github URL]
-2. Name [Embed perosnal github URL]
+2. Jobin Tom [https://github.com/jobint001]
 ## Team Id
 Team id here
 ## Link to product walkthrough
