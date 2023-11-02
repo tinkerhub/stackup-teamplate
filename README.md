@@ -3,7 +3,7 @@ online Quiz
 Long Description about project. This project do that. This project is awesome...
 ## Team members
 1. Sruthymol K S [https://github.com/Sruthymolks]
-2. Jishna E [Embed perosnal github URL]
+2. Jishna E [https://github.com/JishnaE]
 3. Gopika C [https://github.com/GopikaaC]
 ## Team Id
 bjcoders
