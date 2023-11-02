@@ -2,10 +2,10 @@
 # Project Name
 Long Description about project. This project do that. This project is awesome...
 ## Team members
-1. Name SAPHAL S BRIJESH 
-2. Name NAVADEEP C K [https://github.com/mindmaster17]
-3. Name SAGAR P [https://github.com/sagarp-c]
-4. Name DIVIN JOHNY [Embed perosnal github URL]
+1. SAPHAL S BRIJESH 
+2. NAVADEEP C K [https://github.com/mindmaster17]
+3. SAGAR P [https://github.com/sagarp-c]
+4. DIVIN JOHNY [https://github.com/divin-johny]
 ## Team Id
 teamexpo
 ## Link to product walkthrough
