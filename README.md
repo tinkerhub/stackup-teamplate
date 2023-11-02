@@ -1,5 +1,5 @@
 ![StackUp Banner]([https://tinkerhub.frappe.cloud/files/stackup%20banner.jpeg])
-# Project Name
+# Blogging Platform
 This project involves creating a blogging platform.
 ## Team members
 1. Kenz E S [https://github.com/tzzkenz]
