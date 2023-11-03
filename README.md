@@ -1,19 +1,29 @@
 ![StackUp Banner]([https://tinkerhub.frappe.cloud/files/stackup%20banner.jpeg])
-# Project Name
-Long Description about project. This project do that. This project is awesome...
-## Team members
-1. Name [Embed personal github URL]
-2. Name [Embed perosnal github URL]
-## Team Id
-Team id here
-## Link to product walkthrough
+
+# Bug_Decode
+Hello Github fellows and Tinkerhub fam..!!! Our team is glad to present the project TASK MANAGEMENT APP as the part of the 7-days event named STACK UP which is completely a beginner friendly workshop based project. 
+
+## TEAM MEMBERS
+1. A K RAHUL [Embed personal github URL]
+2. AISWARYA S [https://github.com/aiswaryasklm]
+3. AYISHA HANNA  [https://github.com/ayishahanna]
+4. TREESA GEORGE [https://github.com/tresanotfound]
+   
+## TEAM ID
+Our team id is bug-decode
+
+## LINK TO PRODUCT WALKTHROUGH 
 [link to video]
-## How it Works ?
+
+## HOW IT WORKS!?
 1. Explaining the working of project
 2. Embed video of project demo
-## Libraries used
+   
+## LIBRARIES USED
 Library Name - Version
-## How to configure
+
+## HOW TO CONFIGURE
 Instructions for setting up project
-## How to Run
+
+## HOW TO RUN
 Instructions for running
