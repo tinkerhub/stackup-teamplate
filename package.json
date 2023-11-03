@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "express-async-handler": "^1.2.0",
+    "mongodb": "^6.2.0",
+    "mongoose": "^8.0.0"
+  }
+}
