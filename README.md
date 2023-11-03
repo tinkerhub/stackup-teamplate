@@ -5,7 +5,7 @@ Long Description about project. This project do that. This project is awesome...
 1. Asna [https://github.com/asnasharin28]
 2. Hasna 
 3. Fidha [https://github.com/Fidha07]
-4. Sreeyuktha
+4. Sreeyuktha[https://github.com/SREEYUKTHA-SNL]
 5. Munna[https://github.com/munna710]
 ## Team Id
 hikeup
