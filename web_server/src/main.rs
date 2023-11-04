@@ -1,16 +1,24 @@
 mod structs;
 use axum::{
+    extract::State,
     http::StatusCode,
     response::IntoResponse,
     routing::{get, post},
     Json, Router,
 };
 use serde::{Deserialize, Serialize};
-use std::net::SocketAddr;
+use std::{net::SocketAddr, sync::Arc};
+use structs::User;
+
+struct AppState {
+    conn: sqlite::ConnectionWithFullMutex,
+}
 
 #[tokio::main]
 async fn main() {
-    // initialize tracing
+    let shared_state = Arc::new(AppState {
+        conn: sqlite::Connection::open_with_full_mutex("../../data.db").expect("file should exist"),
+    });
     tracing_subscriber::fmt::init();
 
     // build our application with a route
@@ -18,7 +26,8 @@ async fn main() {
         // `GET /` goes to `root`
         .route("/", get(root))
         // `POST /users` goes to `create_user`
-        .route("/users", post(create_user));
+        .route("/users", post(create_user))
+        .with_state(shared_state);
 
     // run our app with hyper
     // `axum::Server` is a re-export of `hyper::Server`
@@ -30,7 +39,6 @@ async fn main() {
         .await
         .unwrap();
 }
-
 // basic handler that responds with a static string
 async fn root() -> &'static str {
     "Hello, World!"
@@ -39,28 +47,26 @@ async fn root() -> &'static str {
 async fn create_user(
     // this argument tells axum to parse the request body
     // as JSON into a `CreateUser` type
-    Json(payload): Json<CreateUser>,
-) -> (StatusCode, Json<User>) {
-    // insert your application logic here
-    let user = User {
-        id: 1337,
-        username: payload.username,
-    };
+    State(state): State<Arc<AppState>>,
+    Json(payload): Json<User>,
+) -> StatusCode {
+    // TODO:
+    //  Verify Email
+    //  Verify Github
+    //  get pfp from github?
 
-    // this will be converted into a JSON response
-    // with a status code of `201 Created`
-    (StatusCode::CREATED, Json(user))
-}
+    let User {
+        name,
+        about,
+        github,
+        email,
+        ..
+    } = payload;
 
-// the input to our `create_user` handler
-#[derive(Deserialize)]
-struct CreateUser {
-    username: String,
-}
-
-// the output to our `create_user` handler
-#[derive(Serialize)]
-struct User {
-    id: u64,
-    username: String,
+    let cmd = format!(r#"INSERT INTO users VALUES ("{name}", "{about}", "{github}", "{email}"))"#);
+    match state.conn.execute(cmd) {
+        Ok(_) => StatusCode::CREATED,
+        // TODO: replace with better status code
+        Err(_) => StatusCode::IM_A_TEAPOT,
+    }
 }

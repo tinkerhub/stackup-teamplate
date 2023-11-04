@@ -1,39 +1,48 @@
-struct User {
-    id: u128,
-    name: String,
-    about: String,
-    github: String,
-    email: String,
-    projects: Vec<Project>,
+use serde::{Deserialize, Serialize};
+
+// the output to our `create_user` handler
+#[derive(Serialize, Deserialize, Debug)]
+pub struct User {
+    pub id: Option<u128>,
+    pub name: String,
+    pub about: String,
+    pub github: String,
+    pub email: String,
+    // projects: Vec<Project>,
 }
 
-struct Project {
-    id: u32,
-    name: String,
-    tasks: Vec<Task>,
+#[derive(Serialize, Deserialize, Debug)]
+pub struct Project {
+    pub id: Option<u32>,
+    pub name: String,
+    // tasks: Vec<Task>,
 }
 
-enum Priority {
+#[derive(Serialize, Deserialize, Debug)]
+pub enum Priority {
     Low,
     Med,
     High,
 }
-enum Progress {
+#[derive(Serialize, Deserialize, Debug)]
+pub enum Progress {
     NotStarted,
     InProgress,
     Completed,
 }
-struct Task {
-    id: u32,
-    title: String,
-    deadline: chrono::prelude::NaiveDate,
-    Priority: Priority,
-    progress: Progress,
-    subtasks: Vec<SubTask>,
+#[derive(Serialize, Deserialize, Debug)]
+pub struct Task {
+    pub id: Option<u32>,
+    pub title: String,
+    pub deadline: String,
+    pub priority: Priority,
+    pub progress: Progress,
+    // subtasks: Vec<SubTask>,
 }
 
-struct SubTask {
-    id: u32,
-    text: String,
-    is_completed: bool,
+#[derive(Serialize, Deserialize, Debug)]
+pub struct SubTask {
+    pub id: Option<u32>,
+    pub text: String,
+    pub is_completed: bool,
 }
