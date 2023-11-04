@@ -3,7 +3,7 @@
 Long Description about project. This project do that. This project is awesome...
 ## Team members
 1. Muhammed Shibil M [https://github.com/muhammedshibilm]
-2. Mohammed Sinan M[Embed perosnal github URL]
+2. Mohammed Sinan K[https://github.com/sinan-894]
 ## Team Id
 Team id here
 ## Link to product walkthrough
