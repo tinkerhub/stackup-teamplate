@@ -1,3 +1,4 @@
+mod structs;
 use axum::{
     http::StatusCode,
     response::IntoResponse,
@@ -63,4 +64,3 @@ struct User {
     id: u64,
     username: String,
 }
-
