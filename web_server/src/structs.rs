@@ -10,26 +10,36 @@ pub struct User {
     pub about: String,
     pub github: String,
     pub email: String,
-    pub projects: Option<Vec<Project>>,
+    #[serde(default)]
+    pub projects: Vec<Project>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Project {
     pub id: Option<u32>,
     pub name: String,
-    pub tasks: Option<Vec<Task>>,
+    #[serde(default)]
+    pub tasks: Vec<Task>,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Default)]
 pub enum Priority {
+    #[serde(alias = "LOW")]
+    #[default]
     Low,
+    #[serde(alias = "MEDIUM")]
     Med,
+    #[serde(alias = "HIGH")]
     High,
 }
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Default)]
 pub enum Progress {
+    #[serde(alias = "NOT_STARTED")]
+    #[default]
     NotStarted,
+    #[serde(alias = "IN_PROGRESS")]
     InProgress,
+    #[serde(alias = "COMPLETED")]
     Completed,
 }
 #[derive(Serialize, Deserialize, Debug)]
@@ -38,10 +48,11 @@ pub struct Task {
     pub title: String,
     pub deadline: String,
     pub priority: Priority,
+    #[serde(default)]
     pub progress: Progress,
-    pub subtasks: Option<Vec<SubTask>>,
+    #[serde(default)]
+    pub subtasks: Vec<SubTask>,
 }
-
 #[derive(Serialize, Deserialize, Debug)]
 pub struct SubTask {
     pub id: Option<u32>,
@@ -70,28 +81,28 @@ impl std::fmt::Display for Progress {
 }
 
 impl FromStr for Priority {
-    type Err = ();
+    type Err = String;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         let priority = match s {
             "LOW" => Priority::Low,
             "MEDIUM" => Priority::Med,
             "HIGH" => Priority::High,
-            _ => Err(())?,
+            _ => Err(format!("Priority cannot be parsed from {s}"))?,
         };
         Ok(priority)
     }
 }
 
 impl FromStr for Progress {
-    type Err = ();
+    type Err = String;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         let progress = match s {
             "NOT_STARTED" => Progress::NotStarted,
             "IN_PROGRESS" => Progress::InProgress,
             "COMPLETED" => Progress::Completed,
-            _ => Err(())?,
+            _ => Err(format!("Progress cannot be parsed from {s}"))?,
         };
         Ok(progress)
     }

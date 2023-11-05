@@ -79,7 +79,7 @@ fn get_tasks(project_id: u32, conn: &ConnectionWithFullMutex) -> Result<Vec<Task
             priority: pairs.next_field(),
             progress: pairs.next_field(),
             //TODO: Subtasks
-            subtasks: None,
+            subtasks: vec![],
         };
         tasks.push(project);
         true
@@ -108,7 +108,7 @@ fn get_projects(
             id: Some(project_id),
             name: pairs.next_field(),
             //TODO: add tasks
-            tasks: None,
+            tasks: tasks,
         };
         projects.push(project);
         true
@@ -139,7 +139,7 @@ fn get_users(id: Option<u32>, conn: &ConnectionWithFullMutex) -> Result<Vec<User
             about: pairs.next_field(),
             github: pairs.next_field(),
             email: pairs.next_field(),
-            projects: Some(projects),
+            projects: projects,
         };
         users.push(user);
         true
@@ -224,8 +224,8 @@ async fn create_task(
     State(state): State<Arc<AppState>>,
     Json(payload): Json<Task>,
 ) -> StatusCode {
+    //TODO: verifuy deadline format
     let Task {
-        id,
         title,
         deadline,
         priority,
@@ -234,7 +234,7 @@ async fn create_task(
     } = payload;
 
     let cmd = format!(
-        r#"INSERT INTO tasks(title, deadline, priority, progress, user_id) VALUES ("{title}","{deadline}", "{priority}", "{progress}" {project_id})"#
+        r#"INSERT INTO tasks(title, deadline, priority, progress, project_id) VALUES ("{title}","{deadline}", "{priority}", "{progress}", {project_id})"#
     );
     match state.conn.execute(cmd) {
         Ok(_) => StatusCode::CREATED,
