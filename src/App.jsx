@@ -6,8 +6,10 @@ import Login from './login'
 import Register from './register'
 import app from './firebase'
 import Home from './home';
+import GK from './gk';
 
 function App() {
+  
   return (
     <div className='app'>
     <Router>
@@ -23,6 +25,7 @@ function App() {
               />
           <Route path = '/' element = {<Login />} />
           <Route path = '/signup' element = {<Register />} />
+          <Route path = '/gk' element = {<GK  />} />
         </Routes>
         </UserAuthContextProvider>
         </Router>
