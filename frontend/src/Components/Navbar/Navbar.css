@@ -1,0 +1,6 @@
+.navbar{
+    background: black;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+}
