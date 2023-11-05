@@ -17,8 +17,8 @@ const HamburgerMenu = () => {
       </div>
       <ul className="menu">
         <li>Home</li>
-        <li>About</li>
-        <li>Services</li>
+        <li>Upcoming events</li>
+        <li>My events</li>
         <li>Contact</li>
       </ul>
     </div>

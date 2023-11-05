@@ -1,0 +1,62 @@
+
+.usernav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    
+    color: #fff;
+    padding: 10px;
+    padding-right: 20px;
+  }
+  .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+   
+  }
+  
+  .user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .user-dropdown {
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    height: 300px;
+    width: 200px;
+    background-color: #000000;
+    color: #ffffff;
+    border: 3px solid #ddd;
+    border-radius: 20px;
+    display: none;
+    align-items: center;
+    justify-content: center ;
+    
+    
+  }
+  
+  .user-dropdown ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .user-dropdown ul li {
+    padding: 10px;
+    text-align: left;
+    cursor: pointer;
+  }
+  
+  .user-dropdown ul li:hover {
+    background-color: #444;
+  }
+  
+    .open .user-dropdown {
+    display: flex;
+  }
+  
