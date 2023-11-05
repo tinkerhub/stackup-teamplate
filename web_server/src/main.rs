@@ -16,11 +16,25 @@ struct AppState {
     conn: sqlite::ConnectionWithFullMutex,
 }
 
+impl AppState {
+    #[cfg(debug_assertions)]
+    fn new() -> Self {
+        Self {
+            conn: sqlite::Connection::open_with_full_mutex("../data.db")
+                .expect("file should exist"),
+        }
+    }
+
+    #[cfg(not(debug_assertions))]
+    //TODO: make it create db with tables if they don't exist already
+    fn new() -> Self {
+        todo!()
+    }
+}
+
 #[tokio::main]
 async fn main() {
-    let shared_state = Arc::new(AppState {
-        conn: sqlite::Connection::open_with_full_mutex("../data.db").expect("file should exist"),
-    });
+    let shared_state = Arc::new(AppState::new());
     tracing_subscriber::fmt::init();
 
     // build our application with a route
