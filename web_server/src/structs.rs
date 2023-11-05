@@ -8,14 +8,14 @@ pub struct User {
     pub about: String,
     pub github: String,
     pub email: String,
-    // projects: Vec<Project>,
+    pub projects: Option<Vec<Project>>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Project {
     pub id: Option<u32>,
     pub name: String,
-    // tasks: Vec<Task>,
+    pub tasks: Option<Vec<Task>>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -37,7 +37,7 @@ pub struct Task {
     pub deadline: String,
     pub priority: Priority,
     pub progress: Progress,
-    // subtasks: Vec<SubTask>,
+    pub subtasks: Option<Vec<SubTask>>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]

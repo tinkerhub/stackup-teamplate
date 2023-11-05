@@ -10,7 +10,7 @@ use axum::{
 use extensions::PairExt;
 use sqlite::ConnectionWithFullMutex;
 use std::{net::SocketAddr, sync::Arc};
-use structs::User;
+use structs::{Project, User};
 
 struct AppState {
     conn: sqlite::ConnectionWithFullMutex,
@@ -57,6 +57,26 @@ async fn main() {
         .unwrap();
 }
 
+fn get_projects(
+    user_id: u128,
+    conn: &ConnectionWithFullMutex,
+) -> Result<Vec<Project>, sqlite::Error> {
+    let query = format!("SELECT * FROM projects WHERE user_id={}", user_id);
+    let mut projects = vec![];
+    conn.iterate(query, |pairs| {
+        let mut pairs = pairs.into_iter();
+        let project = Project {
+            id: Some(pairs.next_field()),
+            name: pairs.next_field(),
+            //TODO: add tasks
+            tasks: None,
+        };
+        projects.push(project);
+        true
+    })?;
+    Ok(projects)
+}
+
 fn get_users(id: Option<u128>, conn: &ConnectionWithFullMutex) -> Result<Vec<User>, sqlite::Error> {
     let query = match id {
         Some(id) => format!("SELECT * FROM users WHERE id={};", id),
@@ -65,13 +85,22 @@ fn get_users(id: Option<u128>, conn: &ConnectionWithFullMutex) -> Result<Vec<Use
     let mut users = Vec::new();
     conn.iterate(query, |pairs| {
         let mut pairs = pairs.into_iter();
-
+        let user_id = pairs.next_field();
+        let projects = match get_projects(user_id, conn) {
+            Ok(projects) => projects,
+            Err(e) => {
+                println!("{e}");
+                // return true is basically continue here
+                return true;
+            }
+        };
         let user = User {
-            id: Some(pairs.next_field()),
+            id: Some(user_id),
             name: pairs.next_field(),
             about: pairs.next_field(),
             github: pairs.next_field(),
             email: pairs.next_field(),
+            projects: Some(projects),
         };
         users.push(user);
         true
