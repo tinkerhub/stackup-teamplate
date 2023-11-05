@@ -11,7 +11,7 @@ module.exports = {
             const existingUser = await db.get().collection(collection.USER_COLLECTION).findOne({ Email: userData.Email });
     
             if (existingUser) {
-                reject("Email already exists");
+                reject("an account with this email already exists try to signIn");
             } else {
                 userData.Password = await bcrypt.hash(userData.Password, 10);
     
@@ -24,23 +24,19 @@ module.exports = {
     
     doLogin: (userData) => {
         return new Promise(async (resolve, reject) => {
-            let loginStatus = false;
-            let response = {}
             let user = await db.get().collection(collection.USER_COLLECTION).findOne({ Email: userData.Email });
             if (user) {
                 bcrypt.compare(userData.Password, user.Password).then((status) => {
                     if (status) {
-                        response.user = user;
-                        response.status = true;
-                        resolve(response);
+                        resolve(user);
                     }
                     else {
-                        resolve({ status: false });
+                        reject("Invalid username or password");
                     }
                 })
             }
             else {
-                resolve({ status: false });
+                reject("Invalid username or password")
             }
         })
     },
