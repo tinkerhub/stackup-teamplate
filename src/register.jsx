@@ -29,7 +29,7 @@ export default function Register(props) {
 
             <div className="signup-container">
                 <div className="signup-signup">
-                    <span className="signup-text"><span>Roll the Carpet.!</span></span>
+                    <span className="signup-text"><span>Welcome Aboard!</span></span>
                 <div className="signup-frame2">
                     <div className="signup-frame5">
                         <div className="signup-frame4">
@@ -37,7 +37,7 @@ export default function Register(props) {
                                 <div className="signup-logintext">
                                     <span className="signup-text02"><span>Signup</span></span>
                                     <span className="signup-text04">
-                                        <span>Just some details to get you in.!</span>
+                                        <span>Just some details to get you in...</span>
                                     </span>
                                 </div>
                                 <form className="signup-credentials" onSubmit={handleSubmit}>

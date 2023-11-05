@@ -34,10 +34,10 @@ export default function Login(props) {
         <div>
             <div className="login-container">
                 <div className="login-login">
-                    <span className="login-text"><span>Welcome Back .!</span></span>
+                    <span className="login-text"><span>Welcome Back...</span></span>
                     <div className="login-frame2">
                         <div className="login-frame5">
-                            <div className="login-frame4">
+                            {/* <div className="login-frame4"> */}
                                 <div className="login-upper-section">
                                     <div className="login-logintext">
                                         <span className="login-text02">Login</span>
@@ -54,7 +54,7 @@ export default function Login(props) {
                                         <button className="login-login1" type="submit">Login</button>
                                     </form>
                                 </div>
-                            </div>
+                            {/* </div> */}
                             <div className="login-frame9">
                                 <span className="login-text16">
                                     <button className = "link-btn"> Don't have an account? <Link to = "/signup">Register here</Link></button>

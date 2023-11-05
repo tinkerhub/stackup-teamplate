@@ -14,44 +14,30 @@
   position: relative;
   align-items: flex-start;
   flex-shrink: 0;
-  background-image: url('reg.jpg');
+  background-image: url('puz.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
 .signup-text {
   top: 381px;
   left: 60px;
-  color: white;
+  color: black;
   height: auto;
   position: absolute;
   font-size: 96px;
   font-style: SemiBold;
   text-align: left;
-  font-family: Noto Sans;
-  font-weight: 600;
+  font-family: fantasy;
+  font-weight: 500;
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
 }
-.signup-ellipse1 {
-  top: 60px;
-  left: 795px;
-  width: 302px;
-  height: 302px;
-  position: absolute;
-}
-.signup-ellipse2 {
-  top: 802.9749755859375px;
-  left: 1149px;
-  width: 220px;
-  height: 220px;
-  position: absolute;
-}
 .signup-frame2 {
-    top: 70px;
+    top: 120px;
     left: 900px;
     width: 480px;
-    height: 600px;
+    height: 570px;
     display: flex;
     overflow: hidden;
     position: absolute;
@@ -60,13 +46,13 @@
     align-items: flex-start;
     flex-shrink: 0;
     border-style: solid;
-    border-width: 1px;
+    border-width: 0px;
     border-radius: 20px;
-    background-color: #ff9770;
+    background-color: beige;
 }
 .signup-frame5 {
   gap: 10px;
-  top: 97px;
+  top: 57px;
   left: 40px;
   width: 400px;
   display: flex;
@@ -97,7 +83,7 @@
   font-size: 36px;
   font-style: SemiBold;
   text-align: left;
-  font-family: Noto Sans;
+  font-family: sans-serif;
   font-weight: 600;
   line-height: normal;
   font-stretch: normal;
@@ -132,18 +118,6 @@
   border-style: solid;
   border-width: 1px;
   border-radius: 12px;
-}
-.signup-text06 {
-  color: black;
-  height: auto;
-  font-size: 20px;
-  font-style: Regular;
-  text-align: left;
-  font-family: Noto Sans;
-  font-weight: 400;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
 }
 .signup-username1 {
   gap: 10px;
@@ -199,90 +173,17 @@
   font-stretch: normal;
   text-decoration: none;
 }
-.signup-password1 {
-  gap: 10px;
-  width: 400px;
-  display: flex;
-  padding: 14px 16px;
-  align-items: center;
-  flex-shrink: 0;
-  border-color: rgba(255, 255, 255, 1);
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 12px;
-}
-.signup-text12 {
-  color: rgba(255, 255, 255, 1);
-  height: auto;
-  font-size: 20px;
-  font-style: Regular;
-  text-align: left;
-  font-family: Noto Sans;
-  font-weight: 400;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
-.signup-loginbt-fp {
-  gap: 12px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
 .signup-login {
   gap: 10px;
-  width: 400px;
+  width: 434px;
   display: flex;
   padding: 14px 10px;
   align-items: center;
   flex-shrink: 0;
   border-radius: 12px;
   justify-content: center;
-  background-image: linear-gradient(142deg, rgba(45, 76, 238, 1) 0%, rgba(33, 30, 191, 1) 53%, rgba(3, 15, 116, 1) 100%);
-}
-.signup-text14 {
-  color: rgba(255, 255, 255, 1);
-  height: auto;
-  font-size: 20px;
-  font-style: SemiBold;
-  text-align: left;
-  font-family: Noto Sans;
-  font-weight: 600;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
-.signup-otherlogins {
-  gap: 12px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-.signup-or {
-  gap: 20px;
-  display: flex;
-  align-items: center;
-}
-.signup-line1 {
-  width: 170px;
-  height: 1px;
-}
-.signup-text16 {
-  color: rgba(76, 76, 76, 1);
-  height: auto;
-  font-size: 16px;
-  font-style: Medium;
-  text-align: left;
-  font-family: Noto Sans;
-  font-weight: 500;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
-.signup-line2 {
-  width: 170px;
-  height: 1px;
+  background-image: linear-gradient(142deg, #000000 0%, #5b5b5b 100%);
+  color: white;
 }
 .signup-frame9 {
   gap: 8px;
@@ -302,18 +203,10 @@
   font-stretch: normal;
   text-decoration: none;
 }
-.signup-line3 {
-  top: 551px;
-  left: 0px;
-  width: 891px;
-  height: 1px;
-  position: absolute;
-}
-
 button {
   background: transparent;
   border: none;
-  color: white;
+  color: black;
 }
 
 input {
