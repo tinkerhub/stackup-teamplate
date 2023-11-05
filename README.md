@@ -1,8 +1,8 @@
 ![StackUp Banner]([https://tinkerhub.frappe.cloud/files/stackup%20banner.jpeg])
-# Project Name
+# Online Quiz Platform 
 Long Description about project. This project do that. This project is awesome...
 ## Team members
-1. SAPHAL S BRIJESH 
+1. SAPHAL S BRIJESH [https://github.com/Mr-Timecaps]
 2. NAVADEEP C K [https://github.com/mindmaster17]
 3. SAGAR P [https://github.com/sagarp-c]
 4. DIVIN JOHNY [https://github.com/divin-johny]
