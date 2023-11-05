@@ -39,11 +39,14 @@ async fn main() {
 
     // build our application with a route
     let app = Router::new()
+        .route("/", get(root))
         .route("/users", post(create_user))
         .with_state(shared_state.clone())
         .route("/users", get(get_all_users))
         .with_state(shared_state.clone())
         .route("/users/:user_id", get(get_user))
+        .with_state(shared_state.clone())
+        .route("/users/:user_id/projects", post(create_project))
         .with_state(shared_state.clone());
 
     // run our app with hyper
@@ -57,8 +60,12 @@ async fn main() {
         .unwrap();
 }
 
+async fn root() -> &'static str {
+    println!("Hello, World!");
+    "Hello, World!"
+}
 fn get_projects(
-    user_id: u128,
+    user_id: u32,
     conn: &ConnectionWithFullMutex,
 ) -> Result<Vec<Project>, sqlite::Error> {
     let query = format!("SELECT * FROM projects WHERE user_id={}", user_id);
@@ -77,7 +84,7 @@ fn get_projects(
     Ok(projects)
 }
 
-fn get_users(id: Option<u128>, conn: &ConnectionWithFullMutex) -> Result<Vec<User>, sqlite::Error> {
+fn get_users(id: Option<u32>, conn: &ConnectionWithFullMutex) -> Result<Vec<User>, sqlite::Error> {
     let query = match id {
         Some(id) => format!("SELECT * FROM users WHERE id={};", id),
         None => "SELECT * FROM users;".to_owned(),
@@ -120,7 +127,7 @@ async fn get_all_users(State(state): State<Arc<AppState>>) -> (StatusCode, Json<
 }
 
 async fn get_user(
-    Path(id): Path<u128>,
+    Path(id): Path<u32>,
     State(state): State<Arc<AppState>>,
 ) -> Result<(StatusCode, Json<User>), StatusCode> {
     let Ok(mut users) = get_users(Some(id), &state.conn) else {
@@ -152,6 +159,29 @@ async fn create_user(State(state): State<Arc<AppState>>, Json(payload): Json<Use
     let cmd = format!(
         r#"INSERT INTO users(name, about, github_link, email) VALUES ("{name}", "{about}", "{github}", "{email}")"#
     );
+    match state.conn.execute(cmd) {
+        Ok(_) => StatusCode::CREATED,
+        // TODO: replace with better status code
+        Err(err) => {
+            println!("{}", err);
+            StatusCode::INTERNAL_SERVER_ERROR
+        }
+    }
+}
+
+async fn create_project(
+    Path(user_id): Path<u64>,
+    State(state): State<Arc<AppState>>,
+    Json(payload): Json<Project>,
+) -> StatusCode {
+    // TODO:
+    //  Verify Email
+    //  Verify Github
+    //  get pfp from github?
+
+    let Project { name, .. } = payload;
+
+    let cmd = format!(r#"INSERT INTO projects(name, user_id) VALUES ("{name}", {user_id})"#);
     match state.conn.execute(cmd) {
         Ok(_) => StatusCode::CREATED,
         // TODO: replace with better status code

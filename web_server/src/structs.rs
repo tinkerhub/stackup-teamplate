@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 // the output to our `create_user` handler
 #[derive(Serialize, Deserialize, Debug)]
 pub struct User {
-    pub id: Option<u128>,
+    pub id: Option<u32>,
     pub name: String,
     pub about: String,
     pub github: String,
