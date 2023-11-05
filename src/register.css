@@ -1,0 +1,324 @@
+.signup-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.signup-signup {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-image: url('reg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.signup-text {
+  top: 381px;
+  left: 60px;
+  color: white;
+  height: auto;
+  position: absolute;
+  font-size: 96px;
+  font-style: SemiBold;
+  text-align: left;
+  font-family: Noto Sans;
+  font-weight: 600;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.signup-ellipse1 {
+  top: 60px;
+  left: 795px;
+  width: 302px;
+  height: 302px;
+  position: absolute;
+}
+.signup-ellipse2 {
+  top: 802.9749755859375px;
+  left: 1149px;
+  width: 220px;
+  height: 220px;
+  position: absolute;
+}
+.signup-frame2 {
+    top: 70px;
+    left: 900px;
+    width: 480px;
+    height: 600px;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    box-shadow: -8px 4px 5px 0px rgba(0, 0, 0, 0.23999999463558197) ;
+    box-sizing: content-box;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 20px;
+    background-color: #ff9770;
+}
+.signup-frame5 {
+  gap: 10px;
+  top: 97px;
+  left: 40px;
+  width: 400px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  flex-direction: column;
+}
+.signup-frame4 {
+  gap: 16px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.signup-upper-section {
+  gap: 14px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.signup-logintext {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.signup-text02 {
+  color: black;
+  height: auto;
+  font-size: 36px;
+  font-style: SemiBold;
+  text-align: left;
+  font-family: Noto Sans;
+  font-weight: 600;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.signup-text04 {
+  color: black;
+  height: auto;
+  font-size: 16px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Noto Sans;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.signup-credentials {
+  gap: 25px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.signup-username {
+  gap: 10px;
+  width: 400px;
+  display: flex;
+  padding: 14px 16px;
+  align-items: center;
+  flex-shrink: 0;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 12px;
+}
+.signup-text06 {
+  color: black;
+  height: auto;
+  font-size: 20px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Noto Sans;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.signup-username1 {
+  gap: 10px;
+  width: 400px;
+  display: flex;
+  padding: 14px 16px;
+  align-items: center;
+  flex-shrink: 0;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 12px;
+}
+.signup-text08 {
+  color: black;
+  height: auto;
+  font-size: 20px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Noto Sans;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.signup-password-rem {
+  gap: 12px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.signup-password {
+  gap: 10px;
+  width: 400px;
+  display: flex;
+  padding: 14px 16px;
+  align-items: center;
+  flex-shrink: 0;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 12px;
+}
+.signup-text10 {
+  color: black;
+  height: auto;
+  font-size: 20px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Noto Sans;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.signup-password1 {
+  gap: 10px;
+  width: 400px;
+  display: flex;
+  padding: 14px 16px;
+  align-items: center;
+  flex-shrink: 0;
+  border-color: rgba(255, 255, 255, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 12px;
+}
+.signup-text12 {
+  color: rgba(255, 255, 255, 1);
+  height: auto;
+  font-size: 20px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Noto Sans;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.signup-loginbt-fp {
+  gap: 12px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.signup-login {
+  gap: 10px;
+  width: 400px;
+  display: flex;
+  padding: 14px 10px;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 12px;
+  justify-content: center;
+  background-image: linear-gradient(142deg, rgba(45, 76, 238, 1) 0%, rgba(33, 30, 191, 1) 53%, rgba(3, 15, 116, 1) 100%);
+}
+.signup-text14 {
+  color: rgba(255, 255, 255, 1);
+  height: auto;
+  font-size: 20px;
+  font-style: SemiBold;
+  text-align: left;
+  font-family: Noto Sans;
+  font-weight: 600;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.signup-otherlogins {
+  gap: 12px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.signup-or {
+  gap: 20px;
+  display: flex;
+  align-items: center;
+}
+.signup-line1 {
+  width: 170px;
+  height: 1px;
+}
+.signup-text16 {
+  color: rgba(76, 76, 76, 1);
+  height: auto;
+  font-size: 16px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Noto Sans;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.signup-line2 {
+  width: 170px;
+  height: 1px;
+}
+.signup-frame9 {
+  gap: 8px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.signup-text18 {
+  color: rgba(255, 255, 255, 1);
+  height: auto;
+  font-size: 16px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Noto Sans;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.signup-line3 {
+  top: 551px;
+  left: 0px;
+  width: 891px;
+  height: 1px;
+  position: absolute;
+}
+
+button {
+  background: transparent;
+  border: none;
+  color: white;
+}
+
+input {
+  background: transparent;
+  border: none;
+  width: 100%;
+  color: black;
+}
