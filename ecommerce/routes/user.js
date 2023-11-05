@@ -19,59 +19,48 @@ const verifyLogin = (req, res, next) => {
     
 }
 /* GET home page. */
-router.get('/', async function(req, res, next) {
+router.get('/',verifyLogin, async function(req, res, next) {
   let user = req.session.user;
   let categories = await productHelpers.getAllCategories();
   let highlights = await productHelpers.getHighlights();
   let cartCount = null;
-  if(!user)
-  {
-    user.name = 'SignIn/SignUp'
-    user.avatar = 'images/avatars/default_avatar.jpg'
-  }
-  else{
+
+  if(user){
     cartCount=await userHelpers.getCartCount(req.session.user._id);
   }
-  res.render('views/home', {categories,highlights,user,cartCount,admin:false});
+  res.render('user/home', {categories,highlights,user,cartCount,accountType:'user'});
 });
 
 router.get('/login', (req,res)=>{
-
-  const initialTab = req.query.tab || 'login';
-
   if(req.session.loggedIn){
     res.redirect('/');
   }
   else{
-    res.render('user/signin-signup',{loginErr:req.session.loginErr,initialTab});
-    req.session.loginErr=false;
+    res.render('user/signin-signup',{title:'Login page'});
   }
 });
 
 router.post('/signup',(req,res)=>{
+  console.log(req.body)
   userHelpers.doSignup(req.body).then((response)=>{
     console.log(response);
     req.session.loggedIn=true;
     req.session.user=req.body;
-    res.redirect('/');
+    res.json({success:true});
   }).catch((err)=>{
-    res.render('user/signin-signup',{signupErr:err,initialTab:'signup'});
+    res.json({success:false,err})
   })
 });
 
 
-router.post('/login',(req,res)=>{
-  userHelpers.doLogin(req.body).then((response)=>{
-    if(response.status){
+router.post('/signin',(req,res)=>{
+  userHelpers.doLogin(req.body).then((user)=>{
       req.session.loggedIn=true;
-      req.session.user=response.user;
-      res.redirect('/');
-    }
-    else{
-      req.session.loginErr=" Invalid username or password.";
-      res.redirect('/login');
-    }
-  });
+      req.session.user=user;
+      res.json({success:true})
+  }).catch((err) => {
+    res.json({success:false,err})
+  })
 });
 
 router.get('/logout',(req,res)=>{

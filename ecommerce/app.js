@@ -2,6 +2,7 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var hbs = require('express-handlebars');
 var logger = require('morgan');
 var db = require('./config/connection');
 var session=require('express-session');
@@ -14,6 +15,7 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+app.engine('hbs', hbs.engine({ extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layout/', partialsDir: __dirname + '/views/partials/' }));
 
 
 app.use(session({secret:"Key",cookie:{maxAge:1000*60*60*24}}));

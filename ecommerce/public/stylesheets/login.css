@@ -275,7 +275,7 @@ footer a {
     text-decoration: none;
 }
 .signInError , .signUpError{
-	opacity: 0;
+	display: none;
 	margin-top: 10px;
 	bottom: 100px;
 	font-style: italic;
