@@ -2,13 +2,14 @@ mod extensions;
 mod structs;
 
 use axum::{
-    extract::State,
+    extract::{Path, State},
     http::StatusCode,
     routing::{get, post},
     Json, Router,
 };
 use extensions::PairExt;
-use std::{net::SocketAddr, slice::Iter, sync::Arc};
+use sqlite::ConnectionWithFullMutex;
+use std::{net::SocketAddr, sync::Arc};
 use structs::User;
 
 struct AppState {
@@ -24,12 +25,11 @@ async fn main() {
 
     // build our application with a route
     let app = Router::new()
-        // `GET /` goes to `root`
-        .route("/", get(root))
-        // `POST /users` goes to `create_user`
         .route("/users", post(create_user))
         .with_state(shared_state.clone())
-        .route("/users", get(get_users))
+        .route("/users", get(get_all_users))
+        .with_state(shared_state.clone())
+        .route("/users/:user_id", get(get_user))
         .with_state(shared_state.clone());
 
     // run our app with hyper
@@ -42,26 +42,18 @@ async fn main() {
         .await
         .unwrap();
 }
-// basic handler that responds with a static string
-async fn root() -> &'static str {
-    "Hello, World!"
-}
 
-async fn get_users(State(state): State<Arc<AppState>>) -> (StatusCode, Json<Vec<User>>) {
-    let query = "SELECT * FROM users;";
+fn get_users(id: Option<u128>, conn: &ConnectionWithFullMutex) -> Result<Vec<User>, sqlite::Error> {
+    let query = match id {
+        Some(id) => format!("SELECT * FROM users WHERE id={};", id),
+        None => "SELECT * FROM users;".to_owned(),
+    };
     let mut users = Vec::new();
-    let result = state.conn.iterate(query, |pairs| {
+    conn.iterate(query, |pairs| {
         let mut pairs = pairs.into_iter();
 
         let user = User {
-            id: Some(
-                pairs.next_field(),
-                // .expect("should exist")
-                // .1
-                // .expect("should be not null")
-                // .parse()
-                // .expect("Should parse"),
-            ),
+            id: Some(pairs.next_field()),
             name: pairs.next_field(),
             about: pairs.next_field(),
             github: pairs.next_field(),
@@ -69,21 +61,38 @@ async fn get_users(State(state): State<Arc<AppState>>) -> (StatusCode, Json<Vec<
         };
         users.push(user);
         true
-    });
+    })?;
+    Ok(users)
+}
 
-    if let Err(e) = result {
-        println!("{}", e);
-        return (StatusCode::INTERNAL_SERVER_ERROR, Json(users));
+async fn get_all_users(State(state): State<Arc<AppState>>) -> (StatusCode, Json<Vec<User>>) {
+    let users = match get_users(None, &state.conn) {
+        Ok(users) => users,
+        Err(e) => {
+            println!("{e}");
+            return (StatusCode::INTERNAL_SERVER_ERROR, Json(vec![]));
+        }
     };
     (StatusCode::OK, Json(users))
 }
 
-async fn create_user(
-    // this argument tells axum to parse the request body
-    // as JSON into a `CreateUser` type
+async fn get_user(
+    Path(id): Path<u128>,
     State(state): State<Arc<AppState>>,
-    Json(payload): Json<User>,
-) -> StatusCode {
+) -> Result<(StatusCode, Json<User>), StatusCode> {
+    let Ok(mut users) = get_users(Some(id), &state.conn) else {
+        todo!()
+    };
+    if users.len() < 1 {
+        return Err(StatusCode::NO_CONTENT);
+    } else if users.len() > 1 {
+        return Err(StatusCode::INTERNAL_SERVER_ERROR);
+    }
+    let user = users.remove(0);
+    Ok((StatusCode::OK, Json(user)))
+}
+
+async fn create_user(State(state): State<Arc<AppState>>, Json(payload): Json<User>) -> StatusCode {
     // TODO:
     //  Verify Email
     //  Verify Github
