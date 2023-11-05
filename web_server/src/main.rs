@@ -10,7 +10,7 @@ use axum::{
 use extensions::PairExt;
 use sqlite::ConnectionWithFullMutex;
 use std::{net::SocketAddr, sync::Arc};
-use structs::{Project, User};
+use structs::{Project, Task, User};
 
 struct AppState {
     conn: sqlite::ConnectionWithFullMutex,
@@ -47,6 +47,8 @@ async fn main() {
         .route("/users/:user_id", get(get_user))
         .with_state(shared_state.clone())
         .route("/users/:user_id/projects", post(create_project))
+        .with_state(shared_state.clone())
+        .route("/projects/:project_id/tasks", post(create_task))
         .with_state(shared_state.clone());
 
     // run our app with hyper
@@ -64,6 +66,26 @@ async fn root() -> &'static str {
     println!("Hello, World!");
     "Hello, World!"
 }
+
+fn get_tasks(project_id: u32, conn: &ConnectionWithFullMutex) -> Result<Vec<Task>, sqlite::Error> {
+    let query = format!("SELECT * FROM tasks WHERE project_id={}", project_id);
+    let mut tasks = vec![];
+    conn.iterate(query, |pairs| {
+        let mut pairs = pairs.into_iter();
+        let project = Task {
+            id: Some(pairs.next_field()),
+            title: pairs.next_field(),
+            deadline: pairs.next_field(),
+            priority: pairs.next_field(),
+            progress: pairs.next_field(),
+            //TODO: Subtasks
+            subtasks: None,
+        };
+        tasks.push(project);
+        true
+    })?;
+    Ok(tasks)
+}
 fn get_projects(
     user_id: u32,
     conn: &ConnectionWithFullMutex,
@@ -72,8 +94,18 @@ fn get_projects(
     let mut projects = vec![];
     conn.iterate(query, |pairs| {
         let mut pairs = pairs.into_iter();
+
+        let project_id = pairs.next_field();
+        let tasks = match get_tasks(project_id, conn) {
+            Ok(tasks) => tasks,
+            Err(e) => {
+                println!("{e}");
+                // return true is basically continue here
+                return true;
+            }
+        };
         let project = Project {
-            id: Some(pairs.next_field()),
+            id: Some(project_id),
             name: pairs.next_field(),
             //TODO: add tasks
             tasks: None,
@@ -174,14 +206,36 @@ async fn create_project(
     State(state): State<Arc<AppState>>,
     Json(payload): Json<Project>,
 ) -> StatusCode {
-    // TODO:
-    //  Verify Email
-    //  Verify Github
-    //  get pfp from github?
-
     let Project { name, .. } = payload;
 
     let cmd = format!(r#"INSERT INTO projects(name, user_id) VALUES ("{name}", {user_id})"#);
+    match state.conn.execute(cmd) {
+        Ok(_) => StatusCode::CREATED,
+        // TODO: replace with better status code
+        Err(err) => {
+            println!("{}", err);
+            StatusCode::INTERNAL_SERVER_ERROR
+        }
+    }
+}
+
+async fn create_task(
+    Path(project_id): Path<u32>,
+    State(state): State<Arc<AppState>>,
+    Json(payload): Json<Task>,
+) -> StatusCode {
+    let Task {
+        id,
+        title,
+        deadline,
+        priority,
+        progress,
+        ..
+    } = payload;
+
+    let cmd = format!(
+        r#"INSERT INTO tasks(title, deadline, priority, progress, user_id) VALUES ("{title}","{deadline}", "{priority}", "{progress}" {project_id})"#
+    );
     match state.conn.execute(cmd) {
         Ok(_) => StatusCode::CREATED,
         // TODO: replace with better status code

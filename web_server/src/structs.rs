@@ -1,3 +1,5 @@
+use std::str::FromStr;
+
 use serde::{Deserialize, Serialize};
 
 // the output to our `create_user` handler
@@ -45,4 +47,52 @@ pub struct SubTask {
     pub id: Option<u32>,
     pub text: String,
     pub is_completed: bool,
+}
+
+impl std::fmt::Display for Priority {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Priority::Low => write!(f, "LOW"),
+            Priority::Med => write!(f, "MEDIUM"),
+            Priority::High => write!(f, "HIGH"),
+        }
+    }
+}
+
+impl std::fmt::Display for Progress {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Progress::NotStarted => write!(f, "NOT_STARTED"),
+            Progress::InProgress => write!(f, "IN_PROGRESS"),
+            Progress::Completed => write!(f, "COMPLETED"),
+        }
+    }
+}
+
+impl FromStr for Priority {
+    type Err = ();
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        let priority = match s {
+            "LOW" => Priority::Low,
+            "MEDIUM" => Priority::Med,
+            "HIGH" => Priority::High,
+            _ => Err(())?,
+        };
+        Ok(priority)
+    }
+}
+
+impl FromStr for Progress {
+    type Err = ();
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        let progress = match s {
+            "NOT_STARTED" => Progress::NotStarted,
+            "IN_PROGRESS" => Progress::InProgress,
+            "COMPLETED" => Progress::Completed,
+            _ => Err(())?,
+        };
+        Ok(progress)
+    }
 }
