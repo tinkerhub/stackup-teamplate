@@ -1,19 +1,34 @@
 /* styles.css */
 .categories {
     background-color: #ffffff;
-    width: 90%;
-    margin:5% auto;
-    padding: 2% 0%;
+    width: 84%;
+    margin:1% auto 0% auto;
+  }
+  .cat-cont{
+    width: 84%;
+    margin: 0% auto;
+    padding: 1% 0%;
     display: flex;
     justify-content: space-around;
   }
   .cat-inside{
     text-align: center;
   }
-  
+  a{
+    text-decoration: none;
+  }
   .cat-span {
     font-size: 14px;
+    font-weight: 500;
     color: black;
-    text-decoration: none;
+  }
+  .posters {
+    background-color: #ffffff;
+    width: 84%;
+    height: 22vh;
+    margin:1% auto 0% auto;
+    padding: 1% 0%;
+    display: flex;
+    justify-content: space-around;
   }
   
