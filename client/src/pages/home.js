@@ -4,70 +4,107 @@ import '../styles/home.css';
 const Home = () => (
   <div>
     <div className="categories">
-        <div>
+        <div className="cat-cont">
+        <div className="cat">
             <a className="cat-a1" href="/topoffers" aria-label="Top Offers">
                 <div className="cat-inside">
-                <img className="cat-img1" src="/resources/top-offers.png" alt="Top Offers"></img><br></br>
-                <span className="cat-span">Top Offers</span>
+                <div className="cat-img">
+                <img src="/resources/top-offers.png" alt="Top Offers"></img><br></br>
+                </div>
+                <div className="cat-span">
+                <span>Top Offers</span>
+                </div>
                 </div>
             </a>
         </div>
-        <div>
+        <div className="cat">
             <a className="cat-a2" href="/moblaptops" aria-label="Mobiles & Laptops">
                 <div className="cat-inside">
-                <img className="cat-img2" src="/resources/mob-laptops.png" alt="Mobiles & Laptops"></img><br></br>
-                <span className="cat-span">Mobiles & Laptops</span>
+                <div className="cat-img">
+                <img src="/resources/mob-laptops.png" alt="Mobiles & Laptops"></img><br></br>
+                </div>
+                <div className="cat-span">
+                <span>Mobiles & Laptops</span>
+                </div>
                 </div>
             </a>
         </div>
-        <div>
+        <div className="cat">
             <a className="cat-a4" href="/electronics" aria-label="Electronics">
                 <div className="cat-inside">
-                <img className="cat-img4" src="/resources/electronics.png" alt="Electronics"></img><br></br>
-                <span className="cat-span">Electronics</span>
+                <div className="cat-img">
+                <img src="/resources/electronics.png" alt="Electronics"></img><br></br>
+                </div>
+                <div className="cat-span">
+                <span>Electronics</span>
+                </div>
                 </div>
             </a>
         </div>
-        <div>
+        <div className="cat">
             <a className="cat-a5" href="/fashion" aria-label="Fashion">
                 <div className="cat-inside">
-                <img className="cat-img5" src="/resources/fashion.png" alt="Fashion"></img><br></br>
-                <span className="cat-span">Fashion</span>
+                <div className="cat-img">
+                <img src="/resources/fashion.png" alt="Fashion"></img><br></br>
+                </div>
+                <div className="cat-span">
+                <span>Fashion</span>
+                </div>
                 </div>
             </a>
         </div>
-        <div>
+        <div className="cat">
             <a className="cat-a6" href="/beauty" aria-label="Beauty">
                 <div className="cat-inside">
-                <img className="cat-img6" src="/resources/beauty.png" alt="Beauty"></img><br></br>
-                <span className="cat-span">Beauty</span>
+                <div className="cat-img">
+                <img src="/resources/beauty.png" alt="Beauty"></img><br></br>
+                </div>
+                <div className="cat-span">
+                <span>Beauty</span>
+                </div>
                 </div>
             </a>
         </div>
-        <div>
+        <div className="cat">
             <a className="cat-a3" href="/homeappliances" aria-label="Home & Kitchen">
                 <div className="cat-inside">
-                <img className="cat-img3" src="/resources/home-appliances.png" alt="Home & Kitchen"></img><br></br>
-                <span className="cat-span">Home & Kitchen</span>
+                <div className="cat-img">
+                <img src="/resources/home-appliances.png" alt="Home & Kitchen"></img><br></br>
+                </div>
+                <div className="cat-span">
+                <span>Home & Kitchen</span>
+                </div>
                 </div>
             </a>
         </div>
-        <div>
+        <div className="cat">
             <a className="cat-a7" href="/furniture" aria-label="Furniture">
                 <div className="cat-inside">
-                <img className="cat-img7" src="/resources/furniture.png" alt="Furniture"></img><br></br>
-                <span className="cat-span">Furniture</span>
+                <div className="cat-img">
+                <img src="/resources/furniture.png" alt="Furniture"></img><br></br>
+                </div>
+                <div className="cat-span">
+                <span>Furniture</span>
+                </div>
                 </div>
             </a>
         </div>
-        <div>
+        <div className="cat">
             <a className="cat-a8" href="/grocery" aria-label="Grocery">
                 <div className="cat-inside">
-                <img className="cat-img8" src="/resources/grocery.png" alt="Grocery"></img><br></br>
-                <span className="cat-span">Grocery</span>
+                <div className="cat-img">
+                <img src="/resources/grocery.png" alt="Grocery"></img><br></br>
+                </div>
+                <div className="cat-span">
+                <span>Grocery</span>
+                </div>
                 </div>
             </a>
         </div>
+        </div>
+    </div>
+    <div className="posters">
+
     </div>
   </div>
 );
