@@ -1,0 +1,44 @@
+<div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <h1>Create Account</h1><br/>
+                <input class="signUpName" type="text" placeholder="Name" />
+                <input class="signUpEmail" type="email" placeholder="Email" />
+                <input class="signUpPassword" type="password" placeholder="Password" />
+                <input class="signUpPasswordConfirm" type="password" placeholder="Confirm" />
+                <div class="signUpCheckbox">
+                    <input type="checkbox" id="signUpCheckbox">
+                    <label for="signUpCheckbox">Show password</label>
+                </div>
+                <button id="createClick">Sign Up</button>
+                <div class="signUpError">input field required</div>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h1>Sign in</h1><br/>
+                <input class="signInEmail" type="email" placeholder="Email" />
+                <input class="signInPassword" type="password" placeholder="Password" />
+                <div class="signInCheckbox">
+                    <input type="checkbox" id="signInCheckbox">
+                    <label for="signInCheckbox">Show password</label>
+                </div>
+                <button id="signInClick">Sign In</button>
+                <div class="signInError">input field required</div>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
