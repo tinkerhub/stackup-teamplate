@@ -1,0 +1,119 @@
+body
+{
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+     font-size: 150%; 
+    background-color: #222;
+    color: rgb(255, 255, 255);
+    background-image: url("lines.jpg"); 
+    background-color: #222;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+input[type='text']
+{
+    width: 200px;
+    font-size:25px;
+   
+
+}
+button[type='submit']
+{
+    font-size: 20px;
+}
+li
+{
+    cursor:pointer;
+    text-align: center;
+    display:flex;
+    
+   
+}
+ul li
+{
+    list-style:none ; /*removess bullet*/
+    position:relative;
+    padding: 12px 8px 12px 50px ;
+    font-size: 25px;
+    margin-left: -90px; 
+    
+    
+}
+
+li span
+{
+    position: absolute; 
+    
+    top:5px;
+    width:40px;
+    height:50px;
+    line-height:30px ;
+    font-size: 22px;
+    text-align: center;
+    padding: auto;
+    right:-80px;
+    color: #bc0f0f;
+    
+
+
+}
+li span:hover
+{
+    width:40px;
+    height:40px;
+    background-color: rgb(144, 144, 144);
+}
+li.checked
+{
+    
+    position: relative;
+    text-decoration: line-through;
+    padding: 12px 8px 12px 50px ;
+    font-size: 24px;
+    color: #2ca02c;
+   
+} 
+li.checked::before
+  {
+    
+    content:"  ";
+    cursor:pointer; 
+    position: absolute;
+    background-image: url(todoListImages/done_tick.png) ;
+    background-position: center;
+    background-size:cover;
+    height: 28px;
+    width: 28px;
+    
+     left:-20px;  /*moves tick */
+    border-radius: 50%;
+
+} 
+.add_button
+{
+    display: inline-block;
+    padding: 2px 2px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #ff0000;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 3px #222;
+} 
+.add_button:hover 
+{background-color: #c80000}
+
+.add_button:active 
+{
+    background-color: #eeff00;
+    box-shadow: 0 5px #222;
+    transform: translateY(4px);
+}
