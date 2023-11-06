@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+header {
+    background-color: #4caf50;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.categories {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.2);
+}
+
+.instructions {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.2);
+}
+
+.start-quiz {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f8f8f8;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #ddd;
+}
+
+.start-btn {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
