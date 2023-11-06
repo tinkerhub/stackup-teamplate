@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/home.css';
 import Header from '../components/header';
+import Footer from '../components/footer';
 
 const Home = () => (
   <div>
@@ -113,6 +114,7 @@ const Home = () => (
         <div className="p-img"><img src="/resources/tv-sale.png" alt="hi"></img></div>
         <div className="p-img"><img src="/resources/beauty-sale.png" alt="hi"></img></div>
     </div>
+    <Footer />
   </div>
 );
 
