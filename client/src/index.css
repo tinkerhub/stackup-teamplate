@@ -12,3 +12,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+input,
+input::placeholder {
+    font: 1.05rem/2 sans-serif;
+}

@@ -1,13 +1,12 @@
-/* styles.css */
 .categories {
     background-color: #ffffff;
     width: 84%;
-    margin:2% auto 0% auto;
+    margin:8vh auto 0vh auto;
   }
   .cat-cont{
     width: 84%;
-    margin: 0% auto;
-    padding: 1% 0%;
+    margin: 0vh auto;
+    padding: 2vh 0;
     display: flex;
     justify-content: space-around;
   }
@@ -25,16 +24,24 @@
   .posters {
     background-color: #ffffff;
     width: 84%;
-    height: 22vh;
-    margin:1% auto 0% auto;
-    padding:0%;
+    height: 25vh;
+    margin: 2vh auto 0 auto;
+    padding: 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     aspect-ratio: 2/1;
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
     scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+  }
+  .p-img{
+    display: flex;
+    align-items: center;
+    scroll-snap-align: start;
+    margin: 0 auto;
+    width: 100%;
   }
   .posters::-webkit-scrollbar {
     width: 0;
