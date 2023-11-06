@@ -1,9 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/home.css';
 import Header from '../components/header';
 import Footer from '../components/footer';
 
-const Home = () => (
+const Home = () => {
+    const [scrollIndex, setScrollIndex] = useState(0);
+
+  const images = [
+    "/resources/iphone-sale.png",
+    "/resources/laptop-sale.png",
+    "/resources/fashion-sale.png",
+    "/resources/shoes-sale.png",
+    "/resources/tv-sale.png",
+    "/resources/beauty-sale.png"
+  ];
+
+  useEffect(() => {
+    // Function to automatically scroll through images
+    const scrollImages = () => {
+      setScrollIndex((prevIndex) => (prevIndex + 1) % images.length);
+    };
+
+    // Set an interval to call scrollImages every 3 seconds
+    const interval = setInterval(scrollImages, 3000);
+
+    return () => {
+      // Clear the interval when the component unmounts to prevent memory leaks
+      clearInterval(interval);
+    };
+  }, []);
+
+  return (
   <div>
     <Header />
     <div className="categories">
@@ -107,15 +134,12 @@ const Home = () => (
         </div>
     </div>
     <div className="posters">
-        <div className="p-img"><img src="/resources/iphone-sale.png" alt="hi"></img></div>
-        <div className="p-img"><img src="/resources/laptop-sale.png" alt="hi"></img></div>
-        <div className="p-img"><img src="/resources/fashion-sale.png" alt="hi"></img></div>
-        <div className="p-img"><img src="/resources/shoes-sale.png" alt="hi"></img></div>
-        <div className="p-img"><img src="/resources/tv-sale.png" alt="hi"></img></div>
-        <div className="p-img"><img src="/resources/beauty-sale.png" alt="hi"></img></div>
+        <div className="p-img" style={{transform: `translateX(-${scrollIndex * 100}%)`,}}>{images.map((src, index) => (<img key={index} src={src} alt="hi"></img>))}
+        </div>
     </div>
     <Footer />
   </div>
-);
+ );
+};
 
 export default Home;

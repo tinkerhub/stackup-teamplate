@@ -11,71 +11,66 @@ import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 const Header = () => {
   return (
     <div className='header'>
+        <div className='header-sub'>
         <div className="logo">
             <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/flipkart-095e08.svg" alt="flipkart logo" />
         </div>
         <div className="search">
-            <input type='text' className='search-tab' placeholder='Search for products, brand and more'/>
             <SearchIcon/>
+            <input type='text' className='search-tab' placeholder='Search for products, brand and more'/>
+            
         </div>
-        <div className="seller">
-            <button>
+            <button className='seller-button'>
                 <div className='cntr'>
                     <StorefrontOutlinedIcon/>
-                    Become a Seller
+                    <span>Become a Seller</span>
                 </div>
             </button>
-        </div>
-        <div className='s-c-d'>
             <div className='dropdown'>
-                <div className="signin">
-                    <button className='signin'>
+                    <button className='signin-button'>
                         <div className='cntr'>
                             <PersonOutlineOutlinedIcon/>
-                            Sign in
+                            <span>Sign in</span>
                         </div>
                     </button>
                     <div class="dropdown-content">
-                        <a href="#signup">
-                            <div className='cntr-li'>
+                        <a href="/signup">
+                            <div className='cntr-li' id="cntr-li1">
                                 <span>New Customer?</span>
-                                <a href='#signup' className='signup'><span>Signup</span></a>
+                                <a href='/signup' id='signup'><span>Signup</span></a>
                             </div>
                         </a>
-                        <a href="#">
+                        <div className='dropdown2'>
+                        <a href="/myprofile">
                             <div className='cntr-li'>
                                 <PersonOutlineOutlinedIcon />
-                                My profile
+                                <span>My profile</span>
                             </div>
                         </a>
-                        <a href="#">
+                        <a href="/orders">
                             <div className='cntr-li'>
                                     <Inventory2OutlinedIcon />
-                                    Orders
+                                    <span>Orders</span>
                             </div>
                         </a>
-                        <a href="#">
+                        <a href="/wishlists">
                             <div className='cntr-li'>
                                     <FavoriteBorderOutlinedIcon />
-                                    Wishlist
+                                    <span>Wishlists</span>
                             </div>
                         </a>
+                        </div>
                     </div>
-                </div>
             </div>
-            <div className="cart">
-                <button>
+                <button className='cart-button'>
                     <div className='cntr'>
                         <ShoppingCartOutlinedIcon/>
-                        Cart
+                        <span>Cart</span>
                     </div>
                 </button>
-            </div>
-            <div className="dropd">
-                <button>
+                <button className='dropd-button'>
                     <MoreVertOutlinedIcon/>
                 </button>
-            </div>
         </div>
     </div>
   )

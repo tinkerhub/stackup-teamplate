@@ -1,15 +1,38 @@
 body{
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 500;
+}
+span{
+    font-size: 16px;
+    font-weight: 500;
 }
 .header {
     position: fixed;
+    width: 100%;
     top: 0; left: 0; 
     background-color: #fff;
-    height: 50px;
+    height: 7vh;
     display: flex;
     align-items: center;
+    margin: 0 auto;
+    justify-content: center;
+    padding: 0;
+}
+.header-sub{
+    position: fixed;
+    width: 90%;
+    top: 0; left: 0; 
+    background-color: #fff;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    margin: 0px auto;
     justify-content: space-evenly;
-    padding: 2px 0px;
+}
+#signup:hover{
+    background-color: #7a539a;
+    color: #fff;
+    border-radius: 7px;
 }
 
 .cntr {
@@ -38,69 +61,58 @@ body{
     display: flex;
     align-items: center;
     background-color: white;
-    border-radius: 5px;
+    border-radius: 7px;
+    background-color: #7a539a1b;
 }
 
 .search > input {
     border: none;
     outline: none;
-    width: 36vw;
-    padding: 10px 15px;
-    border-radius: 5px;
+    width: 35vw;
+    background-color: transparent;
+    
 }
 
 .search > .MuiSvgIcon-root {
     color: #7a539a;
-    padding: 5px;
+    padding: 1vh;
 }
 
-.search-tab {
-    width: 480px;
-}
-
-.seller > button {
-    margin-left: 90px;
-    margin-left: 5px;
+.seller-button{
     border-radius: 8px;
-    display: flex;
-    justify-content: center;
     align-items: center;
     border: none;
     outline: none;
-    width: 15vw;
+    width: 9.5vw;
     background-color: #fff;
     color: #7a539a;
-    font-weight:lighter;
     cursor: pointer;
-    padding: 5px 15px; 
+    padding: .1vh;
 }
 
-.seller > button :hover {
+.seller-button:hover {
     
     background-color: #7a539a;
     color: #fff;
-    border-radius: 8px;
+    border-radius: 7px;
 }
 
 
-.signin >button {
-    margin-left: 0;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
+.signin-button {
+    border-radius: 7px;
     align-items: center;
     border: none;
     outline: none;
-    width: 10vw;
+    width: 6vw;
     background-color: #fff;
     color: #7a539a;
-    font-weight: lighter;
     cursor: pointer;
-    padding: 5px 15px;
+    padding: .1vh;
 }
 
-.signin >button :hover {
+.signin-button:hover {
     background-color: #7a539a;
+    
     color: #fff;
     border-radius: 8px;
 }
@@ -114,68 +126,54 @@ body{
     display: none;
     position: absolute;
     background-color: #ffffff;
-    width: 215px;
+    width: 23vh;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
   }
 
 .dropdown-content a {
     color: black;
-    padding: 12px 16px;
+    padding: 4%;
     text-decoration: none;
     display: block;
 }
 
-.dropdown-content a:hover {
-    background-color: #7a539a33;
+.dropdown2 a:hover {
+    background-color: #7a539a10;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
-.dropdown:hover .signin>.cntr {
-    color: white;
-    border-radius: 8px;
-    background-color: #7a539a;
+#cntr-li1{
+    display:flex;
+    justify-content: space-between;
 }
-
-.cart > button {
-    margin-left: 0;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
+.cart-button {
+    border-radius: 7px;
     align-items: center;
     border: none;
     outline: none;
-    width: 9vw;
+    width: 5vw;
     background-color: #fff;
     color: #7a539a;
-    font-weight: 500;
     cursor: pointer;
-    padding: 5px 15px;
+    padding: .1vh;
 }
 
-.cart > button :hover {
+.cart-button :hover {
     background-color: #7a539a;
     color: #fff;
     border-radius: 8px;
 }
 
-.dropd > button {
-    margin-left: 0;
-    border-radius: 8px;
+.dropd-button {
+    border-radius: 7px;
     border: none;
     outline: none;
     background-color: #fff;
     color: #7a539a;
     cursor: pointer;
-    padding: 9px 15px;
-}
-
-.s-c-d {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    padding: .1vh;
 }
 
