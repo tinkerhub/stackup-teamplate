@@ -13,11 +13,19 @@ impl PairExt for Iter<'_, (&str, Option<&str>)> {
         T: FromStr,
         <T as FromStr>::Err: std::fmt::Debug,
     {
-        self.next()
+        match self
+            .next()
             .expect("should exist")
             .1
             .expect("should be not null")
             .parse()
-            .expect("Should parse")
+        {
+            Ok(value) => value,
+            Err(e) => {
+                println!("{e:?}");
+                panic!();
+            }
+        }
+        // .expect("Should parse")
     }
 }
