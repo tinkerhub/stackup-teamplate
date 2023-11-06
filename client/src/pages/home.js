@@ -1,8 +1,10 @@
 import React from 'react';
 import '../styles/home.css';
+import Header from '../components/header';
 
 const Home = () => (
   <div>
+    <Header />
     <div className="categories">
         <div>
             <a className="cat-a1" href="/topoffers" aria-label="Top Offers">
