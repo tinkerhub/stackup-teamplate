@@ -1,0 +1,83 @@
+.header {
+    background-color: #2874f0;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 2px 0px;
+}
+
+.logo {
+    object-fit: contain;
+    padding-left: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.search > input {
+    border: none;
+    outline: none;
+    width: 36vw;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.search > .MuiSvgIcon-root {
+    color: blue;
+    padding: 5px;
+}
+
+.search-tab {
+    width: 480px;
+}
+
+.signin >button {
+    margin-left: 180px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    width: 9vw;
+    color: #2874f0;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 10px 15px;
+}
+
+.cart > button {
+    margin-left: 5px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    width: 9vw;
+    color: #2874f0;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 10px 15px;
+}
+
+.dropd > button {
+    margin-left: 5px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    color: #2874f0;
+    cursor: pointer;
+    padding: 9px 15px;
+}
+
