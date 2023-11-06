@@ -27,8 +27,20 @@
     width: 84%;
     height: 22vh;
     margin:1% auto 0% auto;
-    padding: 1% 0%;
+    padding:0%;
     display: flex;
     justify-content: space-around;
+    aspect-ratio: 2/1;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+  }
+  .posters::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  .posters::-webkit-scrollbar-thumb {
+    background: transparent;
   }
   
