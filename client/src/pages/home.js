@@ -134,7 +134,7 @@ const Home = () => {
         </div>
     </div>
     <div className="posters">
-        <div className="p-img" style={{transform: `translateX(-${scrollIndex * 100}%)`,}}>{images.map((src, index) => (<img key={index} src={src} alt="hi"></img>))}
+        <div className="p-img" style={{transform: `translateX(-${scrollIndex * 100}%)`,}}>{images.map((src, index) => (<img key={index} src={src} alt="Top Offers"></img>))}
         </div>
     </div>
     <Footer />
