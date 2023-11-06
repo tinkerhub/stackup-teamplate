@@ -1,8 +1,10 @@
 import React from 'react';
 import '../styles/home.css';
+import Header from '../components/header';
 
 const Home = () => (
   <div>
+    <Header />
     <div className="categories">
         <div className="cat-cont">
         <div className="cat">
