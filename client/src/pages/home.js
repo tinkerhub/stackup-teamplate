@@ -104,7 +104,12 @@ const Home = () => (
         </div>
     </div>
     <div className="posters">
-
+        <div className="p-img"><img src="/resources/iphone-sale.png" alt="hi"></img></div>
+        <div className="p-img"><img src="/resources/laptop-sale.png" alt="hi"></img></div>
+        <div className="p-img"><img src="/resources/fashion-sale.png" alt="hi"></img></div>
+        <div className="p-img"><img src="/resources/shoes-sale.png" alt="hi"></img></div>
+        <div className="p-img"><img src="/resources/tv-sale.png" alt="hi"></img></div>
+        <div className="p-img"><img src="/resources/beauty-sale.png" alt="hi"></img></div>
     </div>
   </div>
 );
