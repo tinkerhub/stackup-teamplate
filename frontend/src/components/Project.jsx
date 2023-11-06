@@ -1,17 +1,10 @@
 import React from 'react'
 
-const Project = () => {
+const Project = (props) => {
+  const { title } = props;
   return (
-    <div>
-        <div className='bg-orange-500 border-l-'>
-            
-        </div>
-        <div className='bg-orange-700'>
-
-        </div>
-        <div className='bg-orange-300'>
-
-        </div>
+    <div className='flex h-full'>
+        <h2 className='font-semibold text-4xl border-b-2 w-full'> { title } </h2>
     </div>
   )
 }
