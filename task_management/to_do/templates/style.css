@@ -1,0 +1,30 @@
+.Form-box{
+    width: 90;
+    max-width: 450;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    padding: 50px 60px 70px;
+    text-align: center;
+
+}
+.Form-box h1{
+    font-size: 30px;
+    margin-bottom: 60px;
+    color: #3c00a0;
+    position: relative;
+}
+.Form-box h1::after{
+    content: '';
+    width: 30px;
+    width: 4px;
+    border-radius: 3px;
+    background: #3c00a0;
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translate(-50%);
+
+}
