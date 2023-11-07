@@ -29,7 +29,7 @@ span{
     margin: 0px auto;
     justify-content: space-evenly;
 }
-#signup:hover{
+#tosignup:hover{
     background-color: #7a539a;
     color: #fff;
     border-radius: 7px;
@@ -98,7 +98,7 @@ span{
 }
 
 
-.signin-button {
+.tosignin-button {
     border-radius: 7px;
     align-items: center;
     border: none;
@@ -110,7 +110,7 @@ span{
     padding: .1vh;
 }
 
-.signin-button:hover {
+.tosignin-button:hover {
     background-color: #7a539a;
     
     color: #fff;

@@ -16,12 +16,10 @@ const Home = () => {
   ];
 
   useEffect(() => {
-    // Function to automatically scroll through images
     const scrollImages = () => {
       setScrollIndex((prevIndex) => (prevIndex + 1) % images.length);
     };
 
-    // Set an interval to call scrollImages every 3 seconds
     const interval = setInterval(scrollImages, 3000);
 
     return () => {
@@ -134,7 +132,7 @@ const Home = () => {
         </div>
     </div>
     <div className="posters">
-        <div className="p-img" style={{transform: `translateX(-${scrollIndex * 100}%)`,}}>{images.map((src, index) => (<img key={index} src={src} alt="hi"></img>))}
+        <div className="p-img" style={{transform: `translateX(-${scrollIndex * 100}%)`,}}>{images.map((src, index) => (<img key={index} src={src} alt="Top Offers"></img>))}
         </div>
     </div>
     <Footer />
