@@ -25,6 +25,7 @@ const Signin = () => {
         <div className='signin-left-container'>
         </div>
         <div className='signin-right-container'>
+          <div className='signin-sub-right-cont'>
       <p className="signin-text">Sign In</p><br></br>
       <form onSubmit={handlesigninFormSubmit} class="signin-form">
         <label for="username" className='signin-label'>Email</label><br></br>
@@ -39,6 +40,7 @@ const Signin = () => {
         <label for="new2signin" className='new2signin-lab'>New to Matrizon? </label>
         <a href='/signup' className='signin-help2' id="new2signin"> Sign Up</a><br></br>
       </form>
+      </div>
       </div>
     </div>
     <Footer />

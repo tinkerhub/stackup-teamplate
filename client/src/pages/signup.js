@@ -27,17 +27,23 @@ const Signup = () => {
         <div className='signup-right-container'>
       <p className="signup-text">Sign Up</p><br></br>
       <form onSubmit={handlesignupFormSubmit} class="signup-form">
+      <label for="username" className='signup-label'>Full Name</label><br></br>
+        <input type="text" required 
+          id='username' onChange={(e)=>setUsername(e.target.value)} className="signup-input"/><br></br>
         <label for="username" className='signup-label'>Email</label><br></br>
         <input type="email" required 
           id='username' onChange={(e)=>setUsername(e.target.value)} className="signup-input"/><br></br>
           <label for="password" className='signup-label'>Password</label><br></br>
-        <input type="password" required id='password' onChange={(e)=>setPassword(e.target.value)}
+        <input type="password" required id='set-password' onChange={(e)=>setPassword(e.target.value)}
           className="signup-input"/><br></br>
-          <p className='signup-terms'>By continuing, you agree to Matrizon's <a href="/termsofuse">Terms of Use</a> and <a href="/privacy">Privacy Policy</a>.</p>
+          <label for="password" className='signup-label'>Confirm Password</label><br></br>
+        <input type="password" required id='confrm-password' onChange={(e)=>setPassword(e.target.value)}
+          className="signup-input"/><br></br>
+          <input id="signup-agree" value="Yes" type="checkbox"></input>
+          <label for="signup-agree" className='signup-terms'>I agree with <a href="/termsofuse">Terms of Use</a> and <a href="/privacy">Privacy Policy</a>.</label>
         <input type="submit" value="Sign Up" className="signup-button"/><br></br>
-        <a href='/sendmail' className='signup-help1' id="signup-forgot">Forgot Password?</a><br></br><br></br>
-        <label for="new2signup" className='new2signup-lab'>New to Matrizon? </label>
-        <a href='/signup' className='signup-help2' id="new2signup"> Sign Up</a><br></br>
+        <label for="new2signup" className='new2signup-lab'>Already have an account? </label>
+        <a href='/signin' className='signup-help2' id="new2signup"> Sign In</a><br></br>
       </form>
       </div>
     </div>

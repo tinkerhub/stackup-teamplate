@@ -1,29 +1,28 @@
-.signin-background{
-    min-height: 100vh;
-    overflow: hidden;
-    background-size: cover;
-}
 .signin-container {
     display: flex;
     justify-content: center;
-    width: 50vw;
-    height: 60vh;
+    width: 60vw;
+    height: 77vh;
+    border-radius: 7px;
     margin: 10vh auto 0vh auto;
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
   .signin-left-container{
-    width: 25vw;
-    height: 60vh;
-    border-radius: 10px 0px 0px 10px;
+    width: 30vw;
+    height: 77vh;
+    border-radius: 7px 0px 0px 7px;
     background-image:url("https://media.giphy.com/media/yQqNPOdGMexumRMxVP/giphy-downsized-large.gif");
     background-size: cover;
     background-repeat: no-repeat;
   }
   .signin-right-container{
     background-color: #ffffff;
-    border-radius: 10px 0px 0px 10px;
-    width: 25vw;
-    height: 60vh;
+    border-radius: 0px 7px 7px 0px;
+    width: 30vw;
+    height: 77vh;
+  }
+  .signin-sub-right-cont{
+    padding: 10vh 0;
   }
   .signin-text{
     font-size: 32px;
