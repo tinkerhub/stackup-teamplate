@@ -32,7 +32,7 @@ const Header = () => {
                     <button className='tosignin-button'>
                         <div className='cntr'>
                             <PersonOutlineOutlinedIcon/>
-                            <span>Sign in</span>
+                            <span>Sign In</span>
                         </div>
                     </button>
                     </a>

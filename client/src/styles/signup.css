@@ -1,29 +1,25 @@
-.signup-background{
-    min-height: 100vh;
-    overflow: hidden;
-    background-size: cover;
-}
 .signup-container {
     display: flex;
     justify-content: center;
-    width: 50vw;
-    height: 60vh;
+    width: 60vw;
+    height: 77vh;
     margin: 10vh auto 0vh auto;
+    border-radius: 7px;
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
   .signup-left-container{
-    width: 25vw;
-    height: 60vh;
-    border-radius: 10px 0px 0px 10px;
-    background-image:url("https://media.giphy.com/media/yQqNPOdGMexumRMxVP/giphy-downsized-large.gif");
+    width: 30vw;
+    height: 77vh;
+    border-radius: 7px 0px 0px 7px;
+    background-image:url("https://media.giphy.com/media/q0xSEJug2S9IFyGpwa/giphy.gif");
     background-size: cover;
     background-repeat: no-repeat;
   }
   .signup-right-container{
     background-color: #ffffff;
-    border-radius: 10px 0px 0px 10px;
-    width: 25vw;
-    height: 60vh;
+    border-radius: 0px 7px 7px 0px;
+    width: 30vw;
+    height: 77vh;
   }
   .signup-text{
     font-size: 32px;
@@ -58,8 +54,16 @@
     border: 2px solid #7a539a;
   }
   .signup-terms{
-    padding: 0vh 7vh 0vh 7.5vh;
+    padding: 0vh 2vh 0vh .5vh;
     font-size: 12px;
+  }
+  #signup-agree{
+    margin: 0vh 0vh 0vh 7.5vh;
+    width: 12px;
+    height: 12px;
+  }
+  input[type=checkbox]:checked{
+    accent-color: #7a539a;
   }
   .signup-button {
     width: 70%;
