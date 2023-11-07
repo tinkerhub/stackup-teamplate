@@ -17,27 +17,30 @@ const Header = () => {
         </div>
         <div className="search">
             <SearchIcon/>
-            <input type='text' className='search-tab' placeholder='Search for products, brand and more'/>
-            
+            <input type='text' className='search-tab' placeholder='Search for products, brand and more'/>    
         </div>
+            <a href="/seller">
             <button className='seller-button'>
                 <div className='cntr'>
                     <StorefrontOutlinedIcon/>
                     <span>Become a Seller</span>
                 </div>
             </button>
+            </a>
             <div className='dropdown'>
-                    <button className='signin-button'>
+            <a href="/signin">
+                    <button className='tosignin-button'>
                         <div className='cntr'>
                             <PersonOutlineOutlinedIcon/>
                             <span>Sign in</span>
                         </div>
                     </button>
+                    </a>
                     <div class="dropdown-content">
                         <a href="/signup">
                             <div className='cntr-li' id="cntr-li1">
                                 <span>New Customer?</span>
-                                <a href='/signup' id='signup'><span>Signup</span></a>
+                                <a href='/signup' id='tosignup'><span>Signup</span></a>
                             </div>
                         </a>
                         <div className='dropdown2'>
@@ -62,12 +65,14 @@ const Header = () => {
                         </div>
                     </div>
             </div>
+            <a href="/cart">
                 <button className='cart-button'>
                     <div className='cntr'>
                         <ShoppingCartOutlinedIcon/>
                         <span>Cart</span>
                     </div>
                 </button>
+                </a>
                 <button className='dropd-button'>
                     <MoreVertOutlinedIcon/>
                 </button>

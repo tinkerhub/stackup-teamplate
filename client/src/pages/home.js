@@ -16,12 +16,10 @@ const Home = () => {
   ];
 
   useEffect(() => {
-    // Function to automatically scroll through images
     const scrollImages = () => {
       setScrollIndex((prevIndex) => (prevIndex + 1) % images.length);
     };
 
-    // Set an interval to call scrollImages every 3 seconds
     const interval = setInterval(scrollImages, 3000);
 
     return () => {
