@@ -1,0 +1,70 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+var element = React.createElement('h1', { className: 'greeting' }, 'Hello, world!');
+ReactDOM.render(element, document.getElementById('root'));
+
+reportWebVitals();
+
+import React, { useState } from 'react';
+
+function App() {
+  const [isRegistering, setIsRegistering] = useState(true);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loggedInUser, setLoggedInUser] = useState(null);
+
+  const handleToggleMode = () => {
+    setIsRegistering(!isRegistering);
+  };
+
+  const handleAuth = () => {
+    if (isRegistering) {
+      // Simulated user registration
+      console.log('User registered with email:', email);
+    } else {
+      // Simulated user login
+      console.log('User logged in with email:', email);
+      setLoggedInUser(email); // Set the user's email as the logged-in user
+    }
+  };
+
+  return (
+    <div>
+      <h1>Eve-fests</h1>
+      {loggedInUser ? (
+        <div>
+          <p>Welcome, {loggedInUser}!</p>
+          <button onClick={() => setLoggedInUser(null)}>Log Out</button>
+        </div>
+      ) : (
+        <div>
+          <h2>{isRegistering ? 'Register' : 'Log In'}</h2>
+          <input
+            type="text"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button onClick={handleAuth}>
+            {isRegistering ? 'Register' : 'Log In'}
+          </button>
+          <p onClick={handleToggleMode}>
+            {isRegistering ? 'Already have an account? Log in' : 'Don\'t have an account? Register'}
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default App;
