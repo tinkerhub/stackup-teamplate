@@ -2,8 +2,9 @@
 # Contact Manager
 Long Description about project. This project do that. This project is awesome...
 ## Team members
-1. Akhil [Embed personal github URL]
-2. Allen [Embed perosnal github URL]
+1. Akhil [github link]
+2. Allen 
+3. Rayan 
 ## Team Id
 retr0
 ## Link to product walkthrough
