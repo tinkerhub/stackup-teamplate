@@ -25,11 +25,9 @@ const Signup = () => {
         <div className='signup-left-container'>
         </div>
         <div className='signup-right-container'>
+        <div className='signin-sub-right-cont'>
       <p className="signup-text">Sign Up</p><br></br>
       <form onSubmit={handlesignupFormSubmit} class="signup-form">
-      <label for="username" className='signup-label'>Full Name</label><br></br>
-        <input type="text" required 
-          id='username' onChange={(e)=>setUsername(e.target.value)} className="signup-input"/><br></br>
         <label for="username" className='signup-label'>Email</label><br></br>
         <input type="email" required 
           id='username' onChange={(e)=>setUsername(e.target.value)} className="signup-input"/><br></br>
@@ -45,6 +43,7 @@ const Signup = () => {
         <label for="new2signup" className='new2signup-lab'>Already have an account? </label>
         <a href='/signin' className='signup-help2' id="new2signup"> Sign In</a><br></br>
       </form>
+      </div>
       </div>
     </div>
     <Footer />
