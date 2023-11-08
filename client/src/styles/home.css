@@ -1,16 +1,17 @@
 .categories {
     background-color: #ffffff;
-    width: 84%;
+    width: 84vw;
     margin:8vh auto 0vh auto;
   }
   .cat-cont{
-    width: 84%;
+    width: 84vw;
     margin: 0vh auto;
     padding: 2vh 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
   }
   .cat-inside{
+    width: 9vw;
     text-align: center;
   }
   a{
@@ -23,7 +24,7 @@
   }
   .posters {
     background-color: #ffffff;
-    width: 84%;
+    width: 84vw;
     height: 25vh;
     margin: 2vh auto 0 auto;
     padding: 0;
