@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../styles/home.css';
 import Header from '../components/header';
 import Footer from '../components/footer';
+import Card from '../components/card';
 
 const Home = () => {
     const [scrollIndex, setScrollIndex] = useState(0);
@@ -149,6 +150,54 @@ const Home = () => {
         </div>
         </div>
         <div className="p-img" style={{transform: `translateX(-${scrollIndex * 100}%)`,}}>{images.map((src, index) => (<img key={index} src={src} alt="Top Offers"></img>))}
+        </div>
+    </div>
+    <div className='best-mobile'>
+        <div className='best-mobile-text'>
+            <h2>Best Mobiles</h2>
+        </div>
+        <div className='mobile-card-list'>
+            <Card className='mobile-card'/>
+        </div>
+    </div>
+    <div className='top-deals'>
+        <div className='top-deals-text'>
+            <h2>Top Deals</h2>
+        </div>
+        <div className='top-deals-card-list'>
+            <Card className='top-deals-card'/>
+        </div>
+    </div>
+    <div className='top-electronics'>
+        <div className='top-electronics-text'>
+            <h2>Top Deals on Electronics</h2>
+        </div>
+        <div className='top-electronics-card-list'>
+            <Card className='top-electronics-card'/>
+        </div>
+    </div>
+    <div className='fashion-best-seller'>
+        <div className='fashion-best-seller-text'>
+            <h2>Fashion best Seller</h2>
+        </div>
+        <div className='fashion-best-seller-card-list'>
+            <Card className='fashion-best-seller-card'/>
+        </div>
+    </div>
+    <div className='beauty-foods'>
+        <div className='beauty-foods-text'>
+            <h2>Beauty Foods and more</h2>
+        </div>
+        <div className='beauty-foods-card-list'>
+            <Card className='beauty-foods-card'/>
+        </div>
+    </div>
+    <div className='home-furnishing'>
+        <div className='home-furnishing-text'>
+            <h2>Home and Furnishing</h2>
+        </div>
+        <div className='home-furnishing-card-list'>
+            <Card className='home-furnishing-card'/>
         </div>
     </div>
     <Footer />
