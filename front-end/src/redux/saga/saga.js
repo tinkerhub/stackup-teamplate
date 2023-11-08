@@ -51,6 +51,36 @@ const SignUp = (data) => {
     })
 }
 
+const getContacts = (id) => {
+
+    const user = {
+        id : id
+    }
+    return fetch('http://localhost:5000/api/user/get-contacts',{
+        method:'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body:JSON.stringify(user)
+    })
+    .then(async res =>
+        {
+            res = await res.json();
+            return res;
+        })
+    .catch(error => {
+        console.log(error)
+    })
+}
+
+const deleteContact = (data) => {
+    
+    const info = {
+        userId : data.id,
+        contact : contact.id
+    }
+}
+
 function* handleloginStart(action){
 
     try{ 
@@ -103,6 +133,47 @@ function* handleSignUp(action){
 
 }
 
+function* handleContactsFetch(action){
+    try{ 
+        const res = yield call(getContacts,action.payload.id);
+
+        console.log("signup response",res);
+        
+        if(res.success)
+        {
+            yield put({type:actions.CONTACTS_FETCH_SUCCESS,payload:res.contacts});
+        }
+        else
+        {
+            yield put({type:actions.CONTACTS_FETCH_FAILED,payload:res})
+        }
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+
+function* handleContactDelete(action)
+{
+    try{ 
+        const res = yield call(deleteContact,action.payload);
+
+        console.log("signup response",res);
+        
+        if(res.success)
+        {
+            yield put({type:actions.CONTACT_DELETE_SUCCESS,payload:res});
+        }
+        else
+        {
+            yield put({type:actions.CONTACT_DELETE_FAILED,payload:res})
+        }
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+
 function* watchForLoginStart(){
     yield takeLatest(actions.LOGIN_START,handleloginStart);
 }
@@ -115,12 +186,21 @@ function* watchForSignUpStart(){
     yield takeLatest(actions.SIGNUP_START,handleSignUp);
 }
 
+function* watchForContactsFetch(){
+    yield takeLatest(actions.CONTACTS_FETCH_START,handleContactsFetch)
+}
+
+function* watchForContactDelete(){
+    yield takeLatest(actions.CONTACT_DELETE_START,handleContactDelete)
+}
+
 export default function* rootSaga()
 {
     yield all(
         [
             watchForLoginStart(),
             watchForLogOutStart(),
-            watchForSignUpStart()
+            watchForSignUpStart(),
+            watchForContactsFetch()
     ]);
 }

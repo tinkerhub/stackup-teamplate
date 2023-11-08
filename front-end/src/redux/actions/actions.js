@@ -1,10 +1,38 @@
 import actions from "./action-constants";
 
-export const studentDataAction = (payload) => {
+export const deleteContact = (payload) => {
+    return(
+        {
+            type : actions.CONTACT_DELETE_START,
+            payload : payload
+        }
+    );
+}
+
+export const editContactAction = (payload) => {
+    return(
+        {
+            type : actions.EDIT_CONTACT_START,
+            payload : payload
+        }
+    );
+}
+
+export const addContactAction = (payload) => {
 
     return(
         {
-            type : actions.STUDENT_DATA_START,
+            type : actions.ADD_CONTACT_START,
+            payload : payload
+        }
+    );
+}
+
+export const contactFetchAction = (payload) => {
+
+    return(
+        {
+            type : actions.CONTACTS_FETCH_START,
             payload : payload
         }
     );

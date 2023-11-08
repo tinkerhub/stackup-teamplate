@@ -37,6 +37,17 @@ const userReducer = (state=initState,action) =>
                 message : action.payload.message,
                 login:false
             }
+        case actions.CONTACTS_FETCH_SUCCESS:
+            return{
+                ...state,
+                contacts : action.payload.contacts
+            }
+        case actions.CONTACTS_FETCH_FAILED:
+            return {
+                ...state,
+                contacts : null,
+                message : "contacts fetch failed"
+            }
         default:
             return state;
     }
