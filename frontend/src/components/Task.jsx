@@ -7,7 +7,7 @@ const Task = (props) => {
     const c = "#00FF00"
     console.log(priority, color);
   return (
-    <div className={`p-5 border-l-4 shadow-md w-64 bg-white rounded-lg`} style={{
+    <div className={`p-5 border-l-4 w-full hover:shadow-md cursor-grab bg-white rounded-lg`} style={{
         borderColor: `${color}`
     }}>
         <p className='font-semibold mb-3 text-lg'>{title}</p>
