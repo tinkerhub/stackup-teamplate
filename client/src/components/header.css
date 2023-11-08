@@ -1,0 +1,179 @@
+body{
+    font-size: 16px;
+    font-weight: 500;
+}
+span{
+    font-size: 16px;
+    font-weight: 500;
+}
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0; left: 0; 
+    background-color: #fff;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: center;
+    padding: 0;
+}
+.header-sub{
+    position: fixed;
+    width: 90%;
+    top: 0; left: 0; 
+    background-color: #fff;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    margin: 0px auto;
+    justify-content: space-evenly;
+}
+#tosignup:hover{
+    background-color: #7a539a;
+    color: #fff;
+    border-radius: 7px;
+}
+
+.cntr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px; 
+}
+
+.cntr-li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 5px; 
+}
+
+.logo {
+    object-fit: contain;
+    padding-left: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 7px;
+    background-color: #7a539a1b;
+}
+
+.search > input {
+    border: none;
+    outline: none;
+    width: 35vw;
+    background-color: transparent;
+    
+}
+
+.search > .MuiSvgIcon-root {
+    color: #7a539a;
+    padding: 1vh;
+}
+
+.seller-button{
+    border-radius: 8px;
+    align-items: center;
+    border: none;
+    outline: none;
+    width: 9.5vw;
+    background-color: #fff;
+    color: #7a539a;
+    cursor: pointer;
+    padding: .1vh;
+}
+
+.seller-button:hover {
+    
+    background-color: #7a539a;
+    color: #fff;
+    border-radius: 7px;
+}
+
+
+.tosignin-button {
+    border-radius: 7px;
+    align-items: center;
+    border: none;
+    outline: none;
+    width: 6vw;
+    background-color: #fff;
+    color: #7a539a;
+    cursor: pointer;
+    padding: .1vh;
+}
+
+.tosignin-button:hover {
+    background-color: #7a539a;
+    
+    color: #fff;
+    border-radius: 8px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    width: 23vh;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+.dropdown-content a {
+    color: black;
+    padding: 4%;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown2 a:hover {
+    background-color: #7a539a10;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+#cntr-li1{
+    display:flex;
+    justify-content: space-between;
+}
+.cart-button {
+    border-radius: 7px;
+    align-items: center;
+    border: none;
+    outline: none;
+    width: 5vw;
+    background-color: #fff;
+    color: #7a539a;
+    cursor: pointer;
+    padding: .1vh;
+}
+
+.cart-button :hover {
+    background-color: #7a539a;
+    color: #fff;
+    border-radius: 8px;
+}
+
+.dropd-button {
+    border-radius: 7px;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    color: #7a539a;
+    cursor: pointer;
+    padding: .1vh;
+}
+
