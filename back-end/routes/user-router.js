@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const {User} = require('../model/model');
+const mongoose = require('mongoose');
+const { User, Contact } = require('../model/model');
 const bcrypt = require('bcrypt');
 const multer = require('multer');
 const path = require('path');
@@ -8,36 +9,90 @@ const userHelper = require('../helpers/user-helper');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, './uploads');
-      },
+        cb(null, 'public/profile');
+    },
     filename: function (req, file, cb) {
-        cb(null, file.originalname);
+        const userId = req.body.id; // Assuming user ID is available in req.body
+        const originalName = file.originalname;
+        const fileExtension = originalName.split('.').pop(); // Get the file extension
+        const uniqueFileName = `${userId}.${fileExtension}`;
+        cb(null, uniqueFileName);
     }
 });
 
-const upload = multer({storage: storage});
+const upload = multer({ storage: storage });
 
-function apiResponse(results){
-    return JSON.stringify({"status": 200, "error": null, "response": results});
+function apiResponse(results) {
+    return JSON.stringify({ "status": 200, "error": null, "response": results });
 }
 
-//image upload
-router.post('/upload',upload.single('image'),(req,res) => {
+// Ensure the "public/profile" directory exists
+const fs = require('fs');
+const profileDirectory = 'public/profile';
+if (!fs.existsSync(profileDirectory)) 
+{
+    fs.mkdirSync(profileDirectory, { recursive: true });
+}
 
-    const image = req.image;
-    res.send(apiResponse({message: 'File uploaded successfully.', image}));
-})
+// Image upload
+router.post('/add-contact', upload.single('image'), async (req, res) => {
 
-router.post('/data',(req,res) => {
+    if (!req.file) {
+        // Handle the case where no file was uploaded
+        res.status(400).send(apiResponse({ message: 'No file uploaded.' }));
+        return;
+    }
 
-    console.log(req.body);
+    const userId = req.body.id; // Assuming user ID is available in req.body
+    const image = req.file; // Access the uploaded file info
+    const contactData = req.body;
 
-    res.status(200).json({
-        success : true,
-        message : "success",
-        user : user
-    });
+    console.log("user id : ", userId);
+    console.log("image : ", image);
+    console.log("contact : ", contactData);
 
+    try {
+        let userProfile = await Contact.findById(userId);
+
+        if (!userProfile) {
+            // Create a new user profile if it doesn't exist
+            userProfile = new Contact({ _id: userId, contacts: [] });
+        }
+
+        // Create a new contact document with a unique ID
+        const newContact = {
+            _id: new mongoose.Types.ObjectId(),
+            name: contactData.name,
+            email: contactData.email,
+            phone: contactData.phone,
+            address: contactData.address
+        };
+
+        // Save the uploaded image with the name the same as the contact's ID
+        const imageExtension = image.originalname.split('.').pop();
+        const imageFileName = `${newContact._id.toString()}.${imageExtension}`;
+
+        const oldFilePath = `public/profile/${userId}.${imageExtension}`; // Replace with the path to the old image file
+        const newFilePath = `public/profile/${imageFileName}`; // Replace with the desired new path and name for the image
+
+        fs.rename(oldFilePath, newFilePath, (err) => {
+            if (err) {
+                console.error('Error renaming the image:', err);
+            } else {
+                console.log('Image renamed successfully');
+            }
+        });
+
+        userProfile.contacts.push(newContact);
+
+        // Save the updated user profile
+        await userProfile.save();
+
+        res.send(apiResponse({ message: 'File uploaded successfully.', image }));
+    } catch (error) {
+        console.error(error);
+        res.status(500).send(apiResponse({ message: 'Error processing the request.' }));
+    }
 });
 
 
@@ -46,38 +101,36 @@ router.post('/signup', async (req, res) => {
 
     //console.log(req.body);
 
-    const isUser = await User.findOne({username:req.body.username});
+    const isUser = await User.findOne({ username: req.body.username });
 
     console.log(isUser);
 
-    if(isUser === null)
-    {
-        req.body.password = await bcrypt.hash(req.body.password,10);
+    if (isUser === null) {
+        req.body.password = await bcrypt.hash(req.body.password, 10);
 
         User.create(req.body).then(response => {
 
             const user = {
-                id : response._id,
-                name : response.name,
-                email : response.email,
+                id: response._id,
+                username: response.username,
+                email: response.email,
             }
 
             res.status(200).json({
-                success : true,
-                message : "success",
-                user : user
+                success: true,
+                message: "success",
+                user: user
             });
 
         }).catch(err => {
             console.log(err.message);
         });
     }
-    else
-    {
+    else {
         res.status(401).json(
             {
-                success : false,
-                message : "user already exists"
+                success: false,
+                message: "user already exists"
             }
         )
     }
@@ -85,59 +138,57 @@ router.post('/signup', async (req, res) => {
 });
 
 //Login Method
-router.post('/user-login',async (req,res) => {
+router.post('/login', async (req, res) => {
 
     console.log(req.body);
 
-    const user = await User.findOne({username:req.body.username});
+    const user = await User.findOne({ username: req.body.username });
 
-    console.log("user : ",user);
-    if(user !== null)
-    {
-        bcrypt.compare(req.body.password,user.password,(err,result) => {
+    console.log("user : ", user);
+    if (user !== null) {
+        bcrypt.compare(req.body.password, user.password, (err, result) => {
 
-            if(result)
-            {
+            if (result) {
                 const userData = {
-                    id : user._id,
-                    username : user.username,
-                    email : user.email
+                    id: user._id,
+                    username: user.username,
+                    email: user.email
                 }
                 res.status(200).json({
-                    success:true,
-                    user : userData,
-                    message : "login successful"
+                    success: true,
+                    user: userData,
+                    message: "login successful"
                 });
             }
-            else{
+            else {
                 res.status(401).json({
-                    success : false,
-                    message : "invalid credentials"
+                    success: false,
+                    message: "invalid credentials"
                 });
             }
         })
     }
-    else{
+    else {
         res.status(401).json({
-            success : false,
-            message : "invalid credentials"
+            success: false,
+            message: "invalid credentials"
         });
     }
 
 })
 
 //PUT Method.
-router.put('/update-user',(req,res) => {
+router.put('/update-user', (req, res) => {
 
     res.send({
-        type:'PUT'
+        type: 'PUT'
     });
 });
 
 //DELETE METHOD.
-router.delete('/delete-user',(req,res) => {
+router.delete('/delete-user', (req, res) => {
     res.send({
-        type:'DELETE'
+        type: 'DELETE'
     })
 });
 

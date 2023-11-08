@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
-const adminRoute = require('./routes/admin-router');
 const userRoute = require('./routes/user-router');
 require("dotenv").config();
 
@@ -16,7 +15,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/stackup', { useNewUrlParser: true, u
     console.log('Connected to MongoDB');
   })
   .catch((error) => {
-    console.error('MongoDB connection error:', error);
+    console.error('MongoDB connection error occured:', error);
   });
 
 mongoose.Promise = global.Promise;
@@ -28,13 +27,12 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //route
-app.use('/api/admin', adminRoute);
 app.use('/api/user',userRoute);
 
 // error handling middleware
 app.use(function(err,req,res,next){
     //console.log(err);
-    res.status(422).send({error: err.message});
+    res.status(422).send({error: err});
 });
 
 app.listen(5000, () => {
