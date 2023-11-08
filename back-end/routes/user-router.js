@@ -285,19 +285,4 @@ router.post('/login', async (req, res) => {
 
 })
 
-//PUT Method.
-router.put('/update-user', (req, res) => {
-
-    res.send({
-        type: 'PUT'
-    });
-});
-
-//DELETE METHOD.
-router.delete('/delete-user', (req, res) => {
-    res.send({
-        type: 'DELETE'
-    })
-});
-
 module.exports = router;
