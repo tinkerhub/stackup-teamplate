@@ -21,6 +21,9 @@ const UserSchema = new Schema({
 });
 
 const contactSchema = new Schema({
+    _id: { 
+        type: Schema.Types.ObjectId, auto: true 
+    },
     name : {
         type: String,
         required: [true, 'name field is required']
@@ -40,8 +43,12 @@ const contactSchema = new Schema({
 
 })
 
+const userContacts = new Schema({
+    contacts: [contactSchema] // Array to store contacts
+  });
+
 const User = mongoose.model('users',UserSchema);
-const Contact = mongoose.model('contacts',contactSchema);
+const Contact = mongoose.model('contacts',userContacts);
 
 module.exports = {
     User,
