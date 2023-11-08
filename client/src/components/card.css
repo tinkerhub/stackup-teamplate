@@ -1,0 +1,36 @@
+.card {
+    
+    transition: 0.3s;
+    width: 30vh;
+    margin: 0 1vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40vh;
+    border: 1px solid #ccc;
+}
+
+.image {
+    /*height: auto;
+    max-width: auto;*/
+    object-fit:cover;
+    width: 90%;
+    padding: 10px;
+}
+
+.image img {
+    width: 70%;
+    object-fit: cover;
+    display: flex;
+    margin: 0 auto;
+}
+
+.image:hover {
+    transform: scale(1.05);
+}
+
+.details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

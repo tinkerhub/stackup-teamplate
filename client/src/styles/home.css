@@ -96,4 +96,130 @@
   .posters::-webkit-scrollbar-thumb {
     background: transparent;
   }
+
+  /*best mobiles section*/
+  .best-mobile {
+    background-color: #ffffff;
+    width: 84%;
+    display:flex;
+    flex-direction: column;
+    margin: 2vh auto;
+  }
+
+  .best-mobile-text {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .mobile-card-list {
+    width: 84%;
+    display: flex;
+    margin: 5vh auto;
+    justify-content: space-around;
+  }
+
+  /*top deals section*/
+  .top-deals {
+    background-color: #ffffff;
+    width: 84%;
+    display:flex;
+    flex-direction: column;
+    margin: 2vh auto;
+  }
+
+  .top-deals-text {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .top-deals-card-list {
+    width: 84%;
+    display: flex;
+    margin: 5vh auto;
+    justify-content: space-around;
+  }
   
+/*top electronics section*/
+.top-electronics {
+  background-color: #ffffff;
+  width: 84%;
+  display:flex;
+  flex-direction: column;
+  margin: 2vh auto;
+}
+
+.top-electronics-text {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.top-electronics-card-list {
+  width: 84%;
+  display: flex;
+  margin: 5vh auto;
+  justify-content: space-around;
+}
+
+/*fashion best seller section*/
+.fashion-best-seller {
+  background-color: #ffffff;
+  width: 84%;
+  display:flex;
+  flex-direction: column;
+  margin: 2vh auto;
+}
+
+.fashion-best-seller-text {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.fashion-best-seller-card-list {
+  width: 84%;
+  display: flex;
+  margin: 5vh auto;
+  justify-content: space-around;
+}
+
+/*beauty foods section*/
+.beauty-foods {
+  background-color: #ffffff;
+  width: 84%;
+  display:flex;
+  flex-direction: column;
+  margin: 2vh auto;
+}
+
+.beauty-foods-text {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.beauty-foods-card-list {
+  width: 84%;
+  display: flex;
+  margin: 5vh auto;
+  justify-content: space-around;
+}
+
+/*home and furnishng section*/
+/*best mobiles section*/
+.home-furnishing {
+  background-color: #ffffff;
+  width: 84%;
+  display:flex;
+  flex-direction: column;
+  margin: 2vh auto;
+}
+
+.home-furnishing-text {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.home-furnishing-card-list {
+  width: 84%;
+  display: flex;
+  margin: 5vh auto;
+  justify-content: space-around;
+}
