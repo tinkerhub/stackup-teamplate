@@ -21,14 +21,22 @@ const Home = () => {
       setScrollIndex((prevIndex) => (prevIndex + 1) % images.length);
     };
 
-    const interval = setInterval(scrollImages, 3000);
+    const interval = setInterval(scrollImages, 5000);
 
     return () => {
       // Clear the interval when the component unmounts to prevent memory leaks
       clearInterval(interval);
     };
   }, []);
-
+//   const handleScroll = (direction) => {
+//     const newIndex = scrollIndex + direction;
+//     if (newIndex >= 0 && newIndex < images.length) {
+//       setScrollIndex(newIndex);
+//     }
+//   };
+  const handleScroll = () => {
+    setScrollIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
   return (
   <div>
     <Header />
@@ -133,6 +141,14 @@ const Home = () => {
         </div>
     </div>
     <div className="posters">
+        <div className='home-scroll'>
+    <div className="scroll-arrow-left" onClick={() => handleScroll(-1)}>
+          &lt; {/* Left Arrow */}
+        </div>
+        <div className="scroll-arrow-right" onClick={() => handleScroll(1)}>
+          &gt; {/* Right Arrow */}
+        </div>
+        </div>
         <div className="p-img" style={{transform: `translateX(-${scrollIndex * 100}%)`,}}>{images.map((src, index) => (<img key={index} src={src} alt="Top Offers"></img>))}
         </div>
     </div>
