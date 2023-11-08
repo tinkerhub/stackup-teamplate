@@ -1,15 +1,9 @@
 import React from 'react'
 import './card.css'
-import  image1 from '../images/motorola.webp'
+import mobile from '../data/mobile';
 
 
 const Card = () => {
-  const mobile = [{
-    name: "Motorola",
-    image: image1
-},
-
-];
   return (
     <>
       {mobile.map((element) => (

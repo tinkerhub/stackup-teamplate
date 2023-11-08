@@ -165,7 +165,7 @@ const Home = () => {
             <h2>Top Deals</h2>
         </div>
         <div className='top-deals-card-list'>
-            <Card className='top-deals-card'/><Card className='top-deals-card'/><Card className='top-deals-card'/><Card className='top-deals-card'/><Card className='top-deals-card'/>
+            <Card className='top-deals-card'/>
         </div>
     </div>
     <div className='top-electronics'>
@@ -173,7 +173,7 @@ const Home = () => {
             <h2>Top Deals on Electronics</h2>
         </div>
         <div className='top-electronics-card-list'>
-            <Card className='top-electronics-card'/><Card className='top-electronics-card'/><Card className='top-electronics-card'/><Card className='top-electronics-card'/><Card className='top-electronics-card'/>
+            <Card className='top-electronics-card'/>
         </div>
     </div>
     <div className='fashion-best-seller'>
@@ -181,7 +181,7 @@ const Home = () => {
             <h2>Fashion best Seller</h2>
         </div>
         <div className='fashion-best-seller-card-list'>
-            <Card className='fashion-best-seller-card'/><Card className='fashion-best-seller-card'/><Card className='fashion-best-seller-card'/><Card className='fashion-best-seller-card'/><Card className='fashion-best-seller-card'/>
+            <Card className='fashion-best-seller-card'/>
         </div>
     </div>
     <div className='beauty-foods'>
@@ -189,7 +189,7 @@ const Home = () => {
             <h2>Beauty Foods and more</h2>
         </div>
         <div className='beauty-foods-card-list'>
-            <Card className='beauty-foods-card'/><Card className='beauty-foods-card'/><Card className='beauty-foods-card'/><Card className='beauty-foods-card'/><Card className='beauty-foods-card'/>
+            <Card className='beauty-foods-card'/>
         </div>
     </div>
     <div className='home-furnishing'>
@@ -197,7 +197,7 @@ const Home = () => {
             <h2>Home and Furnishing</h2>
         </div>
         <div className='home-furnishing-card-list'>
-            <Card className='home-furnishing-card'/><Card className='home-furnishing-card'/><Card className='home-furnishing-card'/><Card className='home-furnishing-card'/><Card className='home-furnishing-card'/>
+            <Card className='home-furnishing-card'/>
         </div>
     </div>
     <Footer />
