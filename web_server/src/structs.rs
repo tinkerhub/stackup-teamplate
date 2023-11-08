@@ -57,6 +57,7 @@ pub struct Task {
 pub struct SubTask {
     pub id: Option<u32>,
     pub text: String,
+    #[serde(default)]
     pub is_completed: bool,
 }
 
