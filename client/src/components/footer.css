@@ -1,7 +1,7 @@
 
 .foot-cont{
   width: 100%;
-  margin-top: 3.5vh;
+  margin-top: 10%; /*3.5vh*/
 }
 .footer-box {
     background-color: #1a1919;

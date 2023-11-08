@@ -39,7 +39,7 @@ span{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 15px; 
+    padding: 4px 15px; 
 }
 
 .cntr-li {
@@ -83,7 +83,7 @@ span{
     align-items: center;
     border: none;
     outline: none;
-    width: 9.5vw;
+    width: 13vw; /* 9.5vw */
     background-color: #fff;
     color: #7a539a;
     cursor: pointer;
@@ -95,6 +95,7 @@ span{
     background-color: #7a539a;
     color: #fff;
     border-radius: 7px;
+    transition: 0.2s;
 }
 
 
@@ -103,7 +104,7 @@ span{
     align-items: center;
     border: none;
     outline: none;
-    width: 6vw;
+    width: 10vw; /* 6vw */
     background-color: #fff;
     color: #7a539a;
     cursor: pointer;
@@ -112,7 +113,7 @@ span{
 
 .tosignin-button:hover {
     background-color: #7a539a;
-    
+    transition: 0.2s;
     color: #fff;
     border-radius: 8px;
 }
@@ -165,6 +166,7 @@ span{
     background-color: #7a539a;
     color: #fff;
     border-radius: 8px;
+    transition: 0.2s;
 }
 
 .dropd-button {
