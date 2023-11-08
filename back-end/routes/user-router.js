@@ -207,7 +207,7 @@ router.post('/add-contact', upload.single('image'), async (req, res) => {
 //Signup Method
 router.post('/signup', async (req, res) => {
 
-    //console.log(req.body);
+    console.log(req.body);
 
     const isUser = await User.findOne({ username: req.body.username });
 
