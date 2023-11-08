@@ -28,7 +28,46 @@ impl AppState {
     #[cfg(not(debug_assertions))]
     //TODO: make it create db with tables if they don't exist already
     fn new() -> Self {
-        todo!()
+        Self {
+            conn: {
+                let cmd = r#"
+                CREATE TABLE IF NOT EXISTS "projects" (
+                    "id"	INTEGER NOT NULL UNIQUE,
+                    "name"	TEXT NOT NULL,
+                    "user_id"	INTEGER NOT NULL,
+                    FOREIGN KEY("user_id") REFERENCES "users"("id"),
+                    PRIMARY KEY("id" AUTOINCREMENT)
+                );
+                CREATE TABLE IF NOT EXISTS "users" (
+                    "id"	INTEGER NOT NULL UNIQUE,
+                    "name"	TEXT NOT NULL,
+                    "about"	TEXT NOT NULL,
+                    "github_link"	TEXT NOT NULL,
+                    "email"	TEXT NOT NULL UNIQUE,
+                    PRIMARY KEY("id" AUTOINCREMENT)
+                );
+                CREATE TABLE IF NOT EXISTS "tasks" (
+                    "id"	INTEGER NOT NULL UNIQUE,
+                    "title"	TEXT NOT NULL,
+                    "deadline"	TEXT,
+                    "priority"	TEXT CHECK("priority" IN ("HIGH", "LOW", "MEDIUM")),
+                    "progress"	TEXT CHECK("progress" IN ("NOT_STARTED", "IN_PROGRESS", "COMPLETED")),
+                    "project_id"	TEXT NOT NULL,
+                    FOREIGN KEY("project_id") REFERENCES "projects"("id"),
+                    PRIMARY KEY("id" AUTOINCREMENT)
+                );
+                CREATE TABLE IF NOT EXISTS "subtasks" (
+                    "id"	INTEGER NOT NULL UNIQUE,
+                    "text"	TEXT NOT NULL,
+                    "is_completed"	INTEGER NOT NULL DEFAULT 0 CHECK("is_completed" IN (0, 1)),
+                    "task_id"	INTEGER NOT NULL,
+                    FOREIGN KEY("task_id") REFERENCES "tasks"("id"),
+                    PRIMARY KEY("id" AUTOINCREMENT)
+                );
+                "#;
+            let conn = sqlite::Connection::open_with_full_mutex("../data.db").expect("should open");
+            conn.execute(cmd).expect("should work"); conn},
+        }
     }
 }
 
@@ -148,7 +187,7 @@ fn get_projects(
         };
         projects.push(project);
         true
-    })?;
+    })?; // if conn.iterate failrs, returns Err
     Ok(projects)
 }
 
