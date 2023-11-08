@@ -34,6 +34,28 @@ if (!fs.existsSync(profileDirectory))
     fs.mkdirSync(profileDirectory, { recursive: true });
 }
 
+router.get('/get-contacts',async (req,res) => {
+    
+    const userId = req.body.id;
+    const isUser = await Contact.findOne({ _id: userId });
+
+    console.log("contacts : ",isUser);
+
+    if(isUser !== null)
+    {
+        res.status(200).json({
+            success: true,
+            message: "success",
+            contacts : isUser.contacts
+        });
+    }
+    else
+    {
+
+    }
+
+})
+
 // Image upload
 router.post('/add-contact', upload.single('image'), async (req, res) => {
 
