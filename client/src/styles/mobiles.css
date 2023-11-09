@@ -1,0 +1,13 @@
+.categories {
+    background-color: #ffffff;
+    width: 84vw;
+    margin:8vh auto 0vh auto;
+}
+
+.cat-cont{
+    width: 84vw;
+    margin: 0vh auto;
+    padding: 2vh 0;
+    display: flex;
+    justify-content: center;
+  }
