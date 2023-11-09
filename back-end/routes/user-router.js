@@ -115,7 +115,9 @@ router.delete('/delete-contact', async (req, res) => {
   });
   
 
-router.get('/get-contacts',async (req,res) => {
+router.post('/get-contacts',async (req,res) => {
+
+    console.log("get contacts route : ",req.body);
     
     const userId = req.body.id;
     const isUser = await Contact.findOne({ _id: userId });
@@ -135,7 +137,7 @@ router.get('/get-contacts',async (req,res) => {
         res.status(401).json(
             {
                 success: false,
-                message: "user already exists"
+                message: "failed to fetch contacts"
             }
         )
     }
@@ -143,13 +145,13 @@ router.get('/get-contacts',async (req,res) => {
 })
 
 // Image upload
-router.post('/add-contact', upload.single('image'), async (req, res) => {
+router.post('/add-contact', async (req, res) => {
 
-    if (!req.file) {
-        // Handle the case where no file was uploaded
-        res.status(400).send(apiResponse({ message: 'No file uploaded.' }));
-        return;
-    }
+    // if (!req.file) {
+    //     // Handle the case where no file was uploaded
+    //     res.status(400).send(apiResponse({ message: 'No file uploaded.' }));
+    //     return;
+    // }
 
     const userId = req.body.id; // Assuming user ID is available in req.body
     const image = req.file; // Access the uploaded file info
@@ -176,30 +178,39 @@ router.post('/add-contact', upload.single('image'), async (req, res) => {
             address: contactData.address
         };
 
-        // Save the uploaded image with the name the same as the contact's ID
-        const imageExtension = image.originalname.split('.').pop();
-        const imageFileName = `${newContact._id.toString()}.${imageExtension}`;
+        // // Save the uploaded image with the name the same as the contact's ID
+        // const imageExtension = image.originalname.split('.').pop();
+        // const imageFileName = `${newContact._id.toString()}.${imageExtension}`;
 
-        const oldFilePath = `public/profile/${userId}.${imageExtension}`; // Replace with the path to the old image file
-        const newFilePath = `public/profile/${imageFileName}`; // Replace with the desired new path and name for the image
+        // const oldFilePath = `public/profile/${userId}.${imageExtension}`; // Replace with the path to the old image file
+        // const newFilePath = `public/profile/${imageFileName}`; // Replace with the desired new path and name for the image
 
-        fs.rename(oldFilePath, newFilePath, (err) => {
-            if (err) {
-                console.error('Error renaming the image:', err);
-            } else {
-                console.log('Image renamed successfully');
-            }
-        });
+        // fs.rename(oldFilePath, newFilePath, (err) => {
+        //     if (err) {
+        //         console.error('Error renaming the image:', err);
+        //     } else {
+        //         console.log('Image renamed successfully');
+        //     }
+        // });
 
         userProfile.contacts.push(newContact);
 
         // Save the updated user profile
         await userProfile.save();
 
-        res.send(apiResponse({ message: 'File uploaded successfully.', image }));
+        res.status(200).json({
+            success: true,
+            message: "success",
+        });
+
     } catch (error) {
         console.error(error);
-        res.status(500).send(apiResponse({ message: 'Error processing the request.' }));
+        res.status(401).json(
+            {
+                success: false,
+                message: "failed to add contact"
+            }
+        )
     }
 });
 

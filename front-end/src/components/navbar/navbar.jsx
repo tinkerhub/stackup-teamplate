@@ -8,9 +8,6 @@ const Navbar = ({user,logOut}) => {
 
   const location = useLocation();
 
-  console.log("current path : ",location.pathname);
-
-  console.log("inside ",user);
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-light navbar">
           <div className="container-fluid">

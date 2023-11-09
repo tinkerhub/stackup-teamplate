@@ -57,11 +57,31 @@ const getContacts = (id) => {
         id : id
     }
     return fetch('http://localhost:5000/api/user/get-contacts',{
-        method:'GET',
+        method:'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body:JSON.stringify(user)
+    })
+    .then(async res =>
+        {
+            res = await res.json();
+            return res;
+        })
+    .catch(error => {
+        console.log(error)
+    })
+}
+
+const addContact = (data) => {
+    console.log("addContact saga :  ",data);
+
+    return fetch('http://localhost:5000/api/user/add-contact',{
+        method:'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body:JSON.stringify(data)
     })
     .then(async res =>
         {
@@ -115,8 +135,6 @@ function* handleSignUp(action){
 
     try{ 
         const res = yield call(SignUp,action.payload);
-
-        console.log("signup response",res);
         
         if(res.success)
         {
@@ -134,14 +152,13 @@ function* handleSignUp(action){
 }
 
 function* handleContactsFetch(action){
-    try{ 
-        const res = yield call(getContacts,action.payload.id);
 
-        console.log("signup response",res);
+    try{ 
+        const res = yield call(getContacts,action.payload);
         
         if(res.success)
         {
-            yield put({type:actions.CONTACTS_FETCH_SUCCESS,payload:res.contacts});
+            yield put({type:actions.CONTACTS_FETCH_SUCCESS,payload:res});
         }
         else
         {
@@ -157,8 +174,6 @@ function* handleContactDelete(action)
 {
     try{ 
         const res = yield call(deleteContact,action.payload);
-
-        console.log("signup response",res);
         
         if(res.success)
         {
@@ -167,6 +182,26 @@ function* handleContactDelete(action)
         else
         {
             yield put({type:actions.CONTACT_DELETE_FAILED,payload:res})
+        }
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+
+function* handleAddContact(action)
+{
+    console.log("Add contact saga : ",action.payload);
+    try{ 
+        const res = yield call(addContact,action.payload);
+        
+        if(res.success)
+        {
+            yield put({type:actions.ADD_CONTACT_SUCCESS,payload:res});
+        }
+        else
+        {
+            yield put({type:actions.ADD_CONTACT_FAILED,payload:res})
         }
     }
     catch(err){
@@ -194,6 +229,10 @@ function* watchForContactDelete(){
     yield takeLatest(actions.CONTACT_DELETE_START,handleContactDelete)
 }
 
+function* watchForAddContactStart(){
+    yield takeLatest(actions.ADD_CONTACT_START,handleAddContact)
+}
+
 export default function* rootSaga()
 {
     yield all(
@@ -201,6 +240,7 @@ export default function* rootSaga()
             watchForLoginStart(),
             watchForLogOutStart(),
             watchForSignUpStart(),
-            watchForContactsFetch()
+            watchForContactsFetch(),
+            watchForAddContactStart()
     ]);
 }
