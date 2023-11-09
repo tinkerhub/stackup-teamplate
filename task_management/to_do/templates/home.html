@@ -13,8 +13,8 @@
     <!-- Bootstrap Core CSS -->
     
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/styleu.css' %}">
-    <script src="https://kit.fontawesome.com/81e82ad1f5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/stylem.css' %}">
+
     <!-- Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="{% static 'css/animate.css' %}" rel="stylesheet" />
@@ -70,32 +70,17 @@
     </section>
 
    
-        <div class="Form-box" style="border-radius: 20px; background-color: rgb(255,255,255,0.6); top:85%">
-
-            <h1>Login</h1> 
-            <form method="post"> 
-            {% csrf_token %}
-
-                <div class="input_group">
-                    <div class="input-field">
-                        <i class="fa-solid fa-user"></i>
-                        <input type="text" placeholder="Username" required="" name="usr">
+    <div class="Form-box " style="top: 78%; background-color: rgba(255,255,255,0.6);  border-radius: 20px;">
+        <img src="{% static 'img/user.png' %}" width="45px">
+        <h1>Login to start</h1>
+        <form>
+                        <div class="btn-field">
+                <a href="{% url 'login' %}"><button type="button"><b>Login</button></a>
+                <a href="{% url 'register' %}"><button type="button">Sign Up</b></button></a>
+            </div>
+        </form>
+    </div>
     
-                    </div>
-                    <div class="input-field">
-                        <i class="fa-solid fa-lock"></i>
-                        <input type="password" placeholder="Password" required="" name="pwd">
-                    </div>
-                    
-                </div>
-                <div class="btn-field">
-                    <button type="submit">Sign In</button>
-                </div>
-            </form>
-        </div>
-    
-   <div style="background-color: #3c00a0;"><br><br><br><br><br><br></div>
-
 	<footer>
 		<div class="container" id=contact>
 			<div class="row">
