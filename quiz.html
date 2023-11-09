@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+   
+    <title>Questo</title>
+    <style>
+       .body{
+        background-color: black;
+       }
+        .navbar {
+            background-color:rgb(237, 205, 171);
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color:black;
+        }
+
+        .profile-pic {
+            float: right;
+            margin-right: 20px;
+        }
+
+        .profile-pic img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        .but{
+          text-decoration: none;
+          color:black;
+          background-color: wheat;
+          border: none;
+          border-radius: 5px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: wheat; /* White background */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Box shadow for a modern look */
+        }
+
+    </style>
+     <link rel="stylesheet" type="text/css" href="quiz.css">
+</head>
+<body class="body">
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Quiz</a>
+        <a href="#">Contact</a>
+        <a href="#">Logout</a>
+        <div class="profile-pic">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNGiASNffgbg2XTUTmPFJz1Ye7iah0gFDtFQ&usqp=CAU" alt="Profile Picture">
+        </div>
+    </div>
+  
+    <div class="logo-container">
+        <img src="Purple Lines Astronomy Animated Logo (1) (1).gif" alt="Your Animated Logo" id="animated-logo">
+    </div>
+    <h1 class="intro">Hello! I hope you're feeling prepared for today.</h1>
+   
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://us.123rf.com/450wm/jardelbassi/jardelbassi2306/jardelbassi230600410/206148807-funny-cartoon-scientist-with-laboratory-equipment-3d-rendering-illustration.jpg?ver=6" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">General knowledge Quiz</h5>
+              <p class="card-text">This contains basic questions based on general knowledge.</p>
+              <button class="but">  <a href="general.html">START</a>
+                
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://img.freepik.com/premium-vector/isolated-mathematics-font-banner-withboy-cartoon-character_1639-27427.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Mathematics Quiz</h5>
+              <p class="card-text">This contains basic questions based on mathematics.</p>
+              <button class="but"> <a href="maths.html">START</a></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://www.pngitem.com/pimgs/m/148-1481157_little-shakespeare-shakespeare-literature-cartoon-hd-png-download.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Literature Quiz</h5>
+              <p class="card-text">This contains basic questions based on literature.</p>
+              <button class="but"><a href="literature.html">START</a></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <h1>Contact </h1>
+      <form action="submit.php" method="post">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+
+          <input type="submit" value="Submit">
+      </form>
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</body>
+</html>
