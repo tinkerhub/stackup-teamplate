@@ -18,9 +18,7 @@ def login(request):
         print("here")
         unm= request.POST.get('usr')
         pwd= request.POST.get('pwd')
-
         user = authenticate(username=unm, password=pwd)
-
         if user is not None:
             print('user found')
             auth_login(request, user)
