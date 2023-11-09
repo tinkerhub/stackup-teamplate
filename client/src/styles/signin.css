@@ -78,10 +78,10 @@
   .signin-button:hover {
     background-color: #b55aff;
   }
-  a{
+  .signin-container a{
     color:#7a539a;
   }
-  a:hover{
+  .signin-container a:hover{
     color:#b55aff;
   }
 

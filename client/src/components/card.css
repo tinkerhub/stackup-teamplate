@@ -1,26 +1,32 @@
-.card {
-    
+.card-cont{
     transition: 0.3s;
-    width: 30vh;
-    margin: 0 1vh;
+    width: 15vw;
+    margin: 0 1vw;
+    padding-top: .5vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 40vh;
-    border: 1px solid #ccc;
+    color: #000000;
+    border: 1px solid #ccc; 
 }
+.card {
+    width: 15vw;
+    height: 40vh;
 
+}
 .image {
     /*height: auto;
     max-width: auto;*/
-    object-fit:cover;
     width: 90%;
-    padding: 10px;
+    height: 70%;
+    margin: 0 auto;
 }
 
 .image img {
     width: 70%;
-    object-fit: cover;
+    height: 100%;
+    object-fit: contain;
     display: flex;
     margin: 0 auto;
 }
@@ -31,6 +37,9 @@
 
 .details {
     display: flex;
+    font-size: 19px;
     justify-content: center;
+    text-align: center;
     align-items: center;
+    margin: 0 auto;
 }
