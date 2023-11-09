@@ -8,7 +8,7 @@ const Mobiles = () => {
   return (
     <div>
         <Header />
-            <div className='categories'>
+            <div className='categories1'>
                 <ProductPage />
             </div>
         <Footer />

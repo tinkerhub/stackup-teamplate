@@ -1,7 +1,7 @@
 .header span{
     font-size: 16px;
     font-weight: 500;
-    padding-left: 10px;
+    padding-left: .2vw;
     z-index: 1;
 }
 .header {
@@ -36,14 +36,14 @@
 .cntr {
     display: flex;
     align-items: center;
-    padding: 10px 15px;
+    padding: 10px; 
 }
 
 .cntr-li {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 5px 7px; 
+    padding: 5px .3vw; 
 }
 
 .logo {
@@ -57,6 +57,7 @@
     background-color: white;
     border-radius: 7px;
     background-color: #7a539a1b;
+    margin: 1vw;
 }
 
 .search > input {
@@ -65,15 +66,16 @@
     width: 28vw;
     background-color: transparent;
     
+    
 }
 
 .search > .MuiSvgIcon-root {
     color: #7a539a;
-    padding: 10px 7px;
+    padding: 10px .3vw;
 }
 
 .seller-button{
-    border-radius: 8px;
+    border-radius: 7px;
     align-items: center;
     border: none;
     outline: none;
@@ -99,14 +101,13 @@
     background-color: #fff;
     color: #7a539a;
     cursor: pointer;
-    padding: 10px;
 }
 
 .tosignin-button:hover {
     background-color: #7a539a;
     transition: 0.2s;
     color: #fff;
-    border-radius: 8px;
+    border-radius: 7px;
 }
 
 .dropdown {
@@ -149,13 +150,12 @@
     background-color: #fff;
     color: #7a539a;
     cursor: pointer;
-    padding: 10px;
 }
 
 .cart-button :hover {
     background-color: #7a539a;
     color: #fff;
-    border-radius: 8px;
+    border-radius: 7px;
     transition: 0.2s;
 }
 
@@ -166,7 +166,6 @@
     background-color: #fff;
     color: #7a539a;
     cursor: pointer;
-    padding: 10px 15px;
 }
 .dropd-button:hover {
     
