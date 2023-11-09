@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """task_management URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -18,3 +19,16 @@ from . import views
 urlpatterns = [
    path('',views.index)
 ]
+=======
+
+from django.urls import path,include
+from . import views
+urlpatterns = [
+    path('', views.index, name="register"),
+    path('login/',views.login,name="login"),
+    
+
+    
+
+]
+>>>>>>> c807127078a290645a377f5f80b80b8c9dba23fe
