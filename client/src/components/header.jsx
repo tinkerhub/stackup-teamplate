@@ -13,7 +13,7 @@ const Header = () => {
     <div className='header'>
         <div className='header-sub'>
         <div className="logo">
-            <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/flipkart-095e08.svg" alt="flipkart logo" />
+            <img src="/resources/flip-small.png" alt="flipkart logo" />
         </div>
         <div className="search">
             <SearchIcon/>

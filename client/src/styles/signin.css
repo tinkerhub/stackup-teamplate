@@ -22,29 +22,31 @@
     height: 77vh;
   }
   .signin-sub-right-cont{
-    padding: 10vh 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .signin-text{
     font-size: 32px;
     font-weight: 650;
-    padding: 0vh 7.5vh;
+    padding: 0vh 3.7vw;
     color: #000000;
   }
   .signin-label{
-    padding: 0vh 7vh 0vh 7.5vh;
+    padding: 0vh 3vw 0vh 3.7vw;
   }
   .signin-help1{
-    margin-left: 7.5vh;
+    margin-left: 3.7vw;
   }
   .new2signin-lab{
-    margin-left: 7.5vh;
+    margin-left: 3.7vw;
   }
  .signin-input{
     width: 70%;
     font-size: 20px;
     padding: 0vh 1vh;
     display: flex;
-    margin: 1vh 7vh 1vh 7.5vh;
+    margin: 1vh 3vh 1vh 3.7vw;
     box-sizing: border-box;
     outline: none;
     border-radius: 5px;
@@ -57,7 +59,7 @@
     border: 2px solid #7a539a;
   }
   .signin-terms{
-    padding: 0vh 7vh 0vh 7.5vh;
+    padding: 0vh 3vw 0vh 3.7vw;
     font-size: 12px;
   }
   .signin-button {
@@ -68,7 +70,7 @@
     color: white;
     padding: 0vh 1vh;
     display: flex;
-    margin: 2vh 7vh 2vh 7.5vh;
+    margin: 2vh 3vw 2vh 3.7vw;
     border: none;
     border-radius: 5px;
     cursor: pointer;

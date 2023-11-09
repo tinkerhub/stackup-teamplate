@@ -1,16 +1,17 @@
 .categories {
     background-color: #ffffff;
-    width: 84%;
+    width: 84vw;
     margin:8vh auto 0vh auto;
   }
   .cat-cont{
-    width: 84%;
+    width: 84vw;
     margin: 0vh auto;
     padding: 2vh 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
   }
   .cat-inside{
+    width: 9vw;
     text-align: center;
   }
   a{
@@ -23,11 +24,12 @@
   }
   .posters {
     background-color: #ffffff;
-    width: 84%;
+    width: 84vw;
     height: 25vh;
     margin: 2vh auto 0 auto;
     padding: 0;
     display: flex;
+    position: relative;
     justify-content: flex-start;
     aspect-ratio: 2/1;
     overflow-x: scroll;
@@ -35,6 +37,16 @@
     white-space: nowrap;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
+    z-index: 1;
+  }
+  .home-scroll{
+    z-index: 3;
+    position: relative;
+    width: 84vw;
+    display: flex;
+    flex-direction: row;
+    margin: 0vh 0vw;
+    justify-content: space-between;
   }
   .scroll-arrow-left {
     width: 40px;
@@ -48,11 +60,11 @@
     font-weight: 700;
     cursor: pointer;
     border-radius: 0px 3px 3px 0px;
-    user-select: none;
-    position: absolute;
-    margin-top: 12vh; /* Adjust the vertical position as needed */
+    position: relative;
+    left: 0;
+    top: 50%; /* Adjust the vertical position as needed */
     transform: translateY(-50%); /* Center vertically */
-    z-index: 1; /* Ensure they are on top of the images */
+    z-index: 3; /* Ensure they are on top of the images */
     transition: background-color 0.3s; /* Add a smooth transition on hover */
   }
   
@@ -71,11 +83,11 @@
     color: #000000;
     font-size: 24px;
     cursor: pointer;
-    user-select: none;
-    position: absolute;
-    margin: 12vh 0vw 0vh 81.9vw; /* Adjust the vertical position as needed */
+    position: relative;
+    right: 0;
+    top: 50%; /* Adjust the vertical position as needed */
     transform: translateY(-50%); /* Center vertically */
-    z-index: 1; /* Ensure they are on top of the images */
+    z-index: 3; /* Ensure they are on top of the images */
     transition: background-color 0.3s; /* Add a smooth transition on hover */
   }
   
@@ -100,7 +112,7 @@
   /*best mobiles section*/
   .best-mobile {
     background-color: #ffffff;
-    width: 84%;
+    width: 84vw;
     display:flex;
     flex-direction: column;
     margin: 2vh auto;
@@ -112,7 +124,7 @@
   }
 
   .mobile-card-list {
-    width: 84%;
+    width: 84vw;
     display: flex;
     margin: 5vh auto;
     justify-content: space-around;
@@ -121,7 +133,7 @@
   /*top deals section*/
   .top-deals {
     background-color: #ffffff;
-    width: 84%;
+    width: 84vw;
     display:flex;
     flex-direction: column;
     margin: 2vh auto;
@@ -133,7 +145,7 @@
   }
 
   .top-deals-card-list {
-    width: 84%;
+    width: 84vw;
     display: flex;
     margin: 5vh auto;
     justify-content: space-around;
@@ -142,7 +154,7 @@
 /*top electronics section*/
 .top-electronics {
   background-color: #ffffff;
-  width: 84%;
+  width: 84vw;
   display:flex;
   flex-direction: column;
   margin: 2vh auto;
@@ -154,7 +166,7 @@
 }
 
 .top-electronics-card-list {
-  width: 84%;
+  width: 84vw;
   display: flex;
   margin: 5vh auto;
   justify-content: space-around;
@@ -163,7 +175,7 @@
 /*fashion best seller section*/
 .fashion-best-seller {
   background-color: #ffffff;
-  width: 84%;
+  width: 84vw;
   display:flex;
   flex-direction: column;
   margin: 2vh auto;
@@ -175,7 +187,7 @@
 }
 
 .fashion-best-seller-card-list {
-  width: 84%;
+  width: 84vw;
   display: flex;
   margin: 5vh auto;
   justify-content: space-around;
@@ -184,7 +196,7 @@
 /*beauty foods section*/
 .beauty-foods {
   background-color: #ffffff;
-  width: 84%;
+  width: 84vw;
   display:flex;
   flex-direction: column;
   margin: 2vh auto;
@@ -196,7 +208,7 @@
 }
 
 .beauty-foods-card-list {
-  width: 84%;
+  width: 84vw;
   display: flex;
   margin: 5vh auto;
   justify-content: space-around;
@@ -206,7 +218,7 @@
 /*best mobiles section*/
 .home-furnishing {
   background-color: #ffffff;
-  width: 84%;
+  width: 84vw;
   display:flex;
   flex-direction: column;
   margin: 2vh auto;
@@ -218,7 +230,7 @@
 }
 
 .home-furnishing-card-list {
-  width: 84%;
+  width: 84vw;
   display: flex;
   margin: 5vh auto;
   justify-content: space-around;
