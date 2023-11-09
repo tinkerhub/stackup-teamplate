@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vertical Buttons with Spacing</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: skyblue;
+        }
+
+        #buttonContainer {
+            text-align: center;
+        }
+
+        button {
+            background-color:DarkBlue ;
+            color: white;
+            padding: 10px 20px;
+		display:block;
+            border: none;
+            cursor: pointer;
+            margin: 10px 0; /* 10px top and bottom margin, 0 left and right margin */
+        }
+    </style>
+</head>
+<body background="C:\Users\ramee\OneDrive\New folder\wall3.jpg">
+    <div id="buttonContainer">
+        <button id="button1">Take a quiz</button>
+        <button id="button2">create a quiz</button>
+        <button id="button3">logout</button>
+    </div>
+</body>
+</html>
