@@ -26,9 +26,17 @@ const Header = () => {
     const loginStyle = {
         color: 'rgb(238, 238, 238)',
     };
-
+    const inputContainerStyle={
+        position: 'relative',
+        display: 'flex',
+        alignItems: 'center',
+    };
     const iconStyle={
-
+        position: 'absolute',
+        left: '10px',
+        top: '50%',
+        transform: 'translateY(-50%)',
+        color: 'rgb(150, 150, 150)', // Icon color
     };
     return (
         <div style={headerStyle}>
