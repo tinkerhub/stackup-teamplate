@@ -13,7 +13,7 @@ const Header = () => {
     <div className='header'>
         <div className='header-sub'>
         <div className="logo">
-            <img src="/resources/flip-small.png" alt="flipkart logo" />
+            <img src="/resources/matrizen-logo.png" alt="flipkart logo" />
         </div>
         <div className="search">
             <SearchIcon/>
