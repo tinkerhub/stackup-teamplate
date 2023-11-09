@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form action="signup_process.php" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" id="confirm_password" name="confirm_password" required>
+
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+<?php
+// Retrieve user data from the $users array (or from a database/file).
+$users = [];
+
+$username = $_POST["username"];
+$password = $_POST["password"];
+
+if (isset($users[$username]) && password_verify($password, $users[$username]["password"])) {
+    // Login successful
+    echo "Login successful! Welcome, $username.";
+} else {
+    // Login failed
+    echo "Invalid credentials. Please try again.";
+}
+?>
