@@ -8,6 +8,16 @@ const userReducer = (state=initState,action) =>
 {
     switch(action.type)
     {
+        case actions.ADD_CONTACT_SUCCESS:
+            return{
+                ...state,
+                contact_add : true
+            }
+        case actions.ADD_CONTACT_FAILED:
+            return{
+                ...state,
+                contact_add: false
+            }
         case actions.LOGIN_SUCCESS:
             return {
                 ...state,

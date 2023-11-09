@@ -14,8 +14,13 @@ const UserView = ({ user ,fetchContacts}) => {
       // User is logged in, navigate to another route
       navigate("/", { replace: true });
     }
+
+    if(user.contact_add)
+    {
+        user.contact_add = false;
+    }
     fetchContacts(user.user.id)
-  }, [user.login, navigate]);
+  }, [user.login, navigate,user.contact_add]);
 
   return (
     <div className="container">

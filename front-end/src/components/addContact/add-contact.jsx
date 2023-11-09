@@ -29,7 +29,12 @@ const AddContactComponent = ({addContact,user}) => {
           navigate('/', { replace: true });
 
         }
-      }, [user.login, navigate]);
+
+        if(user.contact_add)
+        {
+            navigate('/', { replace: true });
+        }
+      }, [user.login, navigate,user,user.contact_add]);
 
     return (
         <section className="view vh-100">
