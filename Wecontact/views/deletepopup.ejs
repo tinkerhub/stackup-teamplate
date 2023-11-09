@@ -1,0 +1,59 @@
+<div id="delete" style="background-color: rgba(0, 0, 0, 0.2);" class=" flex justify-center items-center fixed top-0 left-0 right-0 bottom-0 z-50 px-6 hidden">
+    <div id="form-arr" class="bg-white  px-6 py-3 space-y-2  rounded-xl pb-4" >
+        <div class="flex justify-end">
+            <!-- <button onclick="closeDelete()" class="rounded-full h-5 w-5  flex justify-center items-center ">
+                <span class="fa fa-close text-gray-500 text-lg"></span>
+            </button> -->
+        </div>
+        <h3 class="text-lg text-center">Are you sure delete this contact?</h3>
+        <h3  class="text-base text-center text-gray-400 pb-3">Contacts can't be recovered </h3>
+        <div class="flex justify-center gap-2  space-x-2 ">
+            <button onclick="closeDelete()" class="rounded-md bg-white flex justify-center items-center border-[1px] border-gray-400 text-base py-1 px-3 text-gray-500">
+                Cancel
+            </button>
+            <script>
+                function closeDelete(){
+                    var deletepopup = document.getElementById('delete')
+                    deletepopup.className='flex justify-center items-center fixed top-0 left-0 right-0 bottom-0 z-50 px-6 hidden'
+                    
+                }
+                async function checknew(userData) {
+   
+                    try {
+   
+                        const response = await fetch('http://localhost:4000/getid', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(userData)
+           
+                        });
+       
+                        if (response.ok) {
+                            const data = await response.json();
+           
+                            var error = document.getElementById('exist-error');
+                            if(data.message==='exist'){
+                                error.className='md:text-center md:ml-12 text-xs text-red-500 mt-2 w-full flex justify-center items-center';
+                            }else{
+                                error.className='md:text-center md:ml-12 text-xs text-red-500 mt-2 hidden w-full flex justify-center items-center';
+                                window.location.href='/'
+                            }
+                        }        
+                    
+                    } catch (error) {
+                        console.error('Error creating user:', error);
+                    }
+                }
+            </script>
+            
+            <form action="/delete" method="post">
+                <button id="dt" name="contact_id" class="rounded-md bg-red-600 flex justify-center items-center text-base py-1 px-3 text-white">
+                    Delete
+                </button>
+            </form>
+        </div>
+        
+    </div>
+</div>
