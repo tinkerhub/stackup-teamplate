@@ -81,11 +81,12 @@ router.put('/update-contact', async (req, res) => {
 
 // Add a new route to delete a contact by ID
 router.delete('/delete-contact', async (req, res) => {
+
+    console.log("delete contact route : ",req.body);
+
     try {
       const userId = req.body.userId;
       const contactId = req.body.contactId;
-
-      console.log(userId,contactId);
   
       // Find the user profile by user ID
       let userProfile = await Contact.findById(userId);
@@ -107,10 +108,19 @@ router.delete('/delete-contact', async (req, res) => {
       // Save the updated user profile
       await userProfile.save();
   
-      return res.send(apiResponse({ message: 'Contact deleted successfully.' }));
+      res.status(200).json({
+            success: true,
+            message: "deletion success"
+        });
+
     } catch (error) {
       console.error(error);
-      res.status(500).send(apiResponse({ message: 'Error processing the request.' }));
+      res.status(401).json(
+        {
+            success: false,
+            message: "failed to delete contact"
+        }
+    )
     }
   });
   

@@ -1,6 +1,6 @@
 import actions from "./action-constants";
 
-export const deleteContact = (payload) => {
+export const deleteContactAction = (payload) => {
     return(
         {
             type : actions.CONTACT_DELETE_START,

@@ -1,7 +1,21 @@
 import React from "react";
+import { deleteContactAction } from "../../redux/actions/actions";
+import { connect } from "react-redux";
 
-const Card = ({name,phone,imageId}) => {
-  console.log("card key : ",imageId);
+const Card = ({name,phone,contactId,userId,deleteContact}) => {
+
+  function handleDelete()
+  {
+    const data = {
+      userId : userId,
+      contactId : contactId
+    }
+
+    console.log("handle delete : ",data);
+
+    deleteContact(data);
+  }
+
   return (
     <div className="row mt-4">
       <div className="col-md-4 mx-auto">
@@ -18,7 +32,7 @@ const Card = ({name,phone,imageId}) => {
               <div className="card-body">
                 <h5 className="card-title">{name}</h5>
                 <p className="card-text">{phone}</p>
-                <button className="btn btn-danger">
+                <button className="btn btn-danger" onClick={() => handleDelete()}>
                   <i className="fas fa-trash"></i>
                 </button>
                 <button className="btn btn-primary ml-2">
@@ -33,4 +47,11 @@ const Card = ({name,phone,imageId}) => {
   );
 };
 
-export default Card;
+const mapDispatchToProps = dispatch =>{
+
+  return{
+    deleteContact : (data) => dispatch(deleteContactAction(data))
+  }
+}
+
+export default connect(null,mapDispatchToProps)(Card);

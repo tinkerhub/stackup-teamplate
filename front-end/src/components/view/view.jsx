@@ -20,7 +20,13 @@ const UserView = ({ user ,fetchContacts}) => {
         user.contact_add = false;
     }
     fetchContacts(user.user.id)
-  }, [user.login, navigate,user.contact_add]);
+  }, [user.login, navigate,user.contact_add,]);
+
+  if(user.delete_contact)
+  {
+    fetchContacts(user.user.id);
+    user.delete_contact = false;
+  }
 
   return (
     <div className="container">
@@ -43,7 +49,7 @@ const UserView = ({ user ,fetchContacts}) => {
       </div>
       {user.contacts && user.contacts.length > 0 ? (
         user.contacts.map((item) => (
-          <Card key={item._id} name={item.name} phone={item.phone} />
+          <Card key={item._id} name={item.name} phone={item.phone} userId={user.user.id} contactId={item._id}/>
         ))
       ) : (
         <p>No contacts available</p>

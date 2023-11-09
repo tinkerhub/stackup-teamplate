@@ -94,11 +94,24 @@ const addContact = (data) => {
 }
 
 const deleteContact = (data) => {
-    
-    const info = {
-        userId : data.id,
-        contact : contact.id
-    }
+
+    console.log("delete contact saga : ",data);
+
+    return fetch('http://localhost:5000/api/user/delete-contact',{
+        method:'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body:JSON.stringify(data)
+    })
+    .then(async res =>
+        {
+            res = await res.json();
+            return res;
+        })
+    .catch(error => {
+        console.log(error)
+    })
 }
 
 function* handleloginStart(action){
@@ -225,7 +238,7 @@ function* watchForContactsFetch(){
     yield takeLatest(actions.CONTACTS_FETCH_START,handleContactsFetch)
 }
 
-function* watchForContactDelete(){
+function* watchForContactDeleteStart(){
     yield takeLatest(actions.CONTACT_DELETE_START,handleContactDelete)
 }
 
@@ -241,6 +254,7 @@ export default function* rootSaga()
             watchForLogOutStart(),
             watchForSignUpStart(),
             watchForContactsFetch(),
-            watchForAddContactStart()
+            watchForAddContactStart(),
+            watchForContactDeleteStart()
     ]);
 }
