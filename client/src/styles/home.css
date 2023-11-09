@@ -1,7 +1,7 @@
 .categories {
     background-color: #ffffff;
     width: 84vw;
-    margin:80px auto 0 auto;
+    margin: 80px auto 0 auto;
   }
   .cat-cont{
     width: 84vw;
@@ -21,6 +21,9 @@
     font-size: 14px;
     font-weight: 500;
     color: black;
+  }
+  .cat-image{
+    object-fit: contain;
   }
   .posters {
     background-color: #ffffff;
