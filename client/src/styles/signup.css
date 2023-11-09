@@ -86,10 +86,10 @@
   .signup-button:hover {
     background-color: #b55aff;
   }
-  a{
+  .signup-container a{
     color:#7a539a;
   }
-  a:hover{
+  .signup-container a:hover{
     color:#b55aff;
   }
 
