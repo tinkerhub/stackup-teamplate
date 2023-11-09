@@ -1,18 +1,18 @@
 .card-cont{
     transition: 0.3s;
-    width: 15vw;
+    width: 12vw;
     margin: 0 1vw;
     padding-top: .5vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 40vh;
+    height: 30vh;
     color: #000000;
     border: 1px solid #ccc; 
 }
 .card {
-    width: 15vw;
-    height: 40vh;
+    width: 12vw;
+    height: 30vh;
 
 }
 .image {
@@ -20,7 +20,7 @@
     max-width: auto;*/
     width: 90%;
     height: 70%;
-    margin: 0 auto;
+    margin: 1vh auto 0 auto;
 }
 
 .image img {
@@ -37,7 +37,7 @@
 
 .details {
     display: flex;
-    font-size: 19px;
+    font-size: 16px;
     justify-content: center;
     text-align: center;
     align-items: center;
