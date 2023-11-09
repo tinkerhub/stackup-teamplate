@@ -1,12 +1,12 @@
 
 .foot-cont{
   width: 100%;
-  margin-top: 10vh;
+  margin-top: 100px;
 }
 .footer-box {
     background-color: #1a1919;
     color: white;
-    height: 14vh;
+    height: 140px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -17,7 +17,7 @@
     justify-content: space-evenly;
     align-items: center;
     padding: 10px;
-    height: 12vh;
+    height: 120px;
     width: 25%;
     text-align: center;
     border-right: 1px solid #ffffff15;
@@ -28,7 +28,7 @@
     display: grid;
     align-items: center;
     padding: 10px;
-    height: 12vh;
+    height: 120px;
     width: 25%;
     text-align: center;
     border-right: 1px solid #ffffff15;
@@ -64,7 +64,7 @@
 
 .copy {
     display: flex;
-    padding:1vh 0;
+    padding:10px 0;
     border-top: 1px solid #ffffff15;
     justify-content: center;
     background-color: #1a1919;

@@ -1,12 +1,12 @@
 .categories {
     background-color: #ffffff;
     width: 84vw;
-    margin:8vh auto 0vh auto;
+    margin:80px auto 0 auto;
   }
   .cat-cont{
     width: 84vw;
-    margin: 0vh auto;
-    padding: 2vh 0;
+    margin: 0 auto;
+    padding: 20px 0;
     display: flex;
     justify-content: center;
   }
@@ -25,8 +25,8 @@
   .posters {
     background-color: #ffffff;
     width: 84vw;
-    height: 25vh;
-    margin: 2vh auto 0 auto;
+    height: 250px;
+    margin: 20px auto 0 auto;
     padding: 0;
     display: flex;
     position: relative;
@@ -45,7 +45,7 @@
     width: 84vw;
     display: flex;
     flex-direction: row;
-    margin: 0vh 0vw;
+    margin: 0 0vw;
     justify-content: space-between;
   }
   .scroll-arrow-left {
@@ -115,7 +115,7 @@
     width: 84vw;
     display:flex;
     flex-direction: column;
-    margin: 2vh auto;
+    margin: 20px auto;
   }
 
   .best-mobile-text {
@@ -126,7 +126,7 @@
   .mobile-card-list {
     width: 84vw;
     display: flex;
-    margin: 5vh auto;
+    margin: 50px auto;
     justify-content: space-around;
     overflow-x: scroll;
     overflow-y: hidden;
@@ -149,7 +149,7 @@
     width: 84vw;
     display:flex;
     flex-direction: column;
-    margin: 2vh auto;
+    margin: 20px auto;
   }
 
   .top-deals-text {
@@ -160,7 +160,7 @@
   .top-deals-card-list {
     width: 84vw;
     display: flex;
-    margin: 5vh auto;
+    margin: 50px auto;
     justify-content: space-around;
     overflow-x: scroll;
     overflow-y: hidden;
@@ -183,7 +183,7 @@
   width: 84vw;
   display:flex;
   flex-direction: column;
-  margin: 2vh auto;
+  margin: 20px auto;
 }
 
 .top-electronics-text {
@@ -194,7 +194,7 @@
 .top-electronics-card-list {
   width: 84vw;
     display: flex;
-    margin: 5vh auto;
+    margin: 50px auto;
     justify-content: space-around;
     overflow-x: scroll;
     overflow-y: hidden;
@@ -217,7 +217,7 @@
   width: 84vw;
   display:flex;
   flex-direction: column;
-  margin: 2vh auto;
+  margin: 20px auto;
 }
 
 .fashion-best-seller-text {
@@ -228,7 +228,7 @@
 .fashion-best-seller-card-list {
   width: 84vw;
     display: flex;
-    margin: 5vh auto;
+    margin: 50px auto;
     justify-content: space-around;
     overflow-x: scroll;
     overflow-y: hidden;
@@ -251,7 +251,7 @@
   width: 84vw;
   display:flex;
   flex-direction: column;
-  margin: 2vh auto;
+  margin: 20px auto;
 }
 
 .beauty-foods-text {
@@ -262,7 +262,7 @@
 .beauty-foods-card-list {
   width: 84vw;
     display: flex;
-    margin: 5vh auto;
+    margin: 50px auto;
     justify-content: space-around;
     overflow-x: scroll;
     overflow-y: hidden;
@@ -286,7 +286,7 @@
   width: 84vw;
   display:flex;
   flex-direction: column;
-  margin: 2vh auto;
+  margin: 20px auto;
 }
 
 .home-furnishing-text {
@@ -297,7 +297,7 @@
 .home-furnishing-card-list {
   width: 84vw;
     display: flex;
-    margin: 5vh auto;
+    margin: 50px auto;
     justify-content: space-around;
     overflow-x: scroll;
     overflow-y: hidden;
