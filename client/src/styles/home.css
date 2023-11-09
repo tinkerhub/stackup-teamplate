@@ -128,7 +128,20 @@
     display: flex;
     margin: 5vh auto;
     justify-content: space-around;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
   }
+  .mobile-card-list::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  .mobile-card-list::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+
 
   /*top deals section*/
   .top-deals {
@@ -149,7 +162,20 @@
     display: flex;
     margin: 5vh auto;
     justify-content: space-around;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
   }
+  .top-deals-card-list::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  .top-deals-card-list::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+
   
 /*top electronics section*/
 .top-electronics {
@@ -167,10 +193,23 @@
 
 .top-electronics-card-list {
   width: 84vw;
-  display: flex;
-  margin: 5vh auto;
-  justify-content: space-around;
+    display: flex;
+    margin: 5vh auto;
+    justify-content: space-around;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
 }
+.top-electronics-card-list::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.top-electronics-card-list::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
 
 /*fashion best seller section*/
 .fashion-best-seller {
@@ -188,10 +227,23 @@
 
 .fashion-best-seller-card-list {
   width: 84vw;
-  display: flex;
-  margin: 5vh auto;
-  justify-content: space-around;
+    display: flex;
+    margin: 5vh auto;
+    justify-content: space-around;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
 }
+.fashion-best-seller-card-list::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.fashion-best-seller-card-list::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
 
 /*beauty foods section*/
 .beauty-foods {
@@ -209,10 +261,23 @@
 
 .beauty-foods-card-list {
   width: 84vw;
-  display: flex;
-  margin: 5vh auto;
-  justify-content: space-around;
+    display: flex;
+    margin: 5vh auto;
+    justify-content: space-around;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
 }
+.beauty-foods-card-list::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.beauty-foods-card-list::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
 
 /*home and furnishng section*/
 /*best mobiles section*/
@@ -231,7 +296,19 @@
 
 .home-furnishing-card-list {
   width: 84vw;
-  display: flex;
-  margin: 5vh auto;
-  justify-content: space-around;
+    display: flex;
+    margin: 5vh auto;
+    justify-content: space-around;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+.home-furnishing-card-list::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.home-furnishing-card-list::-webkit-scrollbar-thumb {
+  background: transparent;
 }
