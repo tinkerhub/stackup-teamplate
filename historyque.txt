@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History Quiz</title>
+</head>
+<body background="C:\Users\ramee\OneDrive\New folder\map3.jpg">
+
+  <h2>History Quiz</h2>
+
+  <form action="submit_quiz.php" method="post">
+    <p>1. Who was the first President of the United States?</p>
+    
+    <label>
+      <input type="radio" name="question1" value="a">a) George Washington
+    </label><br>
+    
+    <label>
+      <input type="radio" name="question1" value="b">b) Thomas Jefferson
+    </label><br>
+    
+    <label>
+      <input type="radio" name="question1" value="c">c) John Adams
+    </label><br>
+    
+    <label>
+      <input type="radio" name="question1" value="d">d) Benjamin Franklin
+    </label><br>
+
+    <p>2. In which year did Christopher Columbus reach the Americas?</p>
+    
+    <label>
+      <input type="radio" name="question2" value="a">a) 1492
+    </label><br>
+    
+    <label>
+      <input type="radio" name="question2" value="b">b) 1500
+    </label><br>
+    
+    <label>
+      <input type="radio" name="question2" value="c">c) 1607
+    </label><br>
+    
+    <label>
+      <input type="radio" name="question2" value="d">d) 1776
+    </label><br>
+ <p>3. who is considered as the author of ancient indian epic,the Ramayana?</p>
+    
+    <label>
+      <input type="radio" name="question3" value="a">a) Vyasa
+    </label><br>
+    
+    <label>
+      <input type="radio" name="question3" value="b">b) Valmiki
+    </label><br>
+    
+    <label>
+      <input type="radio" name="question3" value="c">c) Kavitrayam
+    </label><br>
+    
+    <label>
+      <input type="radio" name="question3" value="d">d) Chithalai Chathanar
+    </label><br>
+ <p>4. In which year America joined second world war?</p>
+    
+    <label>
+      <input type="radio" name="question3" value="a">a) 1939
+    </label><br>
+    
+    <label>
+      <input type="radio" name="question3" value="b">b) 1940
+    </label><br>
+    
+    <label>
+      <input type="radio" name="question3" value="c">c) 1941
+    </label><br>
+    
+    <label>
+      <input type="radio" name="question3" value="d">d) 1942
+    </label><br>
+ <p>5. Which civilisation is oldest in the world?</p>
+    
+    <label>
+      <input type="radio" name="question3" value="a">a) Egyptian civilisation
+    </label><br>
+    
+    <label>
+      <input type="radio" name="question3" value="b">b) Mesopotomian civilisation
+    </label><br>
+    
+    <label>
+      <input type="radio" name="question3" value="c">c) Chinese civilisation
+    </label><br>
+    
+    <label>
+      <input type="radio" name="question3" value="d">d) Indus valley civilisation
+    </label><br>
+    <!-- Add more questions as needed -->
+
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+
+</body>
+</html>
