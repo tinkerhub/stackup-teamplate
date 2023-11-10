@@ -34,8 +34,8 @@ const Card = ({name,phone,contactId,userId,deleteContact,email,address}) => {
           <div className="row no-gutters">
             <div className="col-md-4">
               <img
-                src="https://img.freepik.com/free-vector/illustration-graduation-hat_53876-5920.jpg?size=626&ext=jpg&ga=GA1.2.844804808.1682452210&semt=ais" // Replace with the actual image URL
-                className="card-img"
+                src="contact.png" // Replace with the actual image URL
+                className="card-image"
                 alt="Profile"
               />
             </div>

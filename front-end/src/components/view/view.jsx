@@ -58,13 +58,13 @@ const UserView = ({ user ,fetchContacts}) => {
           <div className="input-group mb-3">
             <input
               type="text"
-              className="form-control"
+              className="form-control search-box" style={{"height":"3rem","border-radius":"0.5rem"}}
               placeholder="Search"
               onChange={handleSearchInputChange}
               value={searchInput}
             />
             <div className="input-group-append">
-            <Link to="/add-contact" className="btn btn-success btn-block search-btn">
+            <Link to="/add-contact" className="btn btn-success btn-block search-btn" style={{"line-height":"2.3"}}>
             Add Contact
           </Link>
             </div>

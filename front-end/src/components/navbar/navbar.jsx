@@ -77,7 +77,7 @@ const Navbar = ({user,logOut}) => {
               location.pathname === '/' ? 
               <></> 
               :
-                <Link to="/login" className="btn btn-primary" >Login</Link>
+                <Link to="/" className="btn btn-primary" >Login</Link>
             }
           </div>
         </nav>

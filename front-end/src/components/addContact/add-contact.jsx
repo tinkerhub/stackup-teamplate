@@ -59,8 +59,8 @@ const AddContactComponent = ({addContact,user}) => {
                                             </div>
 
                                             <div className="d-flex flex-row align-items-center mb-4">
-                                                <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                                                <div className="email form-group w-100">
+                                                <i className="fas fa-phone fa-lg me-3 fa-fw"></i>
+                                                <div className="form-group w-100">
                                                     <input type="text" className="form-control" name="phone" placeholder="Mobile No"
                                                     {...register('phone', { required: true })} />
                                                 </div>
@@ -75,7 +75,7 @@ const AddContactComponent = ({addContact,user}) => {
                                             </div>
 
                                             <div className="d-flex flex-row align-items-center mb-4">
-                                                <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                                <i className="fas fa-house fa-lg me-3 fa-fw"></i>
                                                 <div className="email form-group w-100">
                                                     <input type="text" className="form-control" name="address" placeholder="Address"
                                                     {...register('address', { required: true })} />
