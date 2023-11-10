@@ -24,7 +24,6 @@ In the "weContact" project, we leverage MongoDB as our database, Node and Expres
 ## Team Id
 secure3
 ## Link to product walkthrough
-test
 [link to video]- https://drive.google.com/file/d/103jatAgzfqjqPcEvfnGha1obL9RJEgZK/view?usp=sharing
 ## How it Works ?
 1.  Signup with your Name,Email and a strong password.
