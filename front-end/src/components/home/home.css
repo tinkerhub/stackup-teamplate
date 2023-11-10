@@ -1,0 +1,24 @@
+.grid-container {
+    margin-top: 7rem;
+    margin-left: 4rem;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-gap: 5px; /* Adjust the gap between grid items as needed */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .grid-item {
+    background-color: #eaeaea;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Media query for responsive layout */
+  @media (max-width: 768px) {
+    .grid-container {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust the column width as needed for smaller screens */
+      grid-gap: 5px; /* Adjust the gap between grid items as needed for smaller screens */
+    }
+  }
+  
