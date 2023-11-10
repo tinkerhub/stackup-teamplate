@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/styles/style.css" />
+    <link rel="stylesheet" href=
+    "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+</head>
+<body class="h-screen">
+    <header class="flex justify-between px-4 py-2 items-center">
+        <div class="h-[37px] w-[37px] rounded-full bg-gradient-to-r from-[#2f60f5] to-blue-400  flex justify-center items-center">
+            <span class="text-white text-sm font-semibold">MR</span>
+            <!-- <img class="h-[25px] w-[30px]" src="/images/businessman.png" alt="man"> -->
+        </div>
+        <div class="flex items-center justify-center">
+            <img class="h-8" src="/images/LOGO.png" alt="">
+        </div>
+        <button>
+            <img class="h-7" src="/images/align-left.png" alt="menu">
+        </button>
+       
+    </header>
+    
+    <div class="bg-gray-100 h-[1px] mx-1 "></div>
+    <!-- searchbar & addnew -->
+    <div class="p-4 mt-2 lg:px-8 sm:flex sm:justify-between sm:gap-5">
+        <!-- searchbar&sort -->
+        <div class="flex gap-2 w-full sm:w-max">
+            <!-- search -->
+            <form class="w-8/12" action="/search" method="post">
+                <div  class=" border-2 border-gray-100 rounded-md flex items-center sm:w-72 h-max">
+                    <input class="ml-2 placeholder:text-gray-700 outline-none w-full " type="text" placeholder="Search..." name="search">
+                    <button class="bg-blue-600 py-3 px-4 rounded-r-md ">
+                        <i class="bi bi-search text-white"></i>
+                    </button>
+                </div>
+            </form>
+            
+            <!-- filter -->
+            <div class="relative w-5/12">
+                <!-- filter-popup -->
+                <button id="btn" class=" flex items-center justify-between gap-3 border-2  border-gray-100 rounded-md px-3 py-3.5 text-sm text-gray-700 w-full sm:w-42">
+                    Filter By All  
+                    <svg id="svgbtn"  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                    
+                </button>
+                <div  id='filter' class="hidden z-50 absolute right-0 bg-white shadow-md shadow-gray-500 border-[1px] border-black w-full">
+                    <form action="/sort/All" method="get">
+                        <button class="group hover:bg-blue-600 px-3  w-full flex">
+                            <span  class="text-sm text-gray-700 group-hover:text-white">Filter By All</span>
+                        </button>
+                    </form>
+                    <form action="/sort/Family" method="get">
+                        <button  class="hover:bg-blue-600 px-3 group w-full flex ">
+                            <span class="text-sm text-gray-700 group-hover:text-white ">Family</span>
+                        </button>
+                    </form>
+                    <form action="/sort/Business" method="get">
+                        <button  class="hover:bg-blue-600 px-3 group w-full flex ">
+                            <span class="text-sm text-gray-700 group-hover:text-white ">Business</span>
+                        </button>
+                    </form>
+                    <form action="/sort/Friend" method="get">
+                        <button  class="hover:bg-blue-600 px-3 group w-full flex ">
+                            <span class="text-sm text-gray-700 group-hover:text-white ">Friend</span>
+                        </button>
+                    </form>
+                    <form action="/sort/Others" method="get">
+                        <button  class="hover:bg-blue-600 px-3 group w-full flex ">
+                            <span class="text-sm text-gray-700 group-hover:text-white ">Others</span>
+                        </button>
+                    </form>
+                
+                </div>
+            </div>
+            
+        </div>
+        <!-- addnew -->
+        <div class="mt-4 ">
+            <button onclick="popupAddContact()" class="bg-[#2f60f5] w-full rounded-md p-2.5 flex justify-center">
+                <span class="material-symbols-outlined text-white">
+                    add
+                </span>
+                <span class="text-white ml-1">Add New</span>
+            </button>
+        </div>
+        
+        
+    </div>
+    <!-- contactslist -->
+    <div class="">
+        <div class="p-4 lg:p-8 grid w-full sm:grid-cols-2 lg:grid-cols-3 gap-4 xl:grid-cols-4" >
+            <% if(list.length===0){ %>
+                noo
+            <%} else{%>
+            <% list.forEach((data)=>{ %>
+            <!-- card -->
+            <div class="border-2 border-gray-200 p-4 rounded-md px-6 relative h-max">
+                <!-- horizontal title -->
+                <div class="flex justify-between">
+                    <div class="flex gap-4">
+                        <!-- icon -->
+                        <% if(data.category==='Family'){ %>
+                        <div class="h-[55px] w-[55px] rounded-full bg-green-100 p-3 flex justify-center items-center">
+                            <span class="text-xl text-green-700 font-semibold"><%= data.name.split(' ').map(x => x[0]).join('').substring(0,2).toUpperCase()%></span>
+                        </div>
+                        <%}else if(data.category==='Friend'){%>
+                            <div class="h-[55px] w-[55px] rounded-full bg-orange-100 p-3 flex justify-center items-center">
+                                <span class="text-xl text-orange-700 font-semibold"><%= data.name.split(' ').map(x => x[0]).join('').substring(0,2).toUpperCase()%></span>
+                            </div>
+                        <%} else if(data.category==='Business'){%>
+                            <div class="h-[55px] w-[55px] rounded-full bg-pink-100 p-3 flex justify-center items-center">
+                                <span class="text-xl text-pink-700 font-semibold"><%= data.name.split(' ').map(x => x[0]).join('').substring(0,2).toUpperCase()%></span>
+                            </div>
+                        <%}else{%>
+                            <div class="h-[55px] w-[55px] rounded-full bg-violet-100 p-3 flex justify-center items-center">
+                                <span class="text-xl text-violet-700 font-semibold"><%= data.name.split(' ').map(x => x[0]).join('').substring(0,2).toUpperCase()%></span>
+                            </div>
+                        <%}%>
+                        <!-- name&place -->
+                        <div class="">
+                            <h1 class="text-lg font-semibold capitalize"><%= data.name %></h1>
+                            <h3 class="text-gray-500 font-medium text-sm capitalize" ><%= data.place %></h3>
+                        </div>
+                    </div>
+                    
+                    <!-- option -->
+                    <div class="">
+                        
+                        <span onclick="myFunction(this)" id=<%= data._id %> class="flex justify-end pt-3 select-none cursor-pointer material-symbols-outlined text-gray-500 ">
+                            more_vert
+                        </span>
+                        <!-- option-popup -->
+                        <div id=<%= data._id+'popup' %> class="hidden absolute right-0 bg-white shadow-lg shadow-slate-200">
+                            
+                            <button name="contact_id" id="editbtn" value="<%= data._id %>" onclick="popupeditContact(this)" class="hover:bg-gray-200 px-3 pb-1 w-full rounded-md">
+                                <span  class="text-sm">Edit</span>
+                            </button>
+                            
+                            
+                            <div class="h-[1px] bg-gray-200"></div>
+                            
+                            <button name="contact_id" value="<%= data._id %>" id="dtbtn" onclick="popupdeleteContact()" class="hover:bg-red-500 px-3 pb-1 rounded-md group">
+                                <span class="text-sm group-hover:text-white">Delete</span>
+                            </button>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- line -->
+                <div class="h-[1px] bg-gray-200 my-2"></div>
+                <!-- phone -->
+                <div class="flex gap-3 mt-4">
+                    <i class="bi bi-telephone text-gray-500"></i>
+                    <a class="text-gray-500"><%= `${data.code} ${data.phone}` %></a>
+                </div>
+                <!-- phone -->
+                <div class="flex gap-2 mb-4">
+                    <span class="material-symbols-outlined text-gray-500 font-light text-xl">
+                        alternate_email
+                    </span>
+                    <a class="text-gray-500"><%= data.email %></a>
+                </div>
+                <!-- tags -->
+                <div class="mt-3 flex gap-4">
+                    <!-- tag -->
+                    <% if(data.category==='Family'){ %>
+                        <div class="bg-green-100 px-4 w-max rounded-full pb-1">
+                            <h4 class="text-green-700 text-sm font-medium"><%= data.category %></h4>
+                        </div>
+                    <%}else if(data.category==='Friend'){%>
+                        <div class="bg-orange-100 px-4 w-max rounded-full pb-1">
+                            <h4 class="text-orange-700 text-sm font-medium"><%= data.category %></h4>
+                        </div>
+                    <%} else if(data.category==='Business'){%>
+                        <div class="bg-pink-100 px-4 w-max rounded-full pb-1">
+                            <h4 class="text-pink-700 text-sm font-medium"><%= data.category %></h4>
+                        </div>
+                    <%}else{%>
+                        <div class="bg-violet-100 px-4 w-max rounded-full pb-1">
+                            <h4 class="text-violet-700 text-sm font-medium"><%= data.category %></h4>
+                        </div>
+                    <%}%>
+                    
+                    
+                </div>
+            </div>
+            <% }) %>
+            <% } %>
+    
+            
+        </div>
+    </div>
+    <%- include('addcontact.ejs') %>
+    <%- include('deletepopup.ejs') %>
+    <%- include('editcontact.ejs') %>
+    
+    <script src="./javascript/script.js"></script>
+
+    
+</body>
+</html>
