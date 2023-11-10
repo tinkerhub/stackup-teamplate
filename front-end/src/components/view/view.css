@@ -1,6 +1,19 @@
-.search-view{
-    margin-top: 7rem;
+.view-container{
+    margin-top:15rem;
 }
+
+.search-view{
+    margin-top: 4rem;
+    padding: 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white; /* Set the background color you prefer */
+    z-index: 999; /* Adjust the z-index value as needed */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
 
 .search-btn{
     margin-left:1rem;
