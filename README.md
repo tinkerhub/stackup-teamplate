@@ -1,4 +1,4 @@
-![StackUp Banner]([https://tinkerhub.frappe.cloud/files/stackup%20banner.jpeg])
+![StackUp Banner](https://tinkerhub.frappe.cloud/files/stackup%20banner.jpeg)
 # Wecontact
 "weContact" distinguishes itself as an innovative, relevant, and user-friendly initiative intricately designed to simplify contact management for every user. Featuring an uncomplicated interface coupled with robust features, weContact seamlessly facilitates storing, editing, categorizing, searching, sorting, and deleting user contacts—all with just a few clicks.
 
