@@ -1,0 +1,33 @@
+{
+  "name": "wecontact-final-final",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js -e ejs",
+    "watch": "nodemon --ext ejs",
+    "build": "postcss public/styles/tailwind.css -o public/styles/style.css & nodemon index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.4.16",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "connect-livereload": "^0.6.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "express-validator": "^7.0.1",
+    "livereload": "^0.9.3",
+    "mongoose": "^8.0.0",
+    "nodemailer": "^6.9.7",
+    "nodemon": "^3.0.1",
+    "postcss": "^8.4.31",
+    "postcss-cli": "^10.1.0",
+    "tailwind": "^4.0.0",
+    "touch": "^3.1.0"
+  }
+}
