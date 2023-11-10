@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+  </head>
+  <body class="w-screen bg-slate-100 h-screen flex flex-col items-center justify-center">
+    <div
+      class="flex w-fit bg-white justify-center items-center lg:m-20 rounded-md lg:shadow-2xl xl:w-3/5 "
+    >
+      <!--leftside-->
+      <div class="hidden lg:flex">
+        <img
+          class="w-72 ps-10"
+          src="/images/student-login.webp"
+          alt="login-image"
+        />
+      </div>
+      <!--rightside-->
+      <div class="px-5 sm:px-20 py-10 text-center flex flex-col items-center">
+        <img
+          class="w-56 my-5 flex justify-center"
+          src="/images/LOGO1.png"
+          alt="logo-alt"
+        />
+        <div class="w-full flex justify-around  font-semibold mb-7">
+          <% if(notexistinguser === "Incorrect email" || invalidPassword === "Incorrect Password.") {%>
+            <button id="user-btn" class=" text-black w-full">User</button>
+              <button id="admin-btn" class="text-[#2f60f5] w-full  border-b-2 border-[#2f60f5]">Admin</button>
+            <% }else if(invalidPassword === "Incorrect Password." && notexistinguser === "Incorrect email" ){ %>
+              <button id="user-btn" class=" text-black w-full">User</button>
+              <button id="admin-btn" class="text-[#2f60f5] w-full  border-b-2 border-[#2f60f5]">Admin</button>          
+            
+            <% }else{ %> 
+              <button id="user-btn" class="text-[#2f60f5] w-full  border-b-2 border-[#2f60f5]">User</button>
+              <button id="admin-btn" class="text-black w-full">Admin</button>
+              <% } %>
+          
+        </div>
+        
+        
+        <form id="user-form" 
+        <% if(notexistinguser === "Incorrect email" || invalidPassword === "Invalid Password.") {%>
+          class="hidden"
+          <% }else{ %>
+            class="block"
+            <% } %>
+         action="userLogin" method="post">
+          <input id="email-input" <% if(notexistinguser !== "") {%>
+            class="border-2 w-full px-5 py-2 my-2 outline-none border-red-500" <% if(locals.email) {%>value="<%=email%>"  <%}%> <%}else{ %> 
+              class="border-2 w-full px-5 py-2 my-2 outline-none" 
+              <% } %>
+            placeholder="Email Address" type="text" name="email" /> 
+            <% if(errors && errors.email) { %>
+              
+            <div id="email-error" class="text-red-500 text-xs text-left">
+              <%= errors.email.msg %>
+            </div>
+            <% } else if(notexistinguser !== "") {%>
+             
+            <div class="text-red-500 text-xs text-left"><%= notexistinguser %></div>
+            <% } %>
+          <div id="password-input" <% if(invalidPassword !== ""){ %> class="border-2 border-red-500  w-full px-5 py-2 my-2 flex  "><% 
+          }else{ %>
+            class="border-2 w-full px-5 py-2 my-2 flex">
+            <% } %>
+            <input id="password" class="outline-none" placeholder="Password" type="password" name="password" />
+            <a class="cursor-pointer" id="password-eye-button" onclick="passwordvisibility()"
+              ><span
+                id="eye"
+                class="material-symbols-outlined opacity-50 text-xl"
+              >
+                visibility_off
+              </span>
+              </a>
+          </div>
+
+          <% if(invalidPassword !== "") { %>
+          <div class="text-red-500 text-xs text-left">
+            <%= invalidPassword %>
+          </div>
+          <% } %>
+
+          <div id="forgot-password" class="text-xs font-semibold text-[#2f60f5] my-1">
+            <a  class="" href="/resetPassword">Forgot password?</a>
+          </div>
+          <button
+            class="bg-[#2f60f5] w-full font-semibold text-white rounded-lg py-2 my-5"
+          >
+            Log In
+          </button>
+          <div id="create-account" class="my-3 text-sm">
+            <div  class="font-medium">Don't have an account with us?</div>
+            <div class="text-[#2f60f5] font-semibold">
+              <a href="/signup">Create an account</a>
+            </div>
+          </div>
+        </form>
+        
+
+        <form id="admin-form" 
+        <% if(notexistinguser === "Incorrect email" || invalidPassword === "Invalid Password.") {%>
+          class="block"
+          <% }else{ %>
+            class="hidden"
+            <% } %>
+        action="/adminLogin" method="post">
+          <input id="email-input" <% if(notexistinguser !== "") {%>
+            class="border-2 w-full px-5 py-2 my-2 outline-none border-red-500" <%}else{ %> 
+              class="border-2 w-full px-5 py-2 my-2 outline-none" 
+              <% } %>
+            placeholder="Admin Email Address" type="text" name="email" /> 
+            <% if(errors && errors.email) { %>
+              
+            <div id="email-error" class="text-red-500 text-xs text-left">
+              <%= errors.email.msg %>
+            </div>
+            <% } else if(notexistinguser !== "") {%>
+            <div class="text-red-500 text-xs text-left"><%= notexistinguser %></div>
+            <% } %>
+          <div id="password-input" <% if(invalidPassword !== ""){ %> class="border-2 border-red-500  w-full px-5 py-2 my-2 flex  "><% 
+          }else{ %>
+            class="border-2 w-full px-5 py-2 my-2 flex">
+            <% } %>
+            <input id="admin-password" class="outline-none" placeholder="Password" type="password" name="password" />
+            <a class="cursor-pointer" id="password-eye-button" onclick="adminpasswordvisibility()"
+              ><span
+                id="admin-eye"
+                class="material-symbols-outlined opacity-50 text-xl"
+              >
+                visibility_off
+              </span>
+              </a>
+          </div>
+
+          <% if(invalidPassword !== "") { %>
+          <div class="text-red-500 text-xs text-left">
+            <%= invalidPassword %>
+          </div>
+          <% } %>
+
+          <div id="admin-forgot-password" 
+          <% if(notexistinguser === "Incorrect email" || invalidPassword === "Invalid Password.") {%>
+            class="invisible"
+            <% }else{ %>
+              class="text-xs font-semibold text-green-500 my-1"
+              <% } %> >
+          
+            <a  class="" href="/resetPassword">Forgot password?</a>
+          </div>
+          <button
+            class="bg-[#2f60f5] w-full font-semibold text-white rounded-lg py-2 my-5"
+          >
+            Log In
+          </button>
+          <div id="admin-create-account" class="my-3 text-sm">
+            <div  class="font-medium">Don't have an account with us?</div>
+            <div class="text-[#2f60f5] font-semibold">
+              <a href="/signup">Create an account</a>
+            </div>
+          </div>
+        </form>
+       
+      </div>
+    </div>
+    <script>
+      const passwordfield = document.getElementById("password");
+      const adminpasswordfield = document.getElementById("admin-password")
+      const passwordeye = document.getElementById("password-eye-button");
+      const eye = document.getElementById("eye");
+      const admineye = document.getElementById("admin-eye");
+
+      function passwordvisibility() {
+        if (passwordfield.type === "password") {
+          passwordfield.type = "text";
+          eye.textContent = "visibility";
+        } else if (passwordfield.type === "text") {
+          passwordfield.type = "password";
+          eye.textContent = "visibility_off";
+        }
+      }
+
+      function adminpasswordvisibility() {
+        if (adminpasswordfield.type === "password") {
+          adminpasswordfield.type = "text";
+          admineye.textContent = "visibility";
+        } else if (adminpasswordfield.type === "text") {
+          adminpasswordfield.type = "password";
+          admineye.textContent = "visibility_off";
+        }
+      }
+
+      const user_button = document.getElementById('user-btn')
+      const admin_button = document.getElementById('admin-btn')
+      const forgot_password = document.getElementById('admin-forgot-password')
+      const create_account = document.getElementById('admin-create-account')
+      const user_form = document.getElementById('user-form')
+      const admin_form = document.getElementById('admin-form')
+
+      user_button.addEventListener("click",function(){
+        
+        
+        user_button.className = "text-[#2f60f5] w-full  border-b-2 border-[#2f60f5]"
+        admin_button.className = "text-black w-full"
+        admin_form.className = "hidden"
+        user_form.className = "block"
+      })
+
+      admin_button.addEventListener("click",function(){
+        forgot_password.style.visibility = "hidden"
+        create_account.style.visibility = "hidden"
+        user_button.className = "text-black w-full" 
+        admin_button.className = " text-[#2f60f5] w-full  border-b-2 border-[#2f60f5]"
+        admin_form.className = "block"
+        user_form.className = "hidden"
+        
+      })
+      
+
+      
+      </script>
+
+  </body>
+</html>
