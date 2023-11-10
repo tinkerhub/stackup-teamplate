@@ -27,7 +27,33 @@ secure3
 test
 [link to video]
 ## How it Works ?
-1.Signup with your Name,Email and a strong password
+1.Signup with your Name,Email and a strong password.
+https://github.com/Alexmathai2001/stackup-teamplate/blob/master/tests/signup.png
+
+2. Login to your account by using registered account details. you can reset your
+   password by clicking on forgot password option.
+https://github.com/Alexmathai2001/stackup-teamplate/blob/master/tests/login.png
+
+4. Now You can access home page on successful login. there will be empty on new user interface.
+   you can add contacts, search existing contacts and filter existing contacts by using
+   contact type like friend,family etc...
+https://github.com/Alexmathai2001/stackup-teamplate/blob/master/tests/home.png
+
+5. Add contact section need Contac name,phone number,place,email and type. you can't leave fields empty while
+   submitting add form.
+https://github.com/Alexmathai2001/stackup-teamplate/blob/master/tests/addcontact.png
+
+6. You can edit existing contact details by using edit option from each contact card.
+https://github.com/Alexmathai2001/stackup-teamplate/blob/master/tests/editcontact.png
+
+7. You can able to logout from this account by pressing logout button in header.
+https://github.com/Alexmathai2001/stackup-teamplate/blob/master/tests/logout.png
+
+8. Admin page. admins can view users details with username and email id. there is an option
+   to sort and search users. and admin can delete user. it will remove user data and all contacts which added
+   by the specific user
+https://github.com/Alexmathai2001/stackup-teamplate/blob/master/tests/admin.png
+
 
 ## Frameworks and Libraries Used
 Client: Tailwind,Javascript,HTML .
