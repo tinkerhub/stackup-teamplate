@@ -1,15 +1,3 @@
-.btn-edit{
-    margin-left: 15px;;
-}
-.name{
-    font-family: Poppins;
-}
-.phone{
-    font-family: Poppins;
-}
-.card{
-    background-color:transparent;
-    backdrop-filter:blur(100px) ;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
+.edit-btn{
+    margin-left: 1rem;
 }

@@ -25,7 +25,12 @@ const Navbar = ({user,logOut}) => {
         
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <Link className="navbar-brand mt-2 mt-lg-0" href="/">
-                <i className='bx bxs-contact bx-md'></i>
+                <img
+                  src="phone-book.png"
+                  height="45"
+                  alt="MDB Logo"
+                  loading="lazy"
+                />
               </Link>
               <h3 className="text-ContactManager mt-2">Contact Manager</h3>
             </div>
@@ -43,7 +48,14 @@ const Navbar = ({user,logOut}) => {
                   data-mdb-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <i className='user-icon bx bx-user bx-lg'></i>
+
+                  <img
+                    src="profile.png"
+                    className="profile-pic "
+                    height="45"
+                    alt="Black and White Portrait of a Man"
+                    loading="lazy"
+                  />
                 </a>
                 <ul
                   className="dropdown-menu dropdown-menu-end"
