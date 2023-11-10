@@ -26,7 +26,7 @@ const Navbar = ({user,logOut}) => {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <Link className="navbar-brand mt-2 mt-lg-0" href="/">
                 <img
-                  src="https://img.freepik.com/free-vector/illustration-graduation-hat_53876-5920.jpg?size=626&ext=jpg&ga=GA1.2.844804808.1682452210&semt=ais"
+                  src="user.png"
                   height="45"
                   alt="MDB Logo"
                   loading="lazy"

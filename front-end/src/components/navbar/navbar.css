@@ -6,6 +6,13 @@
     z-index: 999;
 }
 
+
 .profile-pic{
     border-radius: 300px;
+}
+.text-ContactManager{
+    font-style: bold;
+}
+.user-icon{
+    margin-right: 20px;
 }
