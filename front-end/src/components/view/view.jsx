@@ -52,8 +52,8 @@ const UserView = ({ user ,fetchContacts}) => {
   };
 
   return (
-    <div className="container view-container">
-      <div className="row search-view">
+    <div className="container">
+      <div className="row">
         <div className="col-md-6 mx-auto">
           <div className="input-group mb-3">
             <input
@@ -89,8 +89,7 @@ const UserView = ({ user ,fetchContacts}) => {
           <p>No contacts available</p>
         )}
       </div>
-    </div>
-
+      </div>
   );
 };
 

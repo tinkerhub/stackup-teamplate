@@ -25,14 +25,9 @@ const Navbar = ({user,logOut}) => {
         
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <Link className="navbar-brand mt-2 mt-lg-0" href="/">
-                <img
-                  src="https://img.freepik.com/free-vector/illustration-graduation-hat_53876-5920.jpg?size=626&ext=jpg&ga=GA1.2.844804808.1682452210&semt=ais"
-                  height="45"
-                  alt="MDB Logo"
-                  loading="lazy"
-                />
+                <i className='bx bxs-contact bx-md'></i>
               </Link>
-              <h3 className="mt-2">Contact Manager</h3>
+              <h3 className="text-ContactManager mt-2">Contact Manager</h3>
             </div>
 
             {
@@ -48,13 +43,7 @@ const Navbar = ({user,logOut}) => {
                   data-mdb-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <img
-                    src="https://img.freepik.com/free-vector/vector-cartoon-illustration-school-building-green-lawn-road-trees-educalion-l_134830-1588.jpg?w=1380&t=st=1694172352~exp=1694172952~hmac=d1edae63a90a97b8e212d0ead9e5dcd337c2c028e889c687af1585c64c3c0161"
-                    className="profile-pic "
-                    height="45"
-                    alt="Black and White Portrait of a Man"
-                    loading="lazy"
-                  />
+                  <i className='user-icon bx bx-user bx-lg'></i>
                 </a>
                 <ul
                   className="dropdown-menu dropdown-menu-end"

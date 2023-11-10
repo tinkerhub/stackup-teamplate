@@ -2,7 +2,7 @@ import React from "react";
 import { deleteContactAction } from "../../redux/actions/actions";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-
+import './card.css';
 const Card = ({name,phone,contactId,userId,deleteContact,email,address}) => {
 
   const edit_data = {
@@ -26,6 +26,7 @@ const Card = ({name,phone,contactId,userId,deleteContact,email,address}) => {
   }
 
   return (
+    
     <div className="row mt-4">
       <div className="col-md-4 mx-auto">
         <div className="card">
@@ -39,13 +40,13 @@ const Card = ({name,phone,contactId,userId,deleteContact,email,address}) => {
             </div>
             <div className="col-md-8">
               <div className="card-body">
-                <h5 className="card-title">{name}</h5>
-                <p className="card-text">{phone}</p>
+                <h5 className="name card-title">{name}</h5>
+                <p className="phone card-text">{phone}</p>
                 <button className="btn btn-danger" onClick={() => handleDelete()}>
-                  <i className="fas fa-trash"></i>
+                  <i className="btn-trash fas fa-trash"></i>
                 </button>
-                <Link to="/edit-contact" state={edit_data} className="btn btn-primary ml-2">
-                <i className="fas fa-edit"></i>
+                <Link to="/edit-contact" state={edit_data} className="btn-edit btn btn-primary ml-2">
+                <i className=" fas fa-edit"></i>
                 </Link>
               </div>
             </div>
