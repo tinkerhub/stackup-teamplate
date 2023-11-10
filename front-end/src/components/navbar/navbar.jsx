@@ -32,7 +32,7 @@ const Navbar = ({user,logOut}) => {
                   loading="lazy"
                 />
               </Link>
-              <h3 className="text-ContactManager mt-2">Contact Manager</h3>
+              <h3 className="mt-2">Contact Manager</h3>
             </div>
 
             {
@@ -48,7 +48,6 @@ const Navbar = ({user,logOut}) => {
                   data-mdb-toggle="dropdown"
                   aria-expanded="false"
                 >
-
                   <img
                     src="profile.png"
                     className="profile-pic "
