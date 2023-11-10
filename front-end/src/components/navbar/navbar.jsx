@@ -25,14 +25,9 @@ const Navbar = ({user,logOut}) => {
         
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <Link className="navbar-brand mt-2 mt-lg-0" href="/">
-                <img
-                  src="https://img.freepik.com/free-vector/illustration-graduation-hat_53876-5920.jpg?size=626&ext=jpg&ga=GA1.2.844804808.1682452210&semt=ais"
-                  height="45"
-                  alt="MDB Logo"
-                  loading="lazy"
-                />
+                <i className='bx bxs-contact bx-md'></i>
               </Link>
-              <h3 className="mt-2">Contact Manager</h3>
+              <h3 className="text-ContactManager mt-2">Contact Manager</h3>
             </div>
 
             {
