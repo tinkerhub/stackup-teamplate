@@ -43,13 +43,7 @@ const Navbar = ({user,logOut}) => {
                   data-mdb-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <img
-                    src="https://img.freepik.com/free-vector/vector-cartoon-illustration-school-building-green-lawn-road-trees-educalion-l_134830-1588.jpg?w=1380&t=st=1694172352~exp=1694172952~hmac=d1edae63a90a97b8e212d0ead9e5dcd337c2c028e889c687af1585c64c3c0161"
-                    className="profile-pic "
-                    height="45"
-                    alt="Black and White Portrait of a Man"
-                    loading="lazy"
-                  />
+                  <i className='user-icon bx bx-user bx-lg'></i>
                 </a>
                 <ul
                   className="dropdown-menu dropdown-menu-end"
