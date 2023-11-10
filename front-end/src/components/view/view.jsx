@@ -3,8 +3,7 @@ import { connect } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Card from "../card/card";
 import { contactFetchAction } from "../../redux/actions/actions";
-//import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
-import 'font-awesome/css/font-awesome.min.css';
+import "./view.css";
 
 const UserView = ({ user ,fetchContacts}) => {
   const navigate = useNavigate();
