@@ -27,14 +27,20 @@ secure3
 test
 [link to video]
 ## How it Works ?
-1. Explaining the working of project
-2. Embed video of project demo
-## Libraries used
-Node JS - v20.9.0
-Express js - v4.18.2
-TailwindCSS - v4.0.0
+1.Signup with your Name,Email and a strong password
 
+## Frameworks and Libraries Used
+Client: Tailwind,Javascript,HTML .
+Server: Nodejs, Expressjs, and MongoDB.
 ## How to configure
-Instructions for setting up project
+1. Install node js in your computer
+2. Now initialize npm by using npm init command
+3. install all packages mentioned in package.json depencies section.
+4. You have install tailwind css using postcss plugin and apply its styles by entering
+   npm build command.
 ## How to Run
-Instructions for running
+1. Go to the code section above and download it as a zip.
+2. Extract the zip file, then open the extracted folder in vscode.
+3. Press ctrl+j on Windows, it will open the terminal to this folder.
+4. Now run the command npm start, which will launch this on localhost:4000 and the server at localhost:4000. (If it doesn't redirect you, then manually search localhost:4000).
+Done! Now you will be able to see the project running on your system.
