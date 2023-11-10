@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+</head>
+<body class="bg-gray-100">
+    <header class= "bg-[#2f60f5] flex h-16 lg:h-20 items-center px-3 justify-between ">
+        <div><!--Logo-->
+           <img class="h-6 lg:h-8" src="/img/LOGOwhite.png" alt=""> 
+        </div>
+        <!--search-->
+        <!--search-->
+        <form action="/admin" class="bg-white flex items-center h-7 lg:h-9 w-6/12 rounded-md space-x-1 shadow-xl" method="post"> 
+                <button class="flex items-center pl-2 mt-">
+                    <span class="material-symbols-outlined text-sm mt-1 lg:text-lg text-gray-400">
+                        search
+                    </span>
+                </button>
+                <input <%if(locals.searchValue){%>value="<%=searchValue%>"<%}%>  class="text-gray-400 text-xs lg:text-sm h-full w-full rounded-md outline-none " placeholder="search.." type="text" name="search" id="">
+        </form>
+        <div><!--Logout-->
+            <button onclick="popuplogoutadmin()" class= "text-white flex items-center">
+                <span onclick="popuplogoutadmin()" class="material-symbols-outlined lg:text-3xl select-none cursor-pointer">
+                    logout
+                </span>
+            </button>
+        </div>
+    </header>
+    <main class="mt-3 px-3 ">
+        <div class="mt-2 flex justify-between">
+            <div  class="bg-white text-[#2f60f5] px-2 py-1 rounded-md ">
+                <h1 class="font-medium  ">Members</h1>
+            </div>
+            <form action="/admin/sort" method="post">
+                <select onchange="this.form.submit()" class="bg-white text-[#2f60f5] pl-1 rounded-md py-1" name="sortBy" id="">
+                    <option value="sortby">sort by</option>
+                    <option value="a-z">A-Z</option>
+                    <option value="z-a">Z-A</option>
+                    <option value="oldestfirst">oldest first</option>
+                    <option value="newestfirst">newest first</option>
+                </select>
+            </form>   
+        </div>
+        <div class="flex  text-gray-500  text-xs mt-5 ml-3 ">
+            <h1 class="lg:text-sm">Total Members : </h1>
+            <h1 class="flex items-center lg:text-sm justify-center"><%=count%></h1>
+        </div>
+        <%if(users.length==0){%>
+            <div class="flex justify-center items-center w-full">
+                <img class="h-56 " src="/images/no_data.png" alt="NODATA">
+            </div>
+        <%}else{%>
+        <div class="mt-3 bg-white px-2 py-2 shadow-lg  shadow-slate-300 rounded-lg">
+             <table class=" w-full">
+                    <tr class="w-full text-xs md:text-lg border-b-2 border-gray-100 text-gray-600 ">
+                        <th class="text-left  px-3 py-2 ">Members Name</th>
+                        <th class="text-left  ">Email</th>
+                        <th class="text-left  px-2"></th>
+                    </tr>
+                    
+                        <%users.forEach((data)=>{%>
+                            <tr class="text-xs md:text-base  border-b-2 border-b-gray-50 text-gray-700 font-medium">
+                                <td class="py-2 px-3 capitalize"><%=data.user_id%></td>
+                                <td class="" ><%=data.email%></td>
+                                <td>
+                                        <span class="material-symbols-outlined flex items-center justify-center text-white bg-red-600 rounded-full text-base md:h-[30px] md:w-[30px] h-[25px] w-[25px] md:text:xs  cursor-pointer" value="<%=data._id%>" onclick="showPopup(this)" name="deleteButtonMain"  id="deleteButtonMain">
+                                            delete
+                                        </span>
+                                </td>
+                            </tr>
+                        <%})%>
+                    <%}%>
+                </table>
+        </div>
+    </main>
+    <!--Confirmation delete popup-->
+    <div class="flex justify-center items-center bg-[rgba(0,0,0,0.3)] fixed inset-0 hidden  " id="deletePopUp">
+        <div class="mt-10 bg-white py-4 px-8 h-fit  flex flex-col items-center space-y-2 w-9/12 md:w-4/12 lg:w-3/12 rounded-md shadow-gray-300 shadow-md">
+            <span class="material-symbols-outlined text-red-600 bg-red-100 px-2 py-2 rounded-full ">
+                warning
+            </span>
+            <h1 class="font-semibold">Are you sure?</h1>
+            <div class="flex flex-col items-center">
+                <p class="text-xs text-gray-500 text-center">This action canot be undone. This user  will be permanetly removed</p>
+                <p class="text-xs text-gray-500"></p>
+            </div>
+            <form action="/admin/delete" method="post" class="flex flex-col w-full space-y-2  " >
+            <button name="delete" value="" id="deleteButton"   type="submit" class="bg-red-600 text-white rounded-md py-[2px] font-medium">Delete User</button>
+            <button type="button" class="border-gray-300 border-[1px] pb-1 text-black rounded-md font-medium" id="popUpCancelButton">Cancel</button>
+        </form>
+        </div>
+    </div>
+    <%- include('logoutpopupadmin.ejs')%>
+</body>
+</html>
+<script src="/javascript/admin.js"></script>
