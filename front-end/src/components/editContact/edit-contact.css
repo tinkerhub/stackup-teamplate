@@ -1,4 +1,5 @@
 .view{
+    margin-top: 0rem;
     width: 100%;
     height: 100%;
     display: flex;
@@ -16,5 +17,5 @@ input{
 }
 
 .card-view{
-    border-radius: 25px;
+    border-radius: 10px;
 }

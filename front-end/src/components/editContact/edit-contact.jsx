@@ -1,13 +1,16 @@
 import React, { useEffect, useRef } from "react";
 import { connect } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from "react-router-dom";
-import { addContactAction } from "../../redux/actions/actions";
-import "./add-contact.css";
+import { useLocation, useNavigate } from "react-router-dom";
+import {editContactAction } from "../../redux/actions/actions";
+import "./edit-contact.css";
 
-const AddContactComponent = ({addContact,user}) => {
+const EditContactComponent = ({user,updateContact}) => {
 
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const contact = location.state;
 
     const {
         register,
@@ -17,9 +20,11 @@ const AddContactComponent = ({addContact,user}) => {
     } = useForm();
 
     const onSubmit = (data) => {
-        console.log("add contact : ",data);
-        data.id = user.user.id;
-        addContact(data);
+        data.userId = contact.userId;
+        data.contactId = contact.contactId;
+        console.log("edit contact form : ",data);
+
+        updateContact(data);
         reset();
     };
 
@@ -30,11 +35,11 @@ const AddContactComponent = ({addContact,user}) => {
 
         }
 
-        if(user.contact_add)
+        if(user.edit_contact)
         {
             navigate('/', { replace: true });
         }
-      }, [user.login, navigate,user,user.contact_add]);
+      }, [user.login, navigate,user.edit_contact]);
 
     return (
         <section className="view vh-100">
@@ -46,7 +51,11 @@ const AddContactComponent = ({addContact,user}) => {
                                 <div className="row justify-content-center">
                                     <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                                        <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Add Contact</p>
+                                        <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Edit Contact</p>
+
+                                        {
+                                            !user.success? <p className="text-center text-danger fw-bold mb-5 mx-1 mx-md-4 mt-4">{user.message}</p> : <></>
+                                        }
 
                                         <form className="mx-1 mx-md-4" onSubmit={handleSubmit(onSubmit)}>
 
@@ -54,7 +63,8 @@ const AddContactComponent = ({addContact,user}) => {
                                                 <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                                                 <div className="form-group w-100">
                                                     <input type="text" className="form-control" name="name" placeholder="Name"
-                                                    {...register('name', { required: true })} />
+                                                    {...register('name', { required: true })}
+                                                    defaultValue={contact.name} />
                                                 </div>
                                             </div>
 
@@ -62,7 +72,7 @@ const AddContactComponent = ({addContact,user}) => {
                                                 <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                                 <div className="email form-group w-100">
                                                     <input type="text" className="form-control" name="phone" placeholder="Mobile No"
-                                                    {...register('phone', { required: true })} />
+                                                    {...register('phone', { required: true })} defaultValue={contact.phone}/>
                                                 </div>
                                             </div>
 
@@ -70,7 +80,7 @@ const AddContactComponent = ({addContact,user}) => {
                                                 <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                                 <div className="email form-group w-100">
                                                     <input type="text" className="form-control" name="email" placeholder="Email"
-                                                    {...register('email', { required: true })} />
+                                                    {...register('email', { required: true })} defaultValue={contact.email}/>
                                                 </div>
                                             </div>
 
@@ -78,7 +88,7 @@ const AddContactComponent = ({addContact,user}) => {
                                                 <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                                 <div className="email form-group w-100">
                                                     <input type="text" className="form-control" name="address" placeholder="Address"
-                                                    {...register('address', { required: true })} />
+                                                    {...register('address', { required: true })} defaultValue={contact.address}/>
                                                 </div>
                                             </div>
 
@@ -113,8 +123,8 @@ const mapStateToProps = ({user}) => {
 const mapDispatchToProps = dispatch => {
 
     return {
-        addContact : (data) => dispatch(addContactAction(data))
+        updateContact : (data) => dispatch(editContactAction(data))
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(AddContactComponent);
+export default connect(mapStateToProps,mapDispatchToProps)(EditContactComponent);

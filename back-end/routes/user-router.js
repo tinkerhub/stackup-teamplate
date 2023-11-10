@@ -43,15 +43,22 @@ router.put('/update-contact', async (req, res) => {
       // Find the user profile by user ID
       let userProfile = await Contact.findById(userId);
   
-      if (!userProfile) {
-        return res.status(404).send(apiResponse({ message: 'User profile not found.' }));
+      if (!userProfile) 
+      {
+        res.status(404).send(
+            { 
+                message: 'User profile not found.' ,
+                success : false
+            }
+            );
       }
   
       // Find the contact to update in the user's contacts
       const contactToUpdate = userProfile.contacts.id(contactId);
   
-      if (!contactToUpdate) {
-        return res.status(404).send(apiResponse({ message: 'Contact not found.' }));
+      if (!contactToUpdate) 
+      {
+        res.status(404).send({ message: 'Contact not found.',success: false });
       }
   
       // Update the contact data with the request body
@@ -71,10 +78,19 @@ router.put('/update-contact', async (req, res) => {
       // Save the updated user profile
       await userProfile.save();
   
-      return res.send(apiResponse({ message: 'Contact updated successfully.', contact: contactToUpdate }));
+      res.status(200).json({
+        success: true,
+        message: "edit success"
+    });
+
     } catch (error) {
       console.error(error);
-      res.status(500).send(apiResponse({ message: 'Error processing the request.' }));
+      res.status(401).json(
+        {
+            success: false,
+            message: "edit contact failed"
+        }
+    )
     }
   });
   
@@ -92,7 +108,12 @@ router.delete('/delete-contact', async (req, res) => {
       let userProfile = await Contact.findById(userId);
   
       if (!userProfile) {
-        return res.status(404).send(apiResponse({ message: 'User profile not found.' }));
+        res.status(404).send(
+            { 
+                message: 'User profile not found.' ,
+                success : false
+            }
+            );
       }
   
       // Find the index of the contact to delete

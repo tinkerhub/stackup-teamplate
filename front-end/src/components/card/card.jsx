@@ -1,8 +1,18 @@
 import React from "react";
 import { deleteContactAction } from "../../redux/actions/actions";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
-const Card = ({name,phone,contactId,userId,deleteContact}) => {
+const Card = ({name,phone,contactId,userId,deleteContact,email,address}) => {
+
+  const edit_data = {
+    userId : userId,
+    contactId : contactId,
+    name : name,
+    email : email,
+    address : address,
+    phone : phone
+  }
 
   function handleDelete()
   {
@@ -10,7 +20,6 @@ const Card = ({name,phone,contactId,userId,deleteContact}) => {
       userId : userId,
       contactId : contactId
     }
-
     console.log("handle delete : ",data);
 
     deleteContact(data);
@@ -35,9 +44,9 @@ const Card = ({name,phone,contactId,userId,deleteContact}) => {
                 <button className="btn btn-danger" onClick={() => handleDelete()}>
                   <i className="fas fa-trash"></i>
                 </button>
-                <button className="btn btn-primary ml-2">
-                  <i className="fas fa-edit"></i>
-                </button>
+                <Link to="/edit-contact" state={edit_data} className="btn btn-primary ml-2">
+                <i className="fas fa-edit"></i>
+                </Link>
               </div>
             </div>
           </div>

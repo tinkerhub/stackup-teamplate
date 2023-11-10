@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Card from "../card/card";
 import { contactFetchAction } from "../../redux/actions/actions";
-import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
+//import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 import 'font-awesome/css/font-awesome.min.css';
 
 const UserView = ({ user ,fetchContacts}) => {
@@ -11,21 +11,29 @@ const UserView = ({ user ,fetchContacts}) => {
 
   useEffect(() => {
     if (!user.login) {
-      // User is logged in, navigate to another route
+      // User is not logged in, navigate to another route
       navigate("/", { replace: true });
+      return; // Return early to prevent further execution
+    }
+  
+    const userId = user.user?.id; // Use optional chaining to safely access user.user.id
+  
+    if (userId !== undefined) {
+      fetchContacts(userId);
     }
 
-    if(user.contact_add)
-    {
-        user.contact_add = false;
-    }
-    fetchContacts(user.user.id)
-  }, [user.login, navigate,user.contact_add,]);
+  }, [user.login, navigate]);
 
   if(user.delete_contact)
   {
     fetchContacts(user.user.id);
     user.delete_contact = false;
+  }
+
+  if(user.edit_contact)
+  {
+    fetchContacts(user.user.id);
+    user.edit_contact = false;
   }
 
   return (
@@ -49,7 +57,7 @@ const UserView = ({ user ,fetchContacts}) => {
       </div>
       {user.contacts && user.contacts.length > 0 ? (
         user.contacts.map((item) => (
-          <Card key={item._id} name={item.name} phone={item.phone} userId={user.user.id} contactId={item._id}/>
+          <Card key={item._id} name={item.name} phone={item.phone} userId={user.user.id} contactId={item._id} email={item.email} address={item.address}/>
         ))
       ) : (
         <p>No contacts available</p>

@@ -114,6 +114,24 @@ const deleteContact = (data) => {
     })
 }
 
+const editContact = (data) => {
+    return fetch('http://localhost:5000/api/user/update-contact',{
+        method:'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body:JSON.stringify(data)
+    })
+    .then(async res =>
+        {
+            res = await res.json();
+            return res;
+        })
+    .catch(error => {
+        console.log(error)
+    })
+}
+
 function* handleloginStart(action){
 
     try{ 
@@ -204,7 +222,6 @@ function* handleContactDelete(action)
 
 function* handleAddContact(action)
 {
-    console.log("Add contact saga : ",action.payload);
     try{ 
         const res = yield call(addContact,action.payload);
         
@@ -215,6 +232,26 @@ function* handleAddContact(action)
         else
         {
             yield put({type:actions.ADD_CONTACT_FAILED,payload:res})
+        }
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+
+function* handleEditContact(action)
+{
+    try{ 
+        const res = yield call(editContact,action.payload);
+        
+        if(res.success)
+        {
+            console.log("edit contact response : ",res);
+            yield put({type:actions.EDIT_CONTACT_SUCCESS,payload:res});
+        }
+        else
+        {
+            yield put({type:actions.EDIT_CONTACT_FAILED,payload:res})
         }
     }
     catch(err){
@@ -246,6 +283,10 @@ function* watchForAddContactStart(){
     yield takeLatest(actions.ADD_CONTACT_START,handleAddContact)
 }
 
+function* watchforEditContactStart(){
+    yield takeLatest(actions.EDIT_CONTACT_START,handleEditContact)
+}
+
 export default function* rootSaga()
 {
     yield all(
@@ -255,6 +296,7 @@ export default function* rootSaga()
             watchForSignUpStart(),
             watchForContactsFetch(),
             watchForAddContactStart(),
-            watchForContactDeleteStart()
+            watchForContactDeleteStart(),
+            watchforEditContactStart()
     ]);
 }
