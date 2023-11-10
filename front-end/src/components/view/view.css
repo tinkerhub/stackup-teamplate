@@ -10,8 +10,7 @@
     left: 0;
     right: 0;
     background-color: white; /* Set the background color you prefer */
-    z-index: 999; /* Adjust the z-index value as needed */
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1; /* Adjust the z-index value as needed */
 }
 
 

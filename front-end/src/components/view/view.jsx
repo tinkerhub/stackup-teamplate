@@ -47,11 +47,9 @@ const UserView = ({ user ,fetchContacts}) => {
               </button>
             </div>
           </div>
-        </div>
-      </div>
-      <div className="row mt-4">
-        <div className="col-md-6 mx-auto">
+          <div className="col-md-6 mx-auto">
           <Link to="/add-contact" className="btn btn-success btn-block">Add Contact</Link>
+        </div>
         </div>
       </div>
       {user.contacts && user.contacts.length > 0 ? (
