@@ -3,14 +3,14 @@ import {formatCurrency} from "../utilities/formatCurrency"
 import {Button} from "react-bootstrap"
 import {useShoppingCart} from "../context/ShoppingCartContext.tsx"
 
-type GentsItemProps ={
+type WomenItemProps ={
     id:number
     name:string
     price:number
     imgUrl:string
 }
-export function GentsItem({ id, name, price, imgUrl }:
-    GentsItemProps) {
+export function WomenItem({ id, name, price, imgUrl }:
+    WomenItemProps) {
         const { 
             getItemQuantity,
             increaseCartQuantity,

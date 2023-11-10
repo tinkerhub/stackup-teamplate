@@ -1,0 +1,26 @@
+[
+    {
+        "id": 5,
+        "name":"A-line Light Blue Dress",
+        "price":19.88,
+        "imgUrl":"public/imgs/Women01.webp"
+    },
+    {
+        "id": 6,
+        "name":" Sheath Black, White Dress",
+        "price":18.99,
+        "imgUrl":"public/imgs/Women2.webp"
+    },
+    {
+        "id": 7,
+        "name":" A-line Black Dress",
+        "price":10.99,
+        "imgUrl":"public/imgs/Women3.webp"
+    },
+    {
+        "id": 8,
+        "name":"Regular Sleeves Graphic Print Black Top",
+        "price":19.99,
+        "imgUrl":"public/imgs/Women4.webp"
+    }
+]
