@@ -20,7 +20,7 @@ In the "weContact" project, we leverage MongoDB as our database, Node and Expres
 1. Alex Mathai [https://github.com/Alexmathai2001]
 2. Muhammed Rafeeq K [https://github.com/mrafeeqvr805]
 3. Shibil Muhammad [https://github.com/shibilmuhammad]
-4. A
+4. Athul N V [https://github.com/athuldfd]
 ## Team Id
 secure3
 ## Link to product walkthrough
