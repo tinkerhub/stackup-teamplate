@@ -26,7 +26,7 @@ const Navbar = ({user,logOut}) => {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <Link className="navbar-brand mt-2 mt-lg-0" href="/">
                 <img
-                  src="user.png"
+                  src="phone-book.png"
                   height="45"
                   alt="MDB Logo"
                   loading="lazy"
@@ -49,7 +49,7 @@ const Navbar = ({user,logOut}) => {
                   aria-expanded="false"
                 >
                   <img
-                    src="https://img.freepik.com/free-vector/vector-cartoon-illustration-school-building-green-lawn-road-trees-educalion-l_134830-1588.jpg?w=1380&t=st=1694172352~exp=1694172952~hmac=d1edae63a90a97b8e212d0ead9e5dcd337c2c028e889c687af1585c64c3c0161"
+                    src="profile.png"
                     className="profile-pic "
                     height="45"
                     alt="Black and White Portrait of a Man"
