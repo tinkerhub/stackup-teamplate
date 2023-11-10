@@ -27,7 +27,7 @@ secure3
 test
 [link to video]- https://drive.google.com/file/d/103jatAgzfqjqPcEvfnGha1obL9RJEgZK/view?usp=sharing
 ## How it Works ?
-1.Signup with your Name,Email and a strong password.
+1.  Signup with your Name,Email and a strong password.
 https://github.com/Alexmathai2001/stackup-teamplate/blob/master/tests/signup.png
 
 2. Login to your account by using registered account details. you can reset your
