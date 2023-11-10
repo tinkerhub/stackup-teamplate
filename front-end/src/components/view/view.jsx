@@ -36,13 +36,13 @@ const UserView = ({ user ,fetchContacts}) => {
   }
 
   return (
-    <div className="container">
-      <div className="row">
+    <div className="container mt-5">
+      <div className="row search-view">
         <div className="col-md-6 mx-auto">
           <div className="input-group mb-3">
             <input type="text" className="form-control" placeholder="Search" />
             <div className="input-group-append">
-              <button className="btn btn-primary" type="button">
+              <button className="btn btn-primary search-btn" type="button">
                 Search
               </button>
             </div>
