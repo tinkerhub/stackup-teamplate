@@ -4,7 +4,7 @@ mod structs;
 use axum::{
     extract::{Path, State},
     http::StatusCode,
-    routing::{get, post},
+    routing::{delete, get, post},
     Json, Router,
 };
 use extensions::PairExt;
@@ -20,8 +20,12 @@ impl AppState {
     #[cfg(debug_assertions)]
     fn new() -> Self {
         Self {
-            conn: sqlite::Connection::open_with_full_mutex("../data.db")
-                .expect("file should exist"),
+            conn: {
+                let conn = sqlite::Connection::open_with_full_mutex("../data.db")
+                    .expect("file should exist");
+                conn.execute("PRAGMA foreign_keys=ON").expect("should work");
+                conn
+            },
         }
     }
 
@@ -30,43 +34,11 @@ impl AppState {
     fn new() -> Self {
         Self {
             conn: {
-                let cmd = r#"
-                CREATE TABLE IF NOT EXISTS "projects" (
-                    "id"	INTEGER NOT NULL UNIQUE,
-                    "name"	TEXT NOT NULL,
-                    "user_id"	INTEGER NOT NULL,
-                    FOREIGN KEY("user_id") REFERENCES "users"("id"),
-                    PRIMARY KEY("id" AUTOINCREMENT)
-                );
-                CREATE TABLE IF NOT EXISTS "users" (
-                    "id"	INTEGER NOT NULL UNIQUE,
-                    "name"	TEXT NOT NULL,
-                    "about"	TEXT NOT NULL,
-                    "github_link"	TEXT NOT NULL,
-                    "email"	TEXT NOT NULL UNIQUE,
-                    PRIMARY KEY("id" AUTOINCREMENT)
-                );
-                CREATE TABLE IF NOT EXISTS "tasks" (
-                    "id"	INTEGER NOT NULL UNIQUE,
-                    "title"	TEXT NOT NULL,
-                    "deadline"	TEXT,
-                    "priority"	TEXT CHECK("priority" IN ("HIGH", "LOW", "MEDIUM")),
-                    "progress"	TEXT CHECK("progress" IN ("NOT_STARTED", "IN_PROGRESS", "COMPLETED")),
-                    "project_id"	TEXT NOT NULL,
-                    FOREIGN KEY("project_id") REFERENCES "projects"("id"),
-                    PRIMARY KEY("id" AUTOINCREMENT)
-                );
-                CREATE TABLE IF NOT EXISTS "subtasks" (
-                    "id"	INTEGER NOT NULL UNIQUE,
-                    "text"	TEXT NOT NULL,
-                    "is_completed"	INTEGER NOT NULL DEFAULT 0 CHECK("is_completed" IN (0, 1)),
-                    "task_id"	INTEGER NOT NULL,
-                    FOREIGN KEY("task_id") REFERENCES "tasks"("id"),
-                    PRIMARY KEY("id" AUTOINCREMENT)
-                );
-                "#;
-            let conn = sqlite::Connection::open_with_full_mutex("../data.db").expect("should open");
-            conn.execute(cmd).expect("should work"); conn},
+                let conn =
+                    sqlite::Connection::open_with_full_mutex("../data.db").expect("should open");
+                conn.execute("PRAGMA foreign_keys=ON").expect("should work");
+                conn
+            },
         }
     }
 }
@@ -90,14 +62,21 @@ async fn main() {
         .route("/projects/:project_id/tasks", post(create_task))
         .with_state(shared_state.clone())
         .route("/tasks/:task_id/subtasks", post(create_subtask))
+        .with_state(shared_state.clone())
+        .route("/users/:user_id", delete(delete_user))
+        .with_state(shared_state.clone())
+        .route("/projects/:project_id", delete(delete_project))
+        .with_state(shared_state.clone())
+        .route("/tasks/:task_id", delete(delete_task))
+        .with_state(shared_state.clone())
+        .route("/subtasks/:subtask_id", delete(delete_subtask))
         .with_state(shared_state.clone());
 
     // run our app with hyper
     // `axum::Server` is a re-export of `hyper::Server`
     let addr = if cfg!(debug_assertions) {
-        SocketAddr::from(([127, 0, 0, 1], 3000)) 
-    }
-    else {
+        SocketAddr::from(([127, 0, 0, 1], 3000))
+    } else {
         SocketAddr::from(([0, 0, 0, 0], 3000))
     };
     // http://127.0.0.1:3000
@@ -283,7 +262,7 @@ async fn create_user(State(state): State<Arc<AppState>>, Json(payload): Json<Use
 }
 
 async fn create_project(
-    Path(user_id): Path<u64>,
+    Path(user_id): Path<u32>,
     State(state): State<Arc<AppState>>,
     Json(payload): Json<Project>,
 ) -> StatusCode {
@@ -331,7 +310,7 @@ async fn create_subtask(
     State(state): State<Arc<AppState>>,
     Json(payload): Json<SubTask>,
 ) -> StatusCode {
-    //TODO: verifuy deadline format
+    //TODO: verify deadline format
     let SubTask {
         text, is_completed, ..
     } = payload;
@@ -339,11 +318,60 @@ async fn create_subtask(
     let cmd = format!(
         r#"INSERT INTO subtasks(text, is_completed, task_id) VALUES ("{text}", {is_completed}, {task_id})"#
     );
+
     match state.conn.execute(cmd) {
         Ok(_) => StatusCode::CREATED,
         // TODO: replace with better status code
         Err(err) => {
             println!("{}", err);
+            StatusCode::INTERNAL_SERVER_ERROR
+        }
+    }
+}
+
+async fn delete_user(Path(user_id): Path<u32>, State(state): State<Arc<AppState>>) -> StatusCode {
+    let cmd = format!("DELETE FROM users WHERE id = {user_id}");
+    match state.conn.execute(cmd) {
+        Ok(_) => StatusCode::OK,
+        Err(e) => {
+            println!("{e}");
+            StatusCode::INTERNAL_SERVER_ERROR
+        }
+    }
+}
+
+async fn delete_project(
+    Path(project_id): Path<u32>,
+    State(state): State<Arc<AppState>>,
+) -> StatusCode {
+    let cmd = format!("DELETE FROM projects WHERE id = {project_id}");
+    match state.conn.execute(cmd) {
+        Ok(_) => StatusCode::OK,
+        Err(e) => {
+            println!("{e}");
+            StatusCode::INTERNAL_SERVER_ERROR
+        }
+    }
+}
+async fn delete_task(Path(task_id): Path<u32>, State(state): State<Arc<AppState>>) -> StatusCode {
+    let cmd = format!("DELETE FROM tasks WHERE id = {task_id}");
+    match state.conn.execute(cmd) {
+        Ok(_) => StatusCode::OK,
+        Err(e) => {
+            println!("{e}");
+            StatusCode::INTERNAL_SERVER_ERROR
+        }
+    }
+}
+async fn delete_subtask(
+    Path(subtask_id): Path<u32>,
+    State(state): State<Arc<AppState>>,
+) -> StatusCode {
+    let cmd = format!("DELETE FROM subtasks WHERE id = {subtask_id}");
+    match state.conn.execute(cmd) {
+        Ok(_) => StatusCode::OK,
+        Err(e) => {
+            println!("{e}");
             StatusCode::INTERNAL_SERVER_ERROR
         }
     }
