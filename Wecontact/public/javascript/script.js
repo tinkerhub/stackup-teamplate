@@ -262,9 +262,7 @@ async function popupeditContact(cont){
     }catch(err){
         console.error('Error creating user:', err);
     }
-    
-    
-    
+
 }    
 function popupAddContact(){
     var main = document.getElementById('main')
