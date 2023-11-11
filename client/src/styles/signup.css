@@ -3,7 +3,7 @@
     justify-content: center;
     width: 60vw;
     height: 770px;
-    margin: 10vh auto 0vh auto;
+    margin: 10px auto 0 auto;
     border-radius: 7px;
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
@@ -44,7 +44,7 @@
  .signup-input{
     width: 70%;
     font-size: 20px;
-    padding: 0px 1vh;
+    padding: 0px .5vw;
     display: flex;
     margin: 10px 3vh 10px 3.7vw;
     box-sizing: border-box;
@@ -76,7 +76,6 @@
     justify-content: center;
     background-color: #7a539a;
     color: white;
-    padding: 0 1vw;
     display: flex;
     margin: 20px 3vw 20px 3.7vw;
     border: none;

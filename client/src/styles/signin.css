@@ -4,7 +4,7 @@
     width: 60vw;
     height: 770px;
     border-radius: 7px;
-    margin: 100px auto 0 auto;
+    margin: 10px auto 0 auto;
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
   .signin-left-container{
@@ -44,7 +44,7 @@
  .signin-input{
     width: 70%;
     font-size: 20px;
-    padding: 0 1vw;
+    padding: 0 .5vw;
     display: flex;
     margin: 10px 3vh 10px 3.7vw;
     box-sizing: border-box;
@@ -68,7 +68,6 @@
     justify-content: center;
     background-color: #7a539a;
     color: white;
-    padding: 0 1vh;
     display: flex;
     margin: 20px 3vw 20px 3.7vw;
     border: none;
