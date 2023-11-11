@@ -485,8 +485,8 @@ app.get('/admin',async(req,res)=>{
   
 })
 app.post('/admin/delete',async(req,res)=>{
-  let userId= req.body.delete
-  
+  let userId= req.body.id
+  console.log(userId);
   let deleteUser = await usersModel.findByIdAndDelete({'_id':userId})
   res.redirect('/admin') 
 })
