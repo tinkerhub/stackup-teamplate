@@ -9,7 +9,7 @@ This is a web application where users can store and manage their contacts .It ha
 ## Team Id
 retr0
 ## Link to product walkthrough
-[link to video]
+![Product Walkthrough]([https://clipchamp.com/watch/oR2dSbDILaH])
 ## How it Works ?
 1. Explaining the working of project
 2. Embed video of project demo
