@@ -131,7 +131,7 @@ async function checknew(userData) {
    
         try {
         
-            const response = await fetch('http://localhost:4000/checkdatanew', {
+            const response = await fetch('/checkdatanew', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -181,7 +181,7 @@ async function checkedit(userData) {
     try {
 
         
-        const response = await fetch('http://localhost:4000/checkdataedit', {
+        const response = await fetch('/checkdataedit', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
