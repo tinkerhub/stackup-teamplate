@@ -4,38 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/public/styles/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href=
     "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    
     
 </head>
 <body class="h-screen">
     <header class="flex justify-between px-4 py-2 items-center">
         <div class="h-[37px] w-[37px] rounded-full bg-gradient-to-r from-[#2f60f5] to-blue-400  flex justify-center items-center">
-            <span class="text-white text-sm font-semibold">MR</span>
+            <span class="text-white text-sm font-semibold"><%= name.split(' ').map(x => x[0]).join('').substring(0,2).toUpperCase()%></span>
             <!-- <img class="h-[25px] w-[30px]" src="/images/businessman.png" alt="man"> -->
         </div>
         <div class="flex items-center justify-center">
             <img class="h-8" src="/images/LOGO.png" alt="">
         </div>
-        <button>
-            <img class="h-7" src="/images/align-left.png" alt="menu">
+        <button onclick="popuplogout()">
+            <span onclick="popuplogout()" class="material-symbols-outlined select-none cursor-pointer">
+                logout
+            </span>
         </button>
        
     </header>
     
-    <div class="bg-gray-100 h-[1px] mx-1 "></div>
+    <div class="bg-gray-100 h-[1px] mx-1 flex justify-center items-center"></div>
     <!-- searchbar & addnew -->
-    <div class="p-4 mt-2 lg:px-8 sm:flex sm:justify-between sm:gap-5">
+    <div class="p-4 mt-2 lg:px-8 sm:flex sm:justify-between ">
         <!-- searchbar&sort -->
-        <div class="flex gap-2 w-full sm:w-max">
+        <div class="flex gap-2 w-full sm:w-9/12">
             <!-- search -->
-            <form class="w-8/12" action="/search" method="post">
-                <div  class=" border-2 border-gray-100 rounded-md flex items-center sm:w-72 h-max">
-                    <input class="ml-2 placeholder:text-gray-700 outline-none w-full " type="text" placeholder="Search..." name="search">
+            <form class="w-8/12 lg:w-8/12 sm:w-10/12" action="/search" method="post">
+                <div  class=" border-2 border-gray-100 rounded-md flex items-center h-max sm:w-full">
+                    <input class="ml-2 placeholder:text-gray-700 outline-none w-full " type="text" placeholder="Search..." name="search" 
+                    <% if(locals.search){ %>
+                        value=<%= search%>>
+                    <%}else{%>
+                        >
+                    <%}%>
                     <button class="bg-blue-600 py-3 px-4 rounded-r-md ">
                         <i class="bi bi-search text-white"></i>
                     </button>
@@ -43,48 +50,48 @@
             </form>
             
             <!-- filter -->
-            <div class="relative w-5/12">
-                <!-- filter-popup -->
-                <button id="btn" class=" flex items-center justify-between gap-3 border-2  border-gray-100 rounded-md px-3 py-3.5 text-sm text-gray-700 w-full sm:w-42">
-                    Filter By All  
-                    <svg id="svgbtn"  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                    </svg>
-                    
-                </button>
-                <div  id='filter' class="hidden z-50 absolute right-0 bg-white shadow-md shadow-gray-500 border-[1px] border-black w-full">
-                    <form action="/sort/All" method="get">
-                        <button class="group hover:bg-blue-600 px-3  w-full flex">
-                            <span  class="text-sm text-gray-700 group-hover:text-white">Filter By All</span>
-                        </button>
-                    </form>
-                    <form action="/sort/Family" method="get">
-                        <button  class="hover:bg-blue-600 px-3 group w-full flex ">
-                            <span class="text-sm text-gray-700 group-hover:text-white ">Family</span>
-                        </button>
-                    </form>
-                    <form action="/sort/Business" method="get">
-                        <button  class="hover:bg-blue-600 px-3 group w-full flex ">
-                            <span class="text-sm text-gray-700 group-hover:text-white ">Business</span>
-                        </button>
-                    </form>
-                    <form action="/sort/Friend" method="get">
-                        <button  class="hover:bg-blue-600 px-3 group w-full flex ">
-                            <span class="text-sm text-gray-700 group-hover:text-white ">Friend</span>
-                        </button>
-                    </form>
-                    <form action="/sort/Others" method="get">
-                        <button  class="hover:bg-blue-600 px-3 group w-full flex ">
-                            <span class="text-sm text-gray-700 group-hover:text-white ">Others</span>
-                        </button>
-                    </form>
+            <div class=" w-5/12 lg:w-3/12">
                 
-                </div>
+                <form action="/sort" method="post">
+                    <select onchange="this.form.submit()" name="category" id="filter" class="w-full md:w-8/12 border-[1.5px] rounded-md py-1 pl-5 border-x-gray-200 py-3">
+                        <%if(locals.sort){%>
+                            <option <%if(sort==='Filter By All'){ %>
+                                selected
+                            <%}%>
+                            value="Filter By All">Filter By All</option>
+                            <option <%if(sort==='Family'){ %>
+                                selected
+                            <%}%> 
+                            value="Family" >Family</option>
+                            <option <%if(sort==='Business'){ %>
+                                selected
+                            <%}%>
+                             value="Business">Business</option>
+                            <option <%if(sort==='Friend'){ %>
+                                selected
+                            <%}%>
+                             value="Friend">Friend</option>
+                            <option <%if(sort==='Others'){ %>
+                                selected
+                            <%}%>
+                             value="Others">Others</option>
+        
+                        <%}else{%>
+                            <option class="" value="Filter By All">Filter By All</option>
+                            <option value="Family" >Family</option>
+                            <option value="Business">Business</option>
+                            <option value="Friend">Friend</option>
+                            <option value="Others">Others</option>
+                        <%}%>
+    
+                    </select>
+                </form>
+                
             </div>
             
         </div>
         <!-- addnew -->
-        <div class="mt-4 ">
+        <div class="mt-1">
             <button onclick="popupAddContact()" class="bg-[#2f60f5] w-full rounded-md p-2.5 flex justify-center">
                 <span class="material-symbols-outlined text-white">
                     add
@@ -97,10 +104,13 @@
     </div>
     <!-- contactslist -->
     <div class="">
-        <div class="p-4 lg:p-8 grid w-full sm:grid-cols-2 lg:grid-cols-3 gap-4 xl:grid-cols-4" >
-            <% if(list.length===0){ %>
-                noo
-            <%} else{%>
+        <% if(list.length===0){ %>
+            <div class="flex justify-center items-center w-full">
+                <img class="h-56 " src="/images/no_data.png" alt="NODATA">
+            </div>
+        <%} else{%>
+        <div class="p-4 lg:p-8 grid w-full sm:grid-cols-2 lg:grid-cols-3 gap-4 xl:grid-cols-4 xl:px-2" >
+            
             <% list.forEach((data)=>{ %>
             <!-- card -->
             <div class="border-2 border-gray-200 p-4 rounded-md px-6 relative h-max">
@@ -127,7 +137,7 @@
                         <%}%>
                         <!-- name&place -->
                         <div class="">
-                            <h1 class="text-lg font-semibold capitalize"><%= data.name %></h1>
+                            <h1 class="text-lg font-semibold capitalize sm:text-base"><%= data.name %></h1>
                             <h3 class="text-gray-500 font-medium text-sm capitalize" ><%= data.place %></h3>
                         </div>
                     </div>
@@ -148,7 +158,7 @@
                             
                             <div class="h-[1px] bg-gray-200"></div>
                             
-                            <button name="contact_id" value="<%= data._id %>" id="dtbtn" onclick="popupdeleteContact()" class="hover:bg-red-500 px-3 pb-1 rounded-md group">
+                            <button name="contact_id" value="<%= data._id %>" id="dtbtn" onclick="popupdeleteContact(this)" class="hover:bg-red-500 px-3 pb-1 rounded-md group">
                                 <span class="text-sm group-hover:text-white">Delete</span>
                             </button>
                             
@@ -166,9 +176,7 @@
                 </div>
                 <!-- phone -->
                 <div class="flex gap-2 mb-4">
-                    <span class="material-symbols-outlined text-gray-500 font-light text-xl">
-                        alternate_email
-                    </span>
+                    <i class="bi bi-at text-gray-500 text-xl"></i>
                     <a class="text-gray-500"><%= data.email %></a>
                 </div>
                 <!-- tags -->
@@ -203,6 +211,7 @@
     </div>
     <%- include('addcontact.ejs') %>
     <%- include('deletepopup.ejs') %>
+    <%- include('logoutpopup.ejs') %>
     <%- include('editcontact.ejs') %>
     
     <script src="./javascript/script.js"></script>
