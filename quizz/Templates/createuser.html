@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=p, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <section id="signup-form">
+            <h2>Sign Up</h2>
+            {% for message in messages %}
+                <h5>{{ message }}</h5>
+            {% endfor %}
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Username" id="name" required>
+                <input type="email" name="email" placeholder="Email" id="email" required>
+                <input type="password" name="password" placeholder="Password" id="password" required>
+                <input type="password" name="password2" placeholder="Confirm Password" id="confirm-password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="/login">Sign in</a></p>
+        </section>
+    </main>  
+</body>
+</html>
