@@ -86,7 +86,7 @@ const UserView = ({ user ,fetchContacts}) => {
             </div>
           ))
         ) : (
-          <p>No contacts available</p>
+          <p className="text-center no-contact">No contacts available</p>
         )}
       </div>
       </div>

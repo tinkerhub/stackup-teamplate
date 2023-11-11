@@ -1,6 +1,6 @@
 .navbar{
     top:0;
-    height: 4.5rem;
+    height: 5rem;
     width: 100%;
     position: fixed;
     z-index: 999;
@@ -15,4 +15,11 @@
 }
 .user-icon{
     margin-right: 20px;
+}
+
+.username{
+    margin-left: 3px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
 }

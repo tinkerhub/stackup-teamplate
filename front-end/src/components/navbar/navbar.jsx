@@ -50,12 +50,13 @@ const Navbar = ({user,logOut}) => {
                 >
                   <img
                     src="profile.png"
-                    className="profile-pic "
+                    className="profile-pic mt-4"
                     height="45"
                     alt="Black and White Portrait of a Man"
                     loading="lazy"
                   />
                 </a>
+                <p className="username">{user.user.username}</p>
                 <ul
                   className="dropdown-menu dropdown-menu-end"
                   aria-labelledby="navbarDropdownMenuAvatar"
