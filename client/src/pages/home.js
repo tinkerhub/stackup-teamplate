@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../styles/home.css';
 import Header from '../components/header';
 import Footer from '../components/footer';
-import Card from '../components/card'; 
+import Card from '../components/card'; //
 
 const Home = () => {
     const [scrollIndex, setScrollIndex] = useState(0);
