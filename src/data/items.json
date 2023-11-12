@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name":"Laxeric Casual",
+        "price":18.99,
+        "imgUrl":"public/imgs/Gents1.jpg"
+    },
+    {
+        "id": 2,
+        "name":"Lyric Casual",
+        "price":23.88,
+        "imgUrl":"public/imgs/Gents2.jpg"
+    },
+    {
+        "id": 3,
+        "name":"Urbano Joggers",
+        "price":10.99,
+        "imgUrl":"public/imgs/Gents3.jpg"
+    },
+    {
+        "id": 4,
+        "name":"US POLO",
+        "price":19.99,
+        "imgUrl":"public/imgs/Gents5.jpg"
+    }
+]

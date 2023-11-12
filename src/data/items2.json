@@ -1,0 +1,26 @@
+[
+    {
+        "id": 9,
+        "name":"Reebook Running Shoes",
+        "price":5.88,
+        "imgUrl":"public/imgs/Extra1.webp"
+    },
+    {
+        "id": 10,
+        "name":"NIKE Boots ",
+        "price":9.99,
+        "imgUrl":"public/imgs/Extras2.jpg"
+    },
+    {
+        "id": 11,
+        "name":"Fashion Heel",
+        "price":4.99,
+        "imgUrl":"public/imgs/Extras3.jpg"
+    },
+    {
+        "id": 12,
+        "name":"Wedding Heels",
+        "price":12.99,
+        "imgUrl":"public/imgs/Extras4.jpg"
+    }
+]
