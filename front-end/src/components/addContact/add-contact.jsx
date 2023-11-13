@@ -17,7 +17,6 @@ const AddContactComponent = ({addContact,user}) => {
     } = useForm();
 
     const onSubmit = (data) => {
-        console.log("add contact : ",data);
         data.id = user.user.id;
         addContact(data);
         reset();

@@ -35,8 +35,6 @@ const RegisterComponent = ({signUp,user}) => {
         }
       }, [user.login, navigate]);
 
-      console.log("signup user",user);
-
 
     return (
         <section className="view vh-100">
@@ -50,9 +48,9 @@ const RegisterComponent = ({signUp,user}) => {
 
                                         <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
-                                        {
+                                        {/* {
                                             !user.success? <p className="text-center text-danger fw-bold mb-5 mx-1 mx-md-4 mt-4">{user.message}</p> : <></>
-                                        }
+                                        } */}
 
                                         <form className="mx-1 mx-md-4" onSubmit={handleSubmit(onSubmit)}>
 

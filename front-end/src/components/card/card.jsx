@@ -21,7 +21,6 @@ const Card = ({name,phone,contactId,userId,deleteContact,email,address}) => {
       userId : userId,
       contactId : contactId
     }
-    console.log("handle delete : ",data);
 
     deleteContact(data);
   }

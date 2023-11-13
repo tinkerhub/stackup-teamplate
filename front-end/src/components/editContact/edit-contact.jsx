@@ -22,7 +22,6 @@ const EditContactComponent = ({user,updateContact}) => {
     const onSubmit = (data) => {
         data.userId = contact.userId;
         data.contactId = contact.contactId;
-        console.log("edit contact form : ",data);
 
         updateContact(data);
         reset();
@@ -53,9 +52,9 @@ const EditContactComponent = ({user,updateContact}) => {
 
                                         <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Edit Contact</p>
 
-                                        {
+                                        {/* {
                                             !user.success? <p className="text-center text-danger fw-bold mb-5 mx-1 mx-md-4 mt-4">{user.message}</p> : <></>
-                                        }
+                                        } */}
 
                                         <form className="mx-1 mx-md-4" onSubmit={handleSubmit(onSubmit)}>
 

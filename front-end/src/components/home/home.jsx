@@ -13,8 +13,6 @@ const Home = () => {
 
     const location = useLocation();
 
-    console.log(location);
-
     return(
         <>
         <Navbar/>

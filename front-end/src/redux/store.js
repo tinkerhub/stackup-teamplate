@@ -8,12 +8,11 @@ import rootReducer from './reducers/root-reducer';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const middleware = [sagaMiddleware,thunk,logger]
+//const middleware = [sagaMiddleware,thunk,logger]
 
-console.log("store is called");
 export const store = configureStore({
-    reducer : rootReducer,
-    middleware: [...middleware],
+    reducer : rootReducer
+    // middleware: [...middleware],
 });
 
 export const persistor = persistStore(store);

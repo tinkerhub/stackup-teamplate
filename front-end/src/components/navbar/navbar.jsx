@@ -93,7 +93,6 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = ({user}) =>
 {
-  console.log("navvar",user);
   return {user};
 } 
 

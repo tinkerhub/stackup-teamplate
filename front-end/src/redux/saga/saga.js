@@ -1,4 +1,4 @@
-import {put,takeEvery,all,call, takeLatest} from 'redux-saga/effects';
+import {put,all,call, takeLatest} from 'redux-saga/effects';
 import actions from '../actions/action-constants';
 
 const LoginValidation = (data) => {
@@ -21,7 +21,7 @@ const LoginValidation = (data) => {
             return res;
         })
     .catch(error => {
-        console.log(error)
+        //console.log(error)
     })
 }
 
@@ -47,7 +47,7 @@ const SignUp = (data) => {
             return res;
         })
     .catch(error => {
-        console.log(error)
+        //console.log(error)
     })
 }
 
@@ -69,12 +69,11 @@ const getContacts = (id) => {
             return res;
         })
     .catch(error => {
-        console.log(error)
+        //console.log(error)
     })
 }
 
 const addContact = (data) => {
-    console.log("addContact saga :  ",data);
 
     return fetch('http://localhost:5000/api/user/add-contact',{
         method:'POST',
@@ -89,13 +88,12 @@ const addContact = (data) => {
             return res;
         })
     .catch(error => {
-        console.log(error)
+        //console.log(error)
     })
 }
 
 const deleteContact = (data) => {
 
-    console.log("delete contact saga : ",data);
 
     return fetch('http://localhost:5000/api/user/delete-contact',{
         method:'DELETE',
@@ -110,7 +108,7 @@ const deleteContact = (data) => {
             return res;
         })
     .catch(error => {
-        console.log(error)
+        //console.log(error)
     })
 }
 
@@ -128,7 +126,7 @@ const editContact = (data) => {
             return res;
         })
     .catch(error => {
-        console.log(error)
+        //console.log(error)
     })
 }
 
@@ -147,7 +145,7 @@ function* handleloginStart(action){
         }
     }
     catch(err){
-        console.log(err);
+        //console.log(err);
     }
 }
 
@@ -158,7 +156,7 @@ function* handleLogOut(){
     }
     catch(err)
     {
-        console.log("LOGOUT SAGA ERROR : ",err.message);
+        //console.log("LOGOUT SAGA ERROR : ",err.message);
     }
 }
 
@@ -177,7 +175,7 @@ function* handleSignUp(action){
         }
     }
     catch(err){
-        console.log(err);
+        //console.log(err);
     }
 
 }
@@ -197,7 +195,7 @@ function* handleContactsFetch(action){
         }
     }
     catch(err){
-        console.log(err);
+       // console.log(err);
     }
 }
 
@@ -216,7 +214,7 @@ function* handleContactDelete(action)
         }
     }
     catch(err){
-        console.log(err);
+        //console.log(err);
     }
 }
 
@@ -246,7 +244,6 @@ function* handleEditContact(action)
         
         if(res.success)
         {
-            console.log("edit contact response : ",res);
             yield put({type:actions.EDIT_CONTACT_SUCCESS,payload:res});
         }
         else
