@@ -22,7 +22,7 @@ const RegisterComponent = ({signUp,user}) => {
 
 
     const onSubmit = (data) => {
-        console.log(data);
+        //console.log(data);
         signUp(data);
         reset();
     };

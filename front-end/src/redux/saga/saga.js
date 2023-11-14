@@ -233,7 +233,7 @@ function* handleAddContact(action)
         }
     }
     catch(err){
-        console.log(err);
+        //console.log(err);
     }
 }
 
@@ -252,7 +252,7 @@ function* handleEditContact(action)
         }
     }
     catch(err){
-        console.log(err);
+        //console.log(err);
     }
 }
 
