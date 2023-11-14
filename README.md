@@ -1,6 +1,6 @@
 ![StackUp Banner]([https://tinkerhub.frappe.cloud/files/stackup%20banner.jpeg])
 # Project Name
-Long Description about project. This project do that. This project is awesome...
+stackup belt
 ## Team members
 1. Name [Embed personal github URL]
 2. Name [Embed perosnal github URL]
@@ -16,4 +16,4 @@ Library Name - Version
 ## How to configure
 Instructions for setting up project
 ## How to Run
-Instructions for running
+https://symmetrical-enigma-4xp7wrgr79j35xqp-3001.app.github.dev/
