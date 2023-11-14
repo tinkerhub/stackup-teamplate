@@ -67,11 +67,22 @@
                             <tr class="text-xs md:text-base  border-b-2 border-b-gray-50 text-gray-700 font-medium">
                                 <td class="py-2 px-3 capitalize"><%=data.user_id%></td>
                                 <td class="" ><%=data.email%></td>
+<<<<<<< HEAD
                                 <td>
                                         <span class="material-symbols-outlined flex items-center justify-center text-white bg-red-600 rounded-full text-base md:h-[30px] md:w-[30px] h-[25px] w-[25px] md:text:xs  cursor-pointer" value="<%=data._id%>" onclick="showPopup(this)" name="deleteButtonMain"  id="deleteButtonMain">
                                             delete
                                         </span>
                                 </td>
+=======
+                                
+                                <td>
+                                        <button class="material-symbols-outlined flex items-center justify-center text-white bg-red-600 rounded-full text-base md:h-[30px] md:w-[30px] h-[25px] w-[25px] md:text:xs  cursor-pointer" value="<%=data._id%>" onclick="showPopup(this.value)" name="deleteButtonMain" >
+                                            delete
+                                        </button>
+                                </td>
+
+                                
+>>>>>>> 0d36e738e771d68aa1eb334b6265357677de50c6
                             </tr>
                         <%})%>
                     <%}%>
@@ -92,10 +103,18 @@
             <form action="/admin/delete" method="post" class="flex flex-col w-full space-y-2  " >
             <button name="delete" value="" id="deleteButton"   type="submit" class="bg-red-600 text-white rounded-md py-[2px] font-medium">Delete User</button>
             <button type="button" class="border-gray-300 border-[1px] pb-1 text-black rounded-md font-medium" id="popUpCancelButton">Cancel</button>
+<<<<<<< HEAD
+=======
+            <input id="idset" class="hidden" type="text" name="id">
+>>>>>>> 0d36e738e771d68aa1eb334b6265357677de50c6
         </form>
         </div>
     </div>
     <%- include('logoutpopupadmin.ejs')%>
 </body>
 </html>
+<<<<<<< HEAD
 <script src="/javascript/admin.js"></script>
+=======
+<script src="/javascript/admin.js"></script>
+>>>>>>> 0d36e738e771d68aa1eb334b6265357677de50c6

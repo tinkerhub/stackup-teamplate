@@ -1,4 +1,4 @@
-![StackUp Banner]([https://tinkerhub.frappe.cloud/files/stackup%20banner.jpeg])
+![StackUp Banner](https://tinkerhub.frappe.cloud/files/stackup%20banner.jpeg)
 # Wecontact
 "weContact" distinguishes itself as an innovative, relevant, and user-friendly initiative intricately designed to simplify contact management for every user. Featuring an uncomplicated interface coupled with robust features, weContact seamlessly facilitates storing, editing, categorizing, searching, sorting, and deleting user contacts—all with just a few clicks.
 
@@ -24,13 +24,58 @@ In the "weContact" project, we leverage MongoDB as our database, Node and Expres
 ## Team Id
 secure3
 ## Link to product walkthrough
-[link to video]
+[link to video]- https://drive.google.com/file/d/103jatAgzfqjqPcEvfnGha1obL9RJEgZK/view?usp=sharing
 ## How it Works ?
-1. Explaining the working of project
-2. Embed video of project demo
-## Libraries used
-Library Name - Version
+1.  Signup with your Name,Email and a strong password.
+   
+![signup](https://github.com/Alexmathai2001/stackup-teamplate/blob/master/tests/signup.png)
+
+2. Login to your account by using registered account details. you can reset your
+   password by clicking on forgot password option.
+   
+![login](https://github.com/Alexmathai2001/stackup-teamplate/blob/master/tests/login.png)
+
+3. Now You can access home page on successful login. there will be empty on new user interface.
+   you can add contacts, search existing contacts and filter existing contacts by using
+   contact type like friend,family etc...
+   
+![home](https://github.com/Alexmathai2001/stackup-teamplate/blob/master/tests/home.png)
+
+4. Add contact section need Contac name,phone number,place,email and type. you can't leave fields empty while
+   submitting add form.
+   
+![login](https://github.com/Alexmathai2001/stackup-teamplate/blob/master/tests/addcontact.png)
+
+5. You can edit existing contact details by using edit option from each contact card.
+
+![login](https://github.com/Alexmathai2001/stackup-teamplate/blob/master/tests/editcontact.png)
+
+6. You can able to logout from this account by pressing logout button in header.
+    
+![login](https://github.com/Alexmathai2001/stackup-teamplate/blob/master/tests/logout.png)
+
+7. Admin page. admins can view users details with username and email id. there is an option
+   to sort and search users. and admin can delete user. it will remove user data and all contacts which added
+   by the specific user.
+
+   Admin mail id : admin@gmail.com
+   password : Admin@123
+
+![login](https://github.com/Alexmathai2001/stackup-teamplate/blob/master/tests/admin.png)
+
+
+## Frameworks and Libraries Used
+Client: Tailwind,Javascript,HTML .
+Server: Nodejs, Expressjs, and MongoDB.
 ## How to configure
-Instructions for setting up project
+1. Install node js in your computer
+2. Now initialize npm by using npm init command
+3. install all packages mentioned in package.json depencies section.
+4. You have install tailwind css using postcss plugin and apply its styles by entering
+   npm build command.
 ## How to Run
-Instructions for running
+1. Go to the code section above and download it as a zip.
+2. Extract the zip file, then open the extracted folder in vscode.
+3. Press ctrl+j on Windows, it will open the terminal to this folder.
+4. Now run the command npm start, which will launch this on localhost:4000 and the server at localhost:4000. (If it doesn't redirect you, then manually search localhost:4000).
+Done! Now you will be able to see the project running on your system.

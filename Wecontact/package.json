@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js -e ejs",
-    "watch": "nodemon --ext ejs",
+    "start": "node index",
     "build": "postcss public/styles/tailwind.css -o public/styles/style.css & nodemon index"
   },
   "keywords": [],
@@ -22,7 +21,7 @@
     "express-session": "^1.17.3",
     "express-validator": "^7.0.1",
     "livereload": "^0.9.3",
-    "mongoose": "^8.0.0",
+    "mongoose": "^6.0.0",
     "nodemailer": "^6.9.7",
     "nodemon": "^3.0.1",
     "postcss": "^8.4.31",
