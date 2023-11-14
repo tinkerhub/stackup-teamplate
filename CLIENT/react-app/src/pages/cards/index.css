@@ -1,0 +1,153 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  
+}
+
+body{
+  background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url("https://c.wallhere.com/photos/07/f1/pen_paper_macro_letter-1451075.jpg!d");
+
+}
+.container{
+
+  width: 100%;
+  height: 100vh;
+  /* background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url("https://c.wallhere.com/photos/07/f1/pen_paper_macro_letter-1451075.jpg!d"); */
+  background-size: cover;
+  padding-left: 5%;
+  padding-right: 6%;
+  box-sizing: border-box;
+  margin-top: 30px;
+
+}
+
+.navbar{
+  height: 12%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1-px;
+}
+
+.logo{
+  width: 50px;
+  cursor: pointer;
+}
+
+.menu{
+  width: 30px;
+  cursor: pointer;
+  margin-left: 40px;
+}
+
+nav{
+  flex: 1;
+  text-align: right;
+}
+nav ul li{
+  list-style: none;
+  display: inline-block;
+  margin-left: 30px;
+
+}
+
+
+.row{
+  display: flex;
+  height: 80%;
+  align-items: center;
+}
+
+.col1{
+  flex-basis: 50%;
+  margin-left: 50px;
+  padding: 8%;
+}
+
+h1{
+
+  text-align: center;
+  color: #fff;
+  font-size: 75px;
+}
+
+p{
+  padding-top: 40px;
+  text-align: center;
+  color: #fff;
+  font-size: 17px;
+}
+
+button{
+  width: 200px;
+  color: #000;
+  font-size: 15px;
+  padding: 12px;
+  background: #fff;
+  border: 0;
+  border-radius: 20px;
+  outline: none;
+  margin-top: 30px ;
+  margin-left: 110px;
+  text-align: center;
+}
+
+.card{
+  width: 190px;
+  height: 200px;
+  display: inline-block;
+  border-radius: 10px;
+  padding: 15px 15px;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin: 15px 15px;
+  background-position: center;
+  background-size: cover;
+  transition: transform 0.35s;
+
+}
+
+.col2{
+  margin-left: 20rem;
+}
+
+.c1{
+  background-image: url(https://media.istockphoto.com/id/1296913338/photo/sonoran-sunset.jpg?s=612x612&w=0&k=20&c=lGXd-vnDmH_bCnR53BNmwxsh3qn8MBLQoh5M926QAbY=);
+
+}
+
+.c2{
+  background-image: url(https://media.istockphoto.com/id/1296913338/photo/sonoran-sunset.jpg?s=612x612&w=0&k=20&c=lGXd-vnDmH_bCnR53BNmwxsh3qn8MBLQoh5M926QAbY=);
+
+}
+
+.c3{
+  background-image: url(https://cdn.pixabay.com/photo/2016/03/21/10/44/desert-1270345_640.jpg); 
+
+}
+
+.c4{
+  background-image: url(https://wallpapercave.com/wp/wp7467323.jpg);
+
+}
+
+.card:hover{
+  transform: translateY(-10px);
+
+
+}
+
+h5{
+  color:#fff;
+  text-shadow: 0 0 5px #999;
+  font-size: 18px;
+}
+
+.card p{
+  font-size: 12px;
+
+}
+
+.c3 h5{
+  color: black;
+}
