@@ -8,7 +8,7 @@ const LoginValidation = (data) => {
         password:data.password
     }
 
-    return fetch('http://localhost:5000/api/user/login',{
+    return fetch(`${import.meta.env.VITE_API_URL}/api/user/login`,{
         method:'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ const SignUp = (data) => {
         password : data.password
     }
 
-    return fetch('http://localhost:5000/api/user/signup',{
+    return fetch(`${import.meta.env.VITE_API_URL}/api/user/signup`,{
         method:'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ const getContacts = (id) => {
     const user = {
         id : id
     }
-    return fetch('http://localhost:5000/api/user/get-contacts',{
+    return fetch(`${import.meta.env.VITE_API_URL}/api/user/get-contacts`,{
         method:'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ const getContacts = (id) => {
 
 const addContact = (data) => {
 
-    return fetch('http://localhost:5000/api/user/add-contact',{
+    return fetch(`${import.meta.env.VITE_API_URL}/api/user/add-contact`,{
         method:'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ const addContact = (data) => {
 const deleteContact = (data) => {
 
 
-    return fetch('http://localhost:5000/api/user/delete-contact',{
+    return fetch(`${import.meta.env.VITE_API_URL}/api/user/delete-contact`,{
         method:'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -113,7 +113,7 @@ const deleteContact = (data) => {
 }
 
 const editContact = (data) => {
-    return fetch('http://localhost:5000/api/user/update-contact',{
+    return fetch(`${import.meta.env.VITE_API_URL}/api/user/update-contact`,{
         method:'PUT',
         headers: {
             'Content-Type': 'application/json',
