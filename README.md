@@ -28,6 +28,9 @@ Our Team ID: devstars
 ## Libraries used
 Library Name - Version
 ## How to configure
-Instructions for setting up project
+- Clone the repository
+- Move to the frontend folder (`cd frontend`)
+- Run `npm install` to install the dependencies
+- Use `npm run dev` to run the application
 ## How to Run
 Instructions for running
