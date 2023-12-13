@@ -1,0 +1,11 @@
+.navbar{
+    top:0;
+    height: 4.5rem;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+}
+
+.profile-pic{
+    border-radius: 300px;
+}
