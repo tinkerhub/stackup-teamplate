@@ -1,0 +1,110 @@
+
+    <div id="editp" class="bg-slate-200 h-screen flex items-center justify-center hidden">   <!--Container--> 
+        <div class=" shadow-2xl md:px-6 bg-white w-9/12 md:w-4/6  lg:w-4/12 xl:3/12 h-auto py-5 px-4 rounded-lg md:py-8 md:rounded-xl "> <!--newCard-->
+            <!--Top-->
+            <div class="flex justify-between pb-4 border-b-2 "> 
+
+                <div class="flex space-x-4"> <!--left-->
+                        <span class="material-symbols-outlined px-2 md:px-3 md:border-slate-200 border-slate-300 border-[1px] rounded-full text-slate-600 text-xl md:2xl flex items-center justify-center">
+                            person_add
+                        </span>
+                        <div>
+                            <h1 class="font-semibold text-sm md:text-base">Edit Contact</h1>
+                            <p class="text-xs md:text-sm text-slate-600">Add people to your contact list</p>
+                        </div>
+                </div>
+
+                <button onclick="closeEdit()" class="flex items-center"> <!--Right-->
+                    <span onclick="closeEdit()" class="material-symbols-outlined text-slate-600 select-none cursor-pointer">
+                        close
+                    </span>
+                </button>
+
+            </div>
+            
+            <!--Form-->
+            <form id="editform" class="mt-5 space-y-3 lg:space-y-6"  >
+
+                <div class="space-y-1 ">
+                    <div class="md:flex md:justify-between md:items-center">
+                        <label for="" class="text-sm lg:text-base">Full name<span class="text-red-700">*</span></label>
+                        <input  class="w-full md:w-8/12 border-[1.5px] rounded-full py-1 pl-5 border-x-gray-200" type="text" name="name" id="edit-name" >
+                    </div>
+                    
+                    <span id="edit-name-error" class="text-xs md:text-center flex justify-end text-red-500 hidden w-full">Name should not be empty</span>
+                </div>
+               
+                <div class="space-y-1 ">
+                    <div class="md:flex md:justify-between md:items-center">
+                        <label class="text-sm md:text-base" for="">Phone number<span class="text-red-700">*</span></label>
+                        <div class="flex md:w-8/12">
+                            <select name="code" id="edit-code" class="w-full md:w-8/12 border-[1.5px] rounded-full py-1 pl-5 border-x-gray-200 " >
+                                <option value="+91">+91</option>
+                                <option value="+971">+971</option>
+                                <option value="+1">+1</option>
+                                <option value="+52">+52</option>
+                                <option value="+44">+44</option>
+                                <option value="+21">+21</option>
+                                <option value="+96">+96</option>
+                                <option value="+62">+62</option>
+        
+                            </select>
+                            <input class="w-full  border-[1.5px] rounded-full border-x-gray-200 py-1 pl-5 rounded-l-none border-l-0" type="number" name="phone" id="edit-phone" >
+                        
+                        </div>
+                    </div>
+                    
+                    <span id="edit-phone-error" class="text-xs md:text-center text-red-500 hidden">Name should not be empty</span>    
+                </div>
+                <div class="space-y-1">
+                    <div class="md:flex md:justify-between md:items-center">
+                        <label class="text-sm md:text-base" for="">Email<span class="text-red-700">*</span></label>
+                        <input class="w-full md:w-8/12 border-[1.5px] rounded-full py-1 pl-5 border-x-gray-200" type="text" name="email" id="edit-email" >
+                        
+                    </div>
+                    <span id="edit-email-error" class="text-xs md:text-center text-red-500 hidden">Name should not be empty</span>
+                </div>
+                
+                <div class="space-y-1 ">
+                    <div class="md:flex md:justify-between md:items-center">
+                        <label class="text-sm md:text-base" for="">Place<span class="text-red-700">*</span></label>
+                        <input class="w-full md:w-8/12 border-[1.5px] rounded-full py-1 pl-5 border-x-gray-200" type="text" name="place" id="edit-place" >
+                    </div>
+                    
+                    <span id="edit-place-error" class="md:text-center text-xs text-red-500 hidden">Name should not be empty</span>
+                </div>
+                <div class="space-y-1 ">
+                    <div class="md:flex md:justify-between md:items-center">
+                        <label class="text-sm md:text-base" for="">Category<span class="text-red-700">*</span></label>
+                        <select name="category" id="edit-category" class="w-full md:w-8/12 border-[1.5px] rounded-full py-1 pl-5 border-x-gray-200 " >
+                            <option class="Choose" value="">Choose</option>
+                            <option value="Family">Family</option>
+                            <option value="Business">Business</option>
+                            <option value="Friend">Friend</option>
+                            <option value="Others">Others</option>
+    
+                        </select>
+                    </div>
+                    <span id="edit-category-error" class="md:text-center md:ml-12 text-xs text-red-500 hidden">Name should not be empty</span>
+                </div>
+                
+                <div class="flex flex-col  justify-between gap-3 md:flex md:flex-row md:mt-20  ">
+                    <button onclick="closeEdit()" type="button" class="outline-gray-200 outline rounded-full w-full mt-3 md:mt-1 py-1 md:py-2">
+                        Cancel
+                    </button>
+                    <button onclick='validate("edit")' id="edit-contact_id" name="contact_id"  type="submit" class="bg-[#2f60f5] w-full rounded-full py-1 md:py-2 text-white" >
+                        Save
+                    </button>
+                </div>
+                <span  id="edit-exist-error" class=" text-xs text-center text-red-500 mt-2 hidden w-full flex justify-center items-center">phone number or email id already exists in your contacts!</span>
+                <span  id="id" class=" text-xs text-center text-red-500 mt-2 hidden w-full flex justify-center items-center">p</span>
+
+            </form>
+            
+            <script src="./javascript/script.js"></script>
+
+        </div>
+
+
+
+    </div>

@@ -1,0 +1,31 @@
+<div id="logout" style="background-color: rgba(0, 0, 0, 0.2);" class=" flex justify-center items-center fixed top-0 left-0 right-0 bottom-0 z-50 px-6 hidden">
+    <div id="form-arr" class="bg-white  px-6 py-3 space-y-2  rounded-xl pb-4" >
+        <div class="flex justify-end">
+            <!-- <button onclick="closeDelete()" class="rounded-full h-5 w-5  flex justify-center items-center ">
+                <span class="fa fa-close text-gray-500 text-lg"></span>
+            </button> -->
+        </div>
+        <h3 class="text-lg text-center">Are you sure logout from this account?</h3>
+        <h3  class="text-base text-center text-gray-400 pb-3">You need to login again later </h3>
+        <div class="flex justify-center gap-2  space-x-2 ">
+            <button onclick="closeLogout()" class="rounded-md bg-white flex justify-center items-center border-[1px] border-gray-400 text-base py-1 px-3 text-gray-500">
+                Cancel
+            </button>
+            <script>
+                function closeLogout(){
+                    var logoutpopup = document.getElementById('logout')
+                    logoutpopup.className='flex justify-center items-center fixed top-0 left-0 right-0 bottom-0 z-50 px-6 hidden'
+                    
+                }
+                
+            </script>
+            
+            <form action="/logoutadmin" method="post">
+                <button id="dt" name="contact_id" class="rounded-md bg-red-600 flex justify-center items-center text-base py-1 px-3 text-white">
+                    Logout
+                </button>
+            </form>
+        </div>
+        
+    </div>
+</div>
