@@ -1,0 +1,25 @@
+.navbar{
+    top:0;
+    height: 5rem;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+}
+
+
+.profile-pic{
+    border-radius: 300px;
+}
+.text-ContactManager{
+    font-style: bold;
+}
+.user-icon{
+    margin-right: 20px;
+}
+
+.username{
+    margin-left: 3px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+}
