@@ -1,0 +1,45 @@
+.card-cont{
+    transition: 0.3s;
+    width: 12vw;
+    margin: 0 1vw;
+    padding-top: .5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 30vh;
+    color: #000000;
+    border: 1px solid #ccc; 
+}
+.card {
+    width: 12vw;
+    height: 30vh;
+
+}
+.image {
+    /*height: auto;
+    max-width: auto;*/
+    width: 90%;
+    height: 70%;
+    margin: 1vh auto 0 auto;
+}
+
+.image img {
+    width: 70%;
+    height: 100%;
+    object-fit: contain;
+    display: flex;
+    margin: 0 auto;
+}
+
+.image:hover {
+    transform: scale(1.05);
+}
+
+.details {
+    display: flex;
+    font-size: 16px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+}

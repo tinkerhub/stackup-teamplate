@@ -1,0 +1,95 @@
+.signup-container {
+    display: flex;
+    justify-content: center;
+    width: 60vw;
+    height: 770px;
+    margin: 10px auto 0 auto;
+    border-radius: 7px;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+  .signup-left-container{
+    width: 30vw;
+    height: 770px;
+    border-radius: 7px 0px 0px 7px;
+    background-image:url("https://media.giphy.com/media/q0xSEJug2S9IFyGpwa/giphy.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .signup-right-container{
+    background-color: #ffffff;
+    border-radius: 0px 7px 7px 0px;
+    width: 30vw;
+    height: 770px;
+  }
+  .signin-sub-right-cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .signup-text{
+    font-size: 32px;
+    font-weight: 650;
+    padding: 0 3.7vw;
+    color: #000000;
+  }
+  .signup-label{
+    padding: 0 3vw 0 3.7vw;
+  }
+  .signup-help1{
+    margin-left: 3.7vw;
+  }
+  .new2signup-lab{
+    margin-left: 3.7vw;
+  }
+ .signup-input{
+    width: 70%;
+    font-size: 20px;
+    padding: 0px .5vw;
+    display: flex;
+    margin: 10px 3vh 10px 3.7vw;
+    box-sizing: border-box;
+    outline: none;
+    border-radius: 5px;
+    background-color: #00000000;
+    border: 2px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+  .signup-input:focus{
+    border: 2px solid #7a539a;
+  }
+  .signup-terms{
+    padding: 0 1vw 0 .3vw;
+    font-size: 12px;
+  }
+  #signup-agree{
+    margin: 0 0vw 0 3.7vw;
+    width: 12px;
+    height: 12px;
+  }
+  input[type=checkbox]:checked{
+    accent-color: #7a539a;
+  }
+  .signup-button {
+    width: 70%;
+    font-size: 20px;
+    justify-content: center;
+    background-color: #7a539a;
+    color: white;
+    display: flex;
+    margin: 20px 3vw 20px 3.7vw;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .signup-button:hover {
+    background-color: #b55aff;
+  }
+  .signup-container a{
+    color:#7a539a;
+  }
+  .signup-container a:hover{
+    color:#b55aff;
+  }
+
+  

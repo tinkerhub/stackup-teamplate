@@ -1,0 +1,176 @@
+.header span{
+    font-size: 16px;
+    font-weight: 500;
+    padding-left: .2vw;
+    
+}
+.header {
+    position: sticky;
+    width: 100vw;
+    top: 0; left: 0; 
+    background-color: #fff;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: center;
+    z-index: 9999;
+}
+.header-sub{
+    position: fixed;
+    width: 80vw;
+    top: 0; 
+    background-color: #fff;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: space-around;
+}
+
+#tosignup:hover{
+    background-color: #7a539a;
+    color: #fff;
+    border-radius: 7px;
+}
+
+.cntr {
+    display: flex;
+    align-items: center;
+    padding: 10px; 
+}
+
+.cntr-li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px .3vw; 
+}
+
+.logo {
+    object-fit: cover;
+    align-items: center;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 7px;
+    background-color: #7a539a1b;
+    margin: 1vw;
+}
+
+.search > input {
+    border: none;
+    outline: none;
+    width: 28vw;
+    background-color: transparent;
+    
+    
+}
+
+.search > .MuiSvgIcon-root {
+    color: #7a539a;
+    padding: 10px .3vw;
+}
+
+.seller-button{
+    border-radius: 7px;
+    align-items: center;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    color: #7a539a;
+    cursor: pointer;
+}
+
+.seller-button:hover {
+    
+    background-color: #7a539a;
+    color: #fff;
+    border-radius: 7px;
+    transition: 0.2s;
+}
+
+
+.tosignin-button {
+    border-radius: 7px;
+    align-items: center;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    color: #7a539a;
+    cursor: pointer;
+}
+
+.tosignin-button:hover {
+    background-color: #7a539a;
+    transition: 0.2s;
+    color: #fff;
+    border-radius: 7px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    width: 16vw;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+.dropdown-content a {
+    color: black;
+    padding: 4%;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown2 a:hover {
+    background-color: #7a539a10;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+#cntr-li1{
+    display:flex;
+    justify-content: space-between;
+}
+.cart-button {
+    border-radius: 7px;
+    align-items: center;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    color: #7a539a;
+    cursor: pointer;
+}
+
+.cart-button :hover {
+    background-color: #7a539a;
+    color: #fff;
+    border-radius: 7px;
+    transition: 0.2s;
+}
+
+.dropd-button {
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    color: #7a539a;
+    cursor: pointer;
+}
+.dropd-button:hover {
+    
+    background-color: #7a539a;
+    color: #fff;
+    border-radius: 5px;
+}

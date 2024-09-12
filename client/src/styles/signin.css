@@ -1,0 +1,87 @@
+.signin-container {
+    display: flex;
+    justify-content: center;
+    width: 60vw;
+    height: 770px;
+    border-radius: 7px;
+    margin: 10px auto 0 auto;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+  .signin-left-container{
+    width: 30vw;
+    height: 770px;
+    border-radius: 7px 0px 0px 7px;
+    background-image:url("https://media.giphy.com/media/yQqNPOdGMexumRMxVP/giphy-downsized-large.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .signin-right-container{
+    background-color: #ffffff;
+    border-radius: 0px 7px 7px 0px;
+    width: 30vw;
+    height: 770px;
+  }
+  .signin-sub-right-cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .signin-text{
+    font-size: 32px;
+    font-weight: 650;
+    padding: 0 3.7vw;
+    color: #000000;
+  }
+  .signin-label{
+    padding: 0 3vw 0 3.7vw;
+  }
+  .signin-help1{
+    margin-left: 3.7vw;
+  }
+  .new2signin-lab{
+    margin-left: 3.7vw;
+  }
+ .signin-input{
+    width: 70%;
+    font-size: 20px;
+    padding: 0 .5vw;
+    display: flex;
+    margin: 10px 3vh 10px 3.7vw;
+    box-sizing: border-box;
+    outline: none;
+    border-radius: 5px;
+    background-color: #00000000;
+    border: 2px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+  .signin-input:focus{
+    border: 2px solid #7a539a;
+  }
+  .signin-terms{
+    padding: 0 3vw 0 3.7vw;
+    font-size: 12px;
+  }
+  .signin-button {
+    width: 70%;
+    font-size: 20px;
+    justify-content: center;
+    background-color: #7a539a;
+    color: white;
+    display: flex;
+    margin: 20px 3vw 20px 3.7vw;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .signin-button:hover {
+    background-color: #b55aff;
+  }
+  .signin-container a{
+    color:#7a539a;
+  }
+  .signin-container a:hover{
+    color:#b55aff;
+  }
+
+  

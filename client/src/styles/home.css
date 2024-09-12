@@ -1,0 +1,317 @@
+.categories {
+    background-color: #ffffff;
+    width: 84vw;
+    margin: 10px auto 0 auto;
+  }
+  .cat-cont{
+    width: 84vw;
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+  }
+  .cat-inside{
+    width: 9vw;
+    text-align: center;
+  }
+  a{
+    text-decoration: none;
+  }
+  .cat-span {
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+  }
+  .cat-image{
+    object-fit: contain;
+  }
+  .posters {
+    background-color: #ffffff;
+    width: 84vw;
+    height: 250px;
+    margin: 20px auto 0 auto;
+    padding: 0;
+    display: flex;
+    position: relative;
+    justify-content: flex-start;
+    aspect-ratio: 2/1;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    z-index: 1;
+  }
+  .home-scroll{
+    z-index: 3;
+    position: relative;
+    width: 84vw;
+    display: flex;
+    flex-direction: row;
+    margin: 0 0vw;
+    justify-content: space-between;
+  }
+  .scroll-arrow-left {
+    width: 40px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFE9BF;
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 0px 3px 3px 0px;
+    position: relative;
+    left: 0;
+    top: 50%; /* Adjust the vertical position as needed */
+    transform: translateY(-50%); /* Center vertically */
+    z-index: 3; /* Ensure they are on top of the images */
+    transition: background-color 0.3s; /* Add a smooth transition on hover */
+  }
+  
+  .scroll-arrow-left:hover {
+    background-color: #ffd68b;
+  }
+  .scroll-arrow-right {
+    width: 40px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    justify-content: center;
+    border-radius: 3px 0px 0px 3px;
+    background-color: #FFE9BF;
+    color: #000000;
+    font-size: 24px;
+    cursor: pointer;
+    position: relative;
+    right: 0;
+    top: 50%; /* Adjust the vertical position as needed */
+    transform: translateY(-50%); /* Center vertically */
+    z-index: 3; /* Ensure they are on top of the images */
+    transition: background-color 0.3s; /* Add a smooth transition on hover */
+  }
+  
+  .scroll-arrow-right:hover {
+    background-color: #ffd68b;
+  }
+  .p-img{
+    display: flex;
+    align-items: center;
+    scroll-snap-align: start;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .posters::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  .posters::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+
+  /*best mobiles section*/
+  .best-mobile {
+    background-color: #ffffff;
+    width: 84vw;
+    display:flex;
+    flex-direction: column;
+    margin: 20px auto;
+  }
+
+  .best-mobile-text {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .mobile-card-list {
+    width: 84vw;
+    display: flex;
+    margin: 50px auto;
+    justify-content: space-around;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+  }
+  .mobile-card-list::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  .mobile-card-list::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+
+
+  /*top deals section*/
+  .top-deals {
+    background-color: #ffffff;
+    width: 84vw;
+    display:flex;
+    flex-direction: column;
+    margin: 20px auto;
+  }
+
+  .top-deals-text {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .top-deals-card-list {
+    width: 84vw;
+    display: flex;
+    margin: 50px auto;
+    justify-content: space-around;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+  }
+  .top-deals-card-list::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  .top-deals-card-list::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+
+  
+/*top electronics section*/
+.top-electronics {
+  background-color: #ffffff;
+  width: 84vw;
+  display:flex;
+  flex-direction: column;
+  margin: 20px auto;
+}
+
+.top-electronics-text {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.top-electronics-card-list {
+  width: 84vw;
+    display: flex;
+    margin: 50px auto;
+    justify-content: space-around;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+.top-electronics-card-list::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.top-electronics-card-list::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+
+/*fashion best seller section*/
+.fashion-best-seller {
+  background-color: #ffffff;
+  width: 84vw;
+  display:flex;
+  flex-direction: column;
+  margin: 20px auto;
+}
+
+.fashion-best-seller-text {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.fashion-best-seller-card-list {
+  width: 84vw;
+    display: flex;
+    margin: 50px auto;
+    justify-content: space-around;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+.fashion-best-seller-card-list::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.fashion-best-seller-card-list::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+
+/*beauty foods section*/
+.beauty-foods {
+  background-color: #ffffff;
+  width: 84vw;
+  display:flex;
+  flex-direction: column;
+  margin: 20px auto;
+}
+
+.beauty-foods-text {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.beauty-foods-card-list {
+  width: 84vw;
+    display: flex;
+    margin: 50px auto;
+    justify-content: space-around;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+.beauty-foods-card-list::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.beauty-foods-card-list::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+
+/*home and furnishng section*/
+/*best mobiles section*/
+.home-furnishing {
+  background-color: #ffffff;
+  width: 84vw;
+  display:flex;
+  flex-direction: column;
+  margin: 20px auto;
+}
+
+.home-furnishing-text {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.home-furnishing-card-list {
+  width: 84vw;
+    display: flex;
+    margin: 50px auto;
+    justify-content: space-around;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+.home-furnishing-card-list::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.home-furnishing-card-list::-webkit-scrollbar-thumb {
+  background: transparent;
+}
