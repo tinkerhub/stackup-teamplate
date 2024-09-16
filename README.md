@@ -1,11 +1,12 @@
-![StackUp Banner]([https://tinkerhub.frappe.cloud/files/stackup%20banner.jpeg])
-# Project Name
-Long Description about project. This project do that. This project is awesome...
+
+# Task Management
+A task management application is a software tool that assists users in organizing and managing their tasks. It can be used to create to-do lists, track project progress, and set deadlines. Task management applications are suitable for use by individuals, teams, and businesses of all sizes.
 ## Team members
-1. Name [Embed personal github URL]
-2. Name [Embed perosnal github URL]
+1. Roshiba C [https://github.com/Roshibac]
+2. Fasna Shareen K [https://github.com/Fasnashareen]
+3. Umira Parvi KP [https://github.com/umiraparvikp]
 ## Team Id
-Team id here
+tech-connect
 ## Link to product walkthrough
 [link to video]
 ## How it Works ?
